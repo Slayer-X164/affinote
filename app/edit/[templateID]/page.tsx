@@ -101,7 +101,7 @@ export default function page() {
                     </label>
 
                     <div className="space-y-3">
-                      {Array.from({ length: field.count }).map((_, index) => (
+                      {Array.from({ length: field.count ?? 0 }).map((_, index) => (
                         <div
                           key={index}
                           className="flex items-center gap-3 bg-neutral-300 border-2 rounded-2xl border-dashed p-4"
