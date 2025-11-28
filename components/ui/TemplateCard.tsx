@@ -1,6 +1,7 @@
 import React from "react";
 
 interface TemplateCardProps {
+  id:string;
   title: string;
   description: string;
   img: string;
@@ -9,14 +10,17 @@ interface TemplateCardProps {
 }
 
 const TemplateCard: React.FC<TemplateCardProps> = ({
+  id,
   title,
   description,
   img,
   price,
   onClick,
 }) => {
+
+
   return (
-    <div className="w-72 bg-white rounded-2xl shadow-2xl shadow-rose-950/10    hover:-translate-y-1 cursor-pointer border border-pink-100 hover:shadow-rose-600/30 hover:shadow-2xl transition-all duration-200 ">
+    <div   onClick={onClick} className="w-72 bg-white rounded-2xl shadow-2xl shadow-rose-950/10    hover:-translate-y-1 cursor-pointer border border-pink-100 hover:shadow-rose-600/30 hover:shadow-2xl transition-all duration-200 ">
       {/* Preview Image */}
 
       <div className="h-48 w-full overflow-hidden rounded-t-2xl relative">

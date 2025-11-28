@@ -1,35 +1,26 @@
-"use client"
-import TemplateCard from './TemplateCard'
-
+"use client";
+import TemplateCard from "./TemplateCard";
+import { Templates } from "@/data/template";
+import { useRouter } from "next/navigation";
 const TemplateSection = () => {
+  const router = useRouter()
   return (
-    <div  className=' w-full flex justify-center items-center'>
-        <div  className='max-w-6xl w-full py-20 lg:flex-row flex-col gap-10 flex items-center justify-between'>
-             <TemplateCard
-        title="Birthday Timeline"
-        description="A cute animated timeline to surprise your partner with your favorite memories."
-        img="/images/temp1.png"
-        price={49}
-        onClick={() => console.log("Go to /template/1")}
-      />
-       <TemplateCard
-        title="Birthday Timeline"
-        description="A cute animated timeline to surprise your partner with your favorite memories."
-        img="https://placehold.co/400x300/pink/white?text=Template+Preview"
-        price={49}
-        onClick={() => console.log("Go to /template/1")}
-      />
-       <TemplateCard
-        title="Birthday Timeline"
-        description="A cute animated timeline to surprise your partner with your favorite memories."
-        img="https://placehold.co/400x300/pink/white?text=Template+Preview"
-        price={49}
-        onClick={() => console.log("Go to /template/1")}
-      />
-
-        </div>
+    <div className=" w-full flex justify-center items-center px-3">
+      <div className="max-w-6xl w-full py-20 flex-col md:flex-row  gap-10 flex items-center justify-between md:justify-center">
+        {Templates.map((temp) => (
+          <TemplateCard
+            key={temp.id}
+            id={temp.id}
+            title={temp.title}
+            description={temp.description}
+            img={temp.previewImg}
+            price={temp.price}
+            onClick={() => router.push(`/edit/${temp.id}`)}
+          />
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default TemplateSection
+export default TemplateSection;

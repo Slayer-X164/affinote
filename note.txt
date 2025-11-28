@@ -1,0 +1,2 @@
+ ├── edit/[templateId]/page.tsx
+│   ├── template/[templateId]/page.tsx   (optional)
