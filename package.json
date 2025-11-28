@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.17.8",
+    "@toolwind/corner-shape": "^0.0.8-3",
     "next": "16.0.4",
     "react": "19.2.0",
     "react-dom": "19.2.0"

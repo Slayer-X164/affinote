@@ -10,7 +10,7 @@ export interface BirthdayTimelineProps {
   message?: string;
   buttonText?: string;
   sectionTitle?: string;
-  timeline: TimelineItem[][];
+  timelineImages?: TimelineItem[][];
 }
 
 const BirthdayTimeline: React.FC<BirthdayTimelineProps> = ({
@@ -18,7 +18,22 @@ const BirthdayTimeline: React.FC<BirthdayTimelineProps> = ({
   message = "Happy birthday my babygirl...",
   buttonText = "check",
   sectionTitle = "check out our memories together",
-  timeline = [],
+  timelineImages = [
+          [
+            {
+              img: "https://placehold.co/400x400/pink/white?text=Image+1",
+              text: "Our first meeting",
+            },
+            {
+              img: "https://placehold.co/400x400/pink/white?text=Image+2",
+              text: "Cute kurti day",
+            },
+            {
+              img: "https://placehold.co/400x400/pink/white?text=Image+3",
+              text: "Garlic bread moment",
+            },
+          ]
+        ],
 }) => {
   return (
     <div className="w-full min-h-screen font-sans text-gray-900 bg-pink-50">
@@ -26,7 +41,7 @@ const BirthdayTimeline: React.FC<BirthdayTimelineProps> = ({
       {/* MAIN SECTION */}
       <div
         id="main1"
-        className="w-full min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-b from-pink-200 to-pink-100"
+        className="w-full h-auto flex items-center justify-center px-6 py-20 bg-gradient-to-b from-pink-200 to-pink-100"
       >
         <div className="max-w-3xl text-center space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold text-pink-700">
@@ -51,10 +66,10 @@ const BirthdayTimeline: React.FC<BirthdayTimelineProps> = ({
 
       {/* TIMELINE SECTION */}
       <div id="memories" className="w-full py-20 px-4 bg-white">
-        {timeline.map((group, idx) => (
+        {timelineImages.map((group, idx) => (
           <div
             key={idx}
-            className="flex flex-wrap gap-6 justify-center mb-16"
+            className="flex flex-wrap gap-6 justify-center "
           >
             {group.map((item, index) => (
               <div

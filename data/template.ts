@@ -11,7 +11,7 @@ export const Templates = [
       { name: "message", type: "textarea" },
       { name: "sectionTitle", type: "text" },
       { name: "buttonText", type: "text" },
-      { name: "timelineImages", type: "images", count: 6 },
+      { name: "timelineImages", type: "images", count: 3 },
     ],
   },
   {
