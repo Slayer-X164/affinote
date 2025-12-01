@@ -5,7 +5,7 @@ import Navbar from "@/components/ui/Navbar";
 import { Templates } from "@/data/template";
 import { useParams } from "next/navigation";
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
 const componentMap = {
   "birthday-timeline": BirthdayTimeline,
   "love-letter": LoveLetter,
@@ -13,6 +13,7 @@ const componentMap = {
 type templateKey = keyof typeof componentMap;
 
 export default function page() {
+  const router = useRouter()
   const params = useParams();
   const templateID = params.templateID as templateKey;
   const currTemplate = Templates.find((t) => t.id === templateID);
@@ -39,7 +40,20 @@ export default function page() {
       return updated;
     });
   };
-
+  // calling the api to store template data
+  const createInstance = async ()=>{
+    const response = await fetch('/api/create-instance',{
+      method:'POST',
+      body:JSON.stringify({
+        template_id:templateID,
+        data:formData
+      })
+    })
+    const supData = await response.json()
+    if(supData.id){
+      console.log(supData.id);
+    }
+  }
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
       <Navbar />
@@ -141,7 +155,7 @@ export default function page() {
               return null;
             })}
           </div>
-          <button className="w-full py-3 cursor-pointer mt-4 bg-pink-600 rounded-xl text-neutral-50 text-xl font-semibold">
+          <button onClick={createInstance} className="w-full py-3 cursor-pointer mt-4 bg-pink-600 rounded-xl text-neutral-50 text-xl font-semibold">
             get shareable link at ₹{currTemplate?.price}
           </button>
         </div>
