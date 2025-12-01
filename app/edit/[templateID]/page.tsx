@@ -35,7 +35,7 @@ export default function page() {
         updated[fieldName] = [];
       }
 
-      updated[fieldName][index] = url;
+      updated[fieldName][index] = {img:url,text:""};
       return updated;
     });
   };
@@ -43,16 +43,17 @@ export default function page() {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
       <Navbar />
-      <div className="h-full max-w-6xl px-3 w-full py-10 flex gap-6 flex-col lg:flex-row items-start ">
-        <div className="w-1/2  ">
+      <div className="h-full max-w-6xl px-3 w-full py-10 flex flex-col-reverse gap-6  lg:flex-row items-start ">
+        <div className="w-full lg:w-[60%] border-rose-400 border-2 rounded-2xl overflow-hidden relative">
+        <h3 className="text-center bg-black text-neutral-50 text-sm py-0.5">Live Preview</h3>
           <DisplayTemplate {...formData} />
         </div>
-        <div className="w-full lg:w-1/2 min-h-full  bg-white p-6">
+        <div className="w-full lg:w-[40%] min-h-full  bg-white px-3">
           <h2 className="text-2xl font-semibold mb-6 text-pink-600">
             Customize: {currTemplate?.title}
           </h2>
 
-          {/* THE EDITOR WILL BE ADDED HERE */}
+
           <div className="space-y-6">
             {currTemplate?.fields.map((field) => {
               // TEXT INPUT
@@ -73,7 +74,7 @@ export default function page() {
                 );
               }
 
-              // TEXTAREA INPUT
+              // TEXTAREA
               if (field.type === "textarea") {
                 return (
                   <div key={field.name}>
@@ -104,12 +105,12 @@ export default function page() {
                       {Array.from({ length: field.count ?? 0 }).map((_, index) => (
                         <div
                           key={index}
-                          className="flex items-center gap-3 bg-neutral-300 border-2 rounded-2xl border-dashed p-4"
+                          className="flex items-center p-2 bg-neutral-300 border-2 rounded-2xl border-dashed "
                         >
                           {/* Preview */}
                           <img
                             src={
-                              formData[field.name]?.[index] ||
+                              formData[field.name]?.[index]?.img ||
                               "https://placehold.co/80x80"
                             }
                             className="w-20 h-20 rounded-2xl object-cover border border-neutral-400"
@@ -117,6 +118,7 @@ export default function page() {
 
                           {/* Upload */}
                           <input
+                          className="p-4 "
                             type="file"
                             accept="image/*"
                             onChange={(e) => {
