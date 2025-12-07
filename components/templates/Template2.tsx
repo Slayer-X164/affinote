@@ -12,7 +12,7 @@ const LoveLetter: React.FC<LoveLetterProps> = ({
   signature = "Yours Forever ❤️"
 }) => {
   return (
-    <div className="w-full min-h-screen bg-linear-to-b from-pink-300 to-pink-50 flex justify-center py-16 px-4 text-gray-800">
+    <div className="w-full min-h-auto bg-linear-to-b from-pink-300 to-pink-50 flex justify-center py-16 px-4 text-gray-800">
 
       <div className="max-w-2xl w-full h-auto bg-white shadow-lg rounded-3xl p-8 md:p-12 border border-pink-200">
 

@@ -1,6 +1,7 @@
 "use client";
 
 import ButtonLoder from "@/components/ui/ButtonLoder";
+import Navbar from "@/components/ui/Navbar";
 import { useSearchParams, useRouter } from "next/navigation";
 import Script from "next/script";
 import { useEffect, useState } from "react";
@@ -64,25 +65,37 @@ export default function PaymentPage() {
       <Script
         src="https://checkout.razorpay.com/v1/checkout.js"
         strategy="afterInteractive"
-        onLoad={() =>{
+        onLoad={() => {
           console.log("Razorpay Loaded ✅");
-          setRSLoader(true)
+          setRSLoader(true);
         }}
         onError={() => toast("Payment error... Refresh page")}
       />
 
-      <div className="min-h-screen flex flex-col items-center justify-center">
+      <div className="min-h-screen flex flex-col items-center justify-start  px-3">
+        <Navbar/>
         <Toaster position="top-center" reverseOrder={false} />
-        <h1 className="text-3xl font-bold mb-4">Complete Payment</h1>
+        <h1 className="text-3xl font-bold mb-4 pt-20">Complete your Payment</h1>
 
-        <p className="text-gray-600">Instance: {instanceID}</p>
+        <p className="text-gray-600">Proceed to get your shareable link</p>
 
         <button
           disabled={!razorpayScriptLoader || loading}
           onClick={startPayment}
-          className="px-6 py-3 cursor-pointer bg-pink-600 text-white rounded-lg mt-6"
+          className={`px-6 py-3 mt-6 rounded-lg text-white cursor-pointer transition-all duration-300
+     ${
+       !razorpayScriptLoader || loading
+         ? "bg-rose-200 cursor-not-allowed"
+         : "bg-rose-500/85 hover:bg-rose-500"
+     }`}
         >
-          {!razorpayScriptLoader || loading ? <ButtonLoder /> : `Pay ₹${price}`}
+          {!razorpayScriptLoader ? (
+            "Loading Razorpay…"
+          ) : loading ? (
+            <ButtonLoder />
+          ) : (
+            `Pay ₹${price}`
+          )}
         </button>
 
         {loading && <p className="mt-4">Payment Processing...</p>}

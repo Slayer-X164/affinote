@@ -6,7 +6,7 @@ const TemplateSection = () => {
   const router = useRouter()
   return (
     <div className=" w-full flex justify-center items-center px-3">
-      <div className="max-w-6xl w-full py-20 flex-col md:flex-row  gap-10 flex items-center justify-between md:justify-center">
+      <div className="max-w-4xl w-full py-20 flex-col md:flex-row  gap-10 flex items-center justify-between md:justify-center">
         {Templates.map((temp) => (
           <TemplateCard
             key={temp.id}

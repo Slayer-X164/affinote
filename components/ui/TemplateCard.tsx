@@ -47,7 +47,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
 
           <button
             onClick={onClick}
-            className="px-4 py-2 cursor-pointer bg-rose-500 text-white text-sm rounded-full hover:bg-rose-700 transition font-semibold"
+            className="px-4 py-2 cursor-pointer bg-rose-500/85 active:scale-90 text-white text-sm rounded-full hover:bg-rose-700 transition font-semibold"
           >
             Use Template
           </button>
