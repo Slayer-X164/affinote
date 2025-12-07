@@ -85,7 +85,7 @@ export default function page() {
 
     if (!parsed.success) {
       setInputError(
-        parsed.error.errors?.[0]?.message ?? "Please fill all required fields."
+         "Please fill all required fields."
       );
       return;
     }
