@@ -52,7 +52,7 @@ export default function page() {
     const supData = await response.json();
 
     if (supData.id) {
-      router.push(`/payment?instance=${supData.id}`);
+      router.push(`/payment?instance=${supData.id}&price=${currTemplate?.price}`);
     } else {
       console.error("No ID returned from backend");
     }

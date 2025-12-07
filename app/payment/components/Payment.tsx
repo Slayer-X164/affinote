@@ -1,16 +1,19 @@
 "use client";
 
+import ButtonLoder from "@/components/ui/ButtonLoder";
 import { useSearchParams, useRouter } from "next/navigation";
 import Script from "next/script";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function PaymentPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const instanceID = searchParams.get("instance");
+  const price = searchParams.get("price");
   const [loading, setLoading] = useState(false);
-
+  const [razorpayScriptLoader, setRSLoader] = useState<boolean>(false);
   const startPayment = async () => {
     setLoading(true);
 
@@ -19,7 +22,7 @@ export default function PaymentPage() {
       method: "POST",
       body: JSON.stringify({
         instanceID,
-        amount: 49, // price of template
+        amount: price,
       }),
     });
 
@@ -31,7 +34,7 @@ export default function PaymentPage() {
       order_id: order.id,
       amount: order.amount,
       currency: order.currency,
-      name: "BlushPages",
+      name: "Affinote",
       description: "Template Purchase",
 
       handler: async function (response: any) {
@@ -58,21 +61,31 @@ export default function PaymentPage() {
 
   return (
     <>
-      <Script src="https://checkout.razorpay.com/v1/checkout.js" />
+      <Script
+        src="https://checkout.razorpay.com/v1/checkout.js"
+        strategy="afterInteractive"
+        onLoad={() =>{
+          console.log("Razorpay Loaded ✅");
+          setRSLoader(true)
+        }}
+        onError={() => toast("Payment error... Refresh page")}
+      />
 
       <div className="min-h-screen flex flex-col items-center justify-center">
+        <Toaster position="top-center" reverseOrder={false} />
         <h1 className="text-3xl font-bold mb-4">Complete Payment</h1>
 
         <p className="text-gray-600">Instance: {instanceID}</p>
 
         <button
+          disabled={!razorpayScriptLoader || loading}
           onClick={startPayment}
-          className="px-6 py-3 bg-pink-600 text-white rounded-lg mt-6"
+          className="px-6 py-3 cursor-pointer bg-pink-600 text-white rounded-lg mt-6"
         >
-          Pay ₹49
+          {!razorpayScriptLoader || loading ? <ButtonLoder /> : `Pay ₹${price}`}
         </button>
 
-        {loading && <p className="mt-4">Loading Razorpay...</p>}
+        {loading && <p className="mt-4">Payment Processing...</p>}
       </div>
     </>
   );

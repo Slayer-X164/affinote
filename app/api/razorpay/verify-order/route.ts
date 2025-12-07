@@ -1,10 +1,14 @@
+export const runtime = "nodejs";
+
 import { supabase } from "@/lib/supabase";
-import crypto from "crypto";
+import { createHmac } from "node:crypto";
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+
     const {
-      instanceId,
+      instanceID,
       razorpay_order_id,
       razorpay_payment_id,
       razorpay_signature,
@@ -12,25 +16,33 @@ export async function POST(req: Request) {
 
     const data = razorpay_order_id + "|" + razorpay_payment_id;
 
-    const expectedSignature = crypto
-      .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET!)
+    const expectedSignature = createHmac(
+      "sha256",
+      process.env.RAZORPAY_KEY_SECRET!
+    )
       .update(data)
       .digest("hex");
 
     if (expectedSignature !== razorpay_signature) {
+      console.log("Signature mismatch");
       return Response.json({ success: false }, { status: 400 });
     }
-    await supabase
+
+    const { error } = await supabase
       .from("template_instance")
       .update({ paid: true })
-      .eq("id", instanceId);
-    return Response.json({
-      success: true,
-    });
+      .eq("id", instanceID);
+
+    if (error) {
+      console.log("Supabase update error:", error);
+      return Response.json({ success: false }, { status: 500 });
+    }
+
+    console.log("Payment verified & Supabase updated!");
+
+    return Response.json({ success: true });
   } catch (error) {
-    console.log(error);
-    return Response.json({
-      success: false,
-    });
+    console.log("Verify Error:", error);
+    return Response.json({ success: false }, { status: 500 });
   }
 }

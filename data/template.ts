@@ -3,7 +3,7 @@ export const Templates = [
     id: "birthday-timeline",
     title: "Birthday Timeline",
     description: "A cute animated timeline to surprise your partner.",
-    price: 49,
+    price: 1,
     previewImg:
       "/images/temp1.png",
     fields: [
@@ -18,7 +18,7 @@ export const Templates = [
     id: "love-letter",
     title: "Love Letter",
     description: "A soft animated letter template with beautiful transitions.",
-    price: 39,
+    price: 1,
     previewImg: "/images/temp2.png",
     fields: [
       { name: "salutation", type: "text" },
