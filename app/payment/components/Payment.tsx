@@ -50,12 +50,12 @@ export default function PaymentPage() {
           }),
         });
 
-        // 4. Redirect to final shareable page
-        router.push(`/v/${instanceID}`);
+        // 4. Redirecting to final shareable page
+        router.push(`/success?instance=${instanceID}`);
       },
     };
 
-    // 5. Open Razorpay Checkout
+
     const rzp = new (window as any).Razorpay(options);
     rzp.open();
   };
