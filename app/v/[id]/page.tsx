@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@supabase/supabase-js";
 import BirthdayTimeline from "@/components/templates/Template1";
 import LoveLetter from "@/components/templates/Template2";
 
@@ -8,9 +8,15 @@ const componentMap: any = {
 };
 
 export default async function ViewPage({ params }: any) {
-  const id = params.id;
+  // FIX: unwrap promise
+  const resolvedParams = await params;
+  const id = resolvedParams.id;
 
-  // Fetch instance from Supabase
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+
   const { data, error } = await supabase
     .from("template_instance")
     .select("*")
@@ -49,13 +55,12 @@ export default async function ViewPage({ params }: any) {
   }
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center bg-pink-50 py-10 px-4">
-      <div className="max-w-5xl w-full bg-white rounded-2xl shadow-xl border p-6">
+    <div className="min-h-screen w-full flex flex-col items-center ">
+      <div className="w-full">
         <TemplateComponent {...data.data} />
       </div>
-
-      <p className="text-gray-400 text-sm mt-6">
-        Created using ❤️ Affinote
+      <p className="text-gray-400 text-sm py-3">
+        Created using ❤️ <a className="underline text-blue-400" href="https://affinote.site">Affinote</a>
       </p>
     </div>
   );
