@@ -113,14 +113,14 @@ export default function page() {
       <Navbar />
       <div className="h-full max-w-6xl px-3 w-full py-10 flex flex-col-reverse gap-6  lg:flex-row items-start ">
         <Toaster position="top-center" reverseOrder={false} />
-        <div className="w-full lg:w-[60%] bg-rose-100/50 border-rose-400 border-2 rounded-2xl overflow-hidden relative">
+        <div className="w-full lg:w-[60%] bg-blue-100 border-rose-400 border-2 rounded-2xl overflow-hidden relative">
           <h3 className="text-center bg-black text-neutral-50 text-sm py-0.5">
             Live Preview
           </h3>
           <DisplayTemplate {...formData} />
         </div>
         <div className="w-full lg:w-[40%] min-h-full  bg-white px-3">
-          <h2 className="text-2xl font-bold mb-6 text-rose-800">
+          <h2 className="text-2xl font-bold mb-6 text-blue-900">
             Customize: <span className="underline-offset-4 underline ">{currTemplate?.title}</span>
           </h2>
 
@@ -130,11 +130,11 @@ export default function page() {
               if (field.type === "text") {
                 return (
                   <div key={field.name}>
-                    <label className="block lowercase text-rose-600 text-sm font-semibold mb-1">
+                    <label className="block lowercase text-blue-600 text-sm font-semibold mb-1">
                       {field.name}:
                     </label>
                     <input
-                      className="w-full bg-rose-100/50 border-3 border-rose-300 p-2 rounded-2xl "
+                      className="w-full bg-blue-100 border-3 border-blue-400   p-2 rounded-2xl "
                       value={formData[field.name] || ""}
                       onChange={(e) =>
                         handleTextChange(field.name, e.target.value)
@@ -148,11 +148,11 @@ export default function page() {
               if (field.type === "textarea") {
                 return (
                   <div key={field.name}>
-                    <label className="block lowercase text-rose-600 text-sm font-semibold mb-1">
+                    <label className="block lowercase text-blue-600 text-sm font-semibold mb-1">
                       {field.name}:
                     </label>
                     <textarea
-                      className="w-full bg-rose-100/50 border-3 border-rose-300 p-2 rounded-2xl "
+                      className="w-full bg-blue-100 border-3 border-blue-400   p-2 rounded-2xl "
                       rows={4}
                       value={formData[field.name] || ""}
                       onChange={(e) =>
@@ -167,7 +167,7 @@ export default function page() {
               if (field.type === "images") {
                 return (
                   <div key={field.name}>
-                    <label className="block lowercase text-rose-600 text-sm font-semibold mb-2">
+                    <label className="block lowercase text-blue-600 text-sm font-semibold mb-2">
                       {field.name}:
                     </label>
 
@@ -184,7 +184,7 @@ export default function page() {
                                 formData[field.name]?.[index]?.img ||
                                 "https://placehold.co/80x80"
                               }
-                              className="w-20 h-20 rounded-2xl object-cover bg-rose-100/50 border  border-neutral-400"
+                              className="w-20 h-20 rounded-2xl object-cover bg-blue-100 border  border-neutral-400"
                             />
 
                             {/* Upload */}
@@ -221,7 +221,7 @@ export default function page() {
 
             }}
 
-            className="w-full transition-all duration-300 py-4 active:scale-95 cursor-pointer mt-6 bg-rose-500/85 rounded-2xl text-neutral-50 text-xl font-semibold flex justify-center"
+            className="w-full transition-all duration-300 py-4 active:scale-95 cursor-pointer mt-6 bg-rose-400 hover:bg-rose-500  rounded-2xl text-white text-xl font-semibold flex justify-center"
           >
             {btnLoader?<ButtonLoder/>:` Get Shareable Link at ₹${currTemplate?.price}`}
           </button>
