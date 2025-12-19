@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import z from "zod";
 import toast, { Toaster } from "react-hot-toast";
 import ButtonLoder from "@/components/ui/ButtonLoder";
+import { uploadImages } from "@/lib/uploadImages";
 const componentMap = {
   "birthday-timeline": BirthdayTimeline,
   "love-letter": LoveLetter,
@@ -23,7 +24,7 @@ export default function page() {
   const DisplayTemplate = componentMap[templateID];
   const [formData, setFormData] = useState<any>({});
   const [inputErr, setInputError] = useState<string>("");
-  const [btnLoader,setBtnLoader] = useState<boolean>(false)
+  const [btnLoader, setBtnLoader] = useState<boolean>(false);
   // Generate Zod schema from template field validation
   const generateSchema = (fields: any[]) => {
     const shape: any = {};
@@ -60,20 +61,28 @@ export default function page() {
       [name]: value,
     }));
   };
-  const handleImageUpload = (fieldName: string, index: number, file: File) => {
-    const url = URL.createObjectURL(file);
+  const handleImageUpload = async (
+    fieldName: string,
+    index: number,
+    file: File
+  ) => {
+    if (!templateID) return;
+
+    const imageUrl = await uploadImages(
+      file,
+      "temp", 
+      fieldName,
+      index
+    );
 
     setFormData((prev: any) => {
       const updated = { ...prev };
-
-      if (!updated[fieldName]) {
-        updated[fieldName] = [];
-      }
-
-      updated[fieldName][index] = { img: url, text: "" };
+      if (!updated[fieldName]) updated[fieldName] = [];
+      updated[fieldName][index] = { img: imageUrl, text: "" };
       return updated;
     });
   };
+
   // storing tempate data to supabase and redirect to payment page
   const createInstance = async () => {
     if (!generateSchema) return;
@@ -84,12 +93,10 @@ export default function page() {
     const parsed = schema.safeParse(formData);
 
     if (!parsed.success) {
-      setInputError(
-         "Please fill all required fields."
-      );
+      setInputError("Please fill all required fields.");
       return;
     }
-    setBtnLoader(true)
+    setBtnLoader(true);
     const response = await fetch("/api/create-instance", {
       method: "POST",
       body: JSON.stringify({
@@ -100,7 +107,7 @@ export default function page() {
     const supData = await response.json();
 
     if (supData.id) {
-      setBtnLoader(false)
+      setBtnLoader(false);
       router.push(
         `/payment?instance=${supData.id}&price=${currTemplate?.price}`
       );
@@ -113,15 +120,18 @@ export default function page() {
       <Navbar />
       <div className="h-full max-w-6xl px-3 w-full py-10 flex flex-col-reverse gap-6  lg:flex-row items-start ">
         <Toaster position="top-center" reverseOrder={false} />
-        <div className="w-full lg:w-[60%] bg-blue-100 border-rose-400 border-2 rounded-2xl overflow-hidden relative">
+        <div className="w-full lg:w-[60%] bg-green-100 border-rose-400 border-2 rounded-2xl overflow-hidden relative">
           <h3 className="text-center bg-black text-neutral-50 text-sm py-0.5">
             Live Preview
           </h3>
           <DisplayTemplate {...formData} />
         </div>
         <div className="w-full lg:w-[40%] min-h-full  bg-white px-3">
-          <h2 className="text-2xl font-bold mb-6 text-blue-900">
-            Customize: <span className="underline-offset-4 underline ">{currTemplate?.title}</span>
+          <h2 className="text-xl font-bold mb-6 text-rose-950">
+            Customize:{" "}
+            <span className="underline-offset-4  text-rose-400">
+              {currTemplate?.title} Template
+            </span>
           </h2>
 
           <div className="space-y-4">
@@ -130,11 +140,11 @@ export default function page() {
               if (field.type === "text") {
                 return (
                   <div key={field.name}>
-                    <label className="block lowercase text-blue-600 text-sm font-semibold mb-1">
+                    <label className="block lowercase text-green-800 text-sm font-semibold mb-1">
                       {field.name}:
                     </label>
                     <input
-                      className="w-full bg-blue-100 border-3 border-blue-400   p-2 rounded-2xl "
+                      className="w-full bg-green-100 border-3 border-green-400   p-2 rounded-2xl "
                       value={formData[field.name] || ""}
                       onChange={(e) =>
                         handleTextChange(field.name, e.target.value)
@@ -148,11 +158,11 @@ export default function page() {
               if (field.type === "textarea") {
                 return (
                   <div key={field.name}>
-                    <label className="block lowercase text-blue-600 text-sm font-semibold mb-1">
+                    <label className="block lowercase text-green-800 text-sm font-semibold mb-1">
                       {field.name}:
                     </label>
                     <textarea
-                      className="w-full bg-blue-100 border-3 border-blue-400   p-2 rounded-2xl "
+                      className="w-full bg-green-100 border-3 border-green-400   p-2 rounded-2xl "
                       rows={4}
                       value={formData[field.name] || ""}
                       onChange={(e) =>
@@ -167,7 +177,7 @@ export default function page() {
               if (field.type === "images") {
                 return (
                   <div key={field.name}>
-                    <label className="block lowercase text-blue-600 text-sm font-semibold mb-2">
+                    <label className="block lowercase text-green-800 text-sm font-semibold mb-2">
                       {field.name}:
                     </label>
 
@@ -184,7 +194,7 @@ export default function page() {
                                 formData[field.name]?.[index]?.img ||
                                 "https://placehold.co/80x80"
                               }
-                              className="w-20 h-20 rounded-2xl object-cover bg-blue-100 border  border-neutral-400"
+                              className="w-20 h-20 rounded-2xl object-cover bg-green-100 border  border-neutral-400"
                             />
 
                             {/* Upload */}
@@ -213,17 +223,23 @@ export default function page() {
               return null;
             })}
             {/* errror */}
-            {inputErr&&<h2 className="text-red-600 text-center pt-2 font-semibold">{inputErr}..</h2>}
+            {inputErr && (
+              <h2 className="text-red-600 text-center pt-2 font-semibold">
+                {inputErr}..
+              </h2>
+            )}
           </div>
           <button
-            onClick={()=>{
-              createInstance()
-
+            onClick={() => {
+              createInstance();
             }}
-
             className="w-full transition-all duration-300 py-4 active:scale-95 cursor-pointer mt-6 bg-rose-400 hover:bg-rose-500  rounded-2xl text-white text-xl font-semibold flex justify-center"
           >
-            {btnLoader?<ButtonLoder/>:` Get Shareable Link at ₹${currTemplate?.price}`}
+            {btnLoader ? (
+              <ButtonLoder />
+            ) : (
+              ` Get Shareable Link at ₹${currTemplate?.price}`
+            )}
           </button>
         </div>
       </div>
