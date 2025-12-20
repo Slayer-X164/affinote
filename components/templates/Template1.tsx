@@ -15,7 +15,7 @@ export interface BirthdayTimelineProps {
 
 const BirthdayTimeline: React.FC<BirthdayTimelineProps> = ({
   title = "Hey Cutie",
-  message = "Happy birthday my babygirl...",
+  message = "Happy birthday my babygirl... ",
   buttonText = "check",
   sectionTitle = "check out our memories together",
   timelineImages = [

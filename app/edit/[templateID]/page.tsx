@@ -10,9 +10,11 @@ import z from "zod";
 import toast, { Toaster } from "react-hot-toast";
 import ButtonLoder from "@/components/ui/ButtonLoder";
 import { uploadImages } from "@/lib/uploadImages";
+import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
 const componentMap = {
   "birthday-timeline": BirthdayTimeline,
   "love-letter": LoveLetter,
+  "envolope-letter":EnvelopeLetter,
 };
 type templateKey = keyof typeof componentMap;
 
@@ -70,7 +72,7 @@ export default function page() {
 
     const imageUrl = await uploadImages(
       file,
-      "temp", 
+      "temp",
       fieldName,
       index
     );
