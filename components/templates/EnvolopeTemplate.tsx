@@ -208,20 +208,24 @@ export default function EnvelopeLetter({
               <img
                 src="/envTemp/fl3.png"
                 alt=""
-                className="absolute w-24 md:w-30 rotate-12 -bottom-10 left-10 rotate-45 z-0"
+                className="absolute w-24 md:w-30  -bottom-10 left-10 rotate-45 z-0"
               />
               <img
                 src="/envTemp/lips.png"
                 alt=""
-                className="absolute w-24 -top-0 -right-0 z-0"
+                className="absolute w-24 top-0 right-0 z-0"
               />
 
               <motion.div
                 className={`flex flex-col items-center font-bold leading-[160%] ${cedarville.className}   italic text-md  md:text-2xl text-amber-900`}
               >
-                <motion.h2 className=" text-center    py-4 max-w-xl pt-8 ">{paragraph_1}</motion.h2>
+                <motion.h2 className=" text-center    py-4 max-w-xl pt-8 ">
+                  {paragraph_1}
+                </motion.h2>
 
-                <motion.h2 className=" text-center    py-4 max-w-xl pt-2">{paragraph_2}</motion.h2>
+                <motion.h2 className=" text-center    py-4 max-w-xl pt-2">
+                  {paragraph_2}
+                </motion.h2>
               </motion.div>
 
               <h3

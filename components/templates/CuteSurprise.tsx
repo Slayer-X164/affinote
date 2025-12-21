@@ -1,7 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Gift, Flower2 } from "lucide-react";
+import { Heart, Gift, Flower2, RotateCcw } from "lucide-react";
+import Confetti from "react-confetti";
+import Flowers from "../ui/CuteFlowerSurprise/Flowers";
 
 type Phase = "envelope" | "game" | "gift" | "flower";
 type SquareValue = "X" | "O" | null;
@@ -16,6 +18,20 @@ const CuteSurprise: React.FC = () => {
   const [board, setBoard] = useState<SquareValue[]>(Array(9).fill(null));
   const [winner, setWinner] = useState<"X" | "O" | null>(null);
   const [winningLine, setWinningLine] = useState<number[]>([]);
+
+  // Window size for Confetti
+  const [windowSize, setWindowSize] = useState({
+    width: typeof window !== "undefined" ? window.innerWidth : 0,
+    height: typeof window !== "undefined" ? window.innerHeight : 0,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const pageVariants = {
     initial: { opacity: 0, y: 50 },
@@ -32,25 +48,22 @@ const CuteSurprise: React.FC = () => {
   // --- TIC TAC TOE LOGIC ---
   const calculateWinner = (squares: SquareValue[]): WinInfo | null => {
     const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8], // Rows
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8], // Cols
-      [0, 4, 8],
-      [2, 4, 6], // Diagonals
+      [0, 1, 2], [3, 4, 5], [6, 7, 8],
+      [0, 3, 6], [1, 4, 7], [2, 5, 8],
+      [0, 4, 8], [2, 4, 6],
     ];
     for (const [a, b, c] of lines) {
-      if (
-        squares[a] &&
-        squares[a] === squares[b] &&
-        squares[a] === squares[c]
-      ) {
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return { winner: squares[a] as "X" | "O", line: [a, b, c] };
       }
     }
     return null;
+  };
+
+  const resetGame = () => {
+    setBoard(Array(9).fill(null));
+    setWinner(null);
+    setWinningLine([]);
   };
 
   const handleSquareClick = (i: number): void => {
@@ -64,7 +77,7 @@ const CuteSurprise: React.FC = () => {
       setWinner("X");
       setWinningLine(winInfo.line);
       setTimeout(() => setPhase("gift"), 1500);
-    } else {
+    } else if (newBoard.includes(null)) {
       setTimeout(() => makeComputerMove(newBoard), 400);
     }
   };
@@ -75,8 +88,7 @@ const CuteSurprise: React.FC = () => {
       .filter((val): val is number => val !== null);
 
     if (emptyIndices.length > 0 && !calculateWinner(currentBoard)) {
-      const randomIndex =
-        emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
+      const randomIndex = emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
       const newBoard = [...currentBoard];
       newBoard[randomIndex] = "O";
       setBoard(newBoard);
@@ -88,68 +100,49 @@ const CuteSurprise: React.FC = () => {
     }
   };
 
-  // --- REWIRED LINE LOGIC ---
+  const isDraw = !winner && board.every((square) => square !== null);
+
   const getLineStyles = () => {
     if (winningLine.length === 0) return { base: {}, rotate: 0 };
     const [a, , c] = winningLine;
-
-    // 1. Horizontal Lines
     if (Math.floor(a / 3) === Math.floor(c / 3)) {
-      const row = Math.floor(a / 3);
       const tops = ["16.6%", "50%", "83.3%"];
-      return {
-        base: { top: tops[row], left: "5%", width: "90%", height: "6px" },
-        rotate: 0,
-      };
+      return { base: { top: tops[Math.floor(a / 3)], left: "5%", width: "90%", height: "6px" }, rotate: 0 };
     }
-
-    // 2. Vertical Lines
     if (a % 3 === c % 3) {
-      const col = a % 3;
       const lefts = ["16.6%", "50%", "83.3%"];
-      return {
-        base: { left: lefts[col], top: "5%", width: "6px", height: "90%" },
-        rotate: 0,
-      };
+      return { base: { left: lefts[a % 3], top: "5%", width: "6px", height: "90%" }, rotate: 0 };
     }
-
-    // 3. Diagonal: Top-Left to Bottom-Right (\)
     if (winningLine.includes(0) && winningLine.includes(8)) {
-      return {
-        base: {
-          top: "50%",
-          left: "50%",
-          width: "135%",
-          height: "6px",
-          x: "-50%",
-          y: "-50%",
-        },
-        rotate: 45,
-      };
+      return { base: { top: "50%", left: "50%", width: "135%", height: "6px", x: "-50%", y: "-50%" }, rotate: 45 };
     }
-
-    // 4. Diagonal: Top-Right to Bottom-Left (/)
-    if (winningLine.includes(2) && winningLine.includes(6)) {
-      return {
-        base: {
-          top: "50%",
-          left: "50%",
-          width: "135%",
-          height: "6px",
-          x: "-50%",
-          y: "-50%",
-        },
-        rotate: -45,
-      };
-    }
-
-    return { base: {}, rotate: 0 };
+    return { base: { top: "50%", left: "50%", width: "135%", height: "6px", x: "-50%", y: "-50%" }, rotate: -45 };
   };
 
   return (
-    <div className="fixed inset-0 bg-rose-50 flex items-center justify-center overflow-hidden p-4 font-sans selection:bg-rose-200">
+    <div className="fixed inset-0 bg-blue-50 flex items-center justify-center overflow-hidden p-4 font-sans selection:bg-blue-200">
+
+      {/* CONFETTI ONLY ON THE LAST PHASE */}
+      {phase === "flower" && (
+        <Confetti
+          width={windowSize.width}
+          height={windowSize.height}
+          numberOfPieces={500}
+          recycle={false}
+          gravity={0.15}
+          colors={[
+            "#f472b6", // Pink 400
+            "#fb923c", // Soft Peach
+            "#60a5fa", // Blue 400
+            "#93c5fd", // Blue 300
+            "#ffffff", // White
+            "#fce7f3", // Pink 50
+            "#3b82f6"  // Blue 500
+          ]}
+        />
+      )}
+
       <AnimatePresence mode="wait">
-        {/* PHASE 1: ENVELOPE */}
         {phase === "envelope" && (
           <motion.div
             key="envelope"
@@ -161,19 +154,15 @@ const CuteSurprise: React.FC = () => {
             onClick={() => setPhase("game")}
             className="cursor-pointer group flex flex-col items-center gap-4"
           >
-            <div className="relative w-90 h-60 bg-white rounded-b-2xl shadow-2xl flex items-center justify-center border-2 border-rose-100 overflow-hidden">
-              <div
-                className="absolute inset-0 bg-rose-300"
-                style={{ clipPath: "polygon(0 0, 50% 50%, 100% 0)" }}
-              ></div>
-              <p className="z-10 text-rose-500 font-semibold text-center  transition-transform px-4 pt-24">
-                Open when you <br /> miss me <br /> ❤️
+            <div className="relative w-80 h-52 bg-white rounded-b-2xl shadow-2xl shadow-blue-800/30 flex items-center justify-center border-2 border-blue-100 overflow-hidden">
+              <div className="absolute inset-0 bg-blue-300" style={{ clipPath: "polygon(0 0, 50% 50%, 100% 0)" }}></div>
+              <p className="z-10 text-blue-400 font-semibold text-center px-4 pt-20">
+                Open when you miss me !
               </p>
             </div>
           </motion.div>
         )}
 
-        {/* PHASE 2: GAME */}
         {phase === "game" && (
           <motion.div
             key="game"
@@ -184,56 +173,50 @@ const CuteSurprise: React.FC = () => {
             transition={springTransition}
             className="flex flex-col items-center"
           >
-            <h2 className="text-2xl font-bold text-rose-600 mb-6 drop-shadow-sm">
-              Win for a surprise! ✨
+            <h2 className="text-2xl font-bold text-blue-600 mb-6 drop-shadow-sm">
+              {winner === "O" ? "Oh no! its okay 🥺" : isDraw ? "It's a draw! 😮" : "Win for a surprise! ✨"}
             </h2>
-            {/* GRID CONTAINER: Remove 'overflow-hidden' so diagonals can reach the corners */}
-            <div className="grid grid-cols-3 gap-3 bg-rose-200 p-3 rounded-2xl relative shadow-xl">
+
+            <div className="grid grid-cols-3 gap-3 bg-blue-200 p-3 rounded-2xl relative shadow-xl">
               {board.map((square, i) => (
                 <button
                   key={i}
                   onClick={() => handleSquareClick(i)}
-                  className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-xl flex items-center justify-center text-4xl font-black text-rose-500 hover:bg-rose-50 transition-colors shadow-sm relative z-10"
+                  className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-xl flex items-center justify-center text-4xl font-black text-blue-500 hover:bg-blue-50 transition-colors shadow-sm relative z-10"
                 >
-                  {square === "X" && (
-                    <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }}>
-                      X
-                    </motion.span>
-                  )}
-                  {square === "O" && (
-                    <motion.span
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      className="text-sky-300"
-                    >
-                      O
-                    </motion.span>
-                  )}
+                  {square === "X" && <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }}>X</motion.span>}
+                  {square === "O" && <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} className="text-sky-300">O</motion.span>}
                 </button>
               ))}
 
-              {/* STRIKE-THROUGH LINE */}
               {winner && (
                 <motion.div
                   initial={{ scaleX: 0, opacity: 0 }}
-                  animate={{
-                    scaleX: 1,
-                    opacity: 1,
-                    rotate: getLineStyles().rotate, // Pass rotation here
-                  }}
+                  animate={{ scaleX: 1, opacity: 1, rotate: getLineStyles().rotate }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="absolute bg-rose-500 rounded-full z-20 pointer-events-none"
-                  style={{
-                    ...getLineStyles().base,
-                    transformOrigin: "center", // Ensures it rotates from the middle
-                  }}
+                  className="absolute bg-blue-500 rounded-full z-20 pointer-events-none"
+                  style={{ ...getLineStyles().base, transformOrigin: "center" }}
                 />
               )}
             </div>
+
+            <AnimatePresence>
+              {(winner === "O" || isDraw) && (
+                <motion.button
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.5 }}
+                  onClick={resetGame}
+                  className="mt-8 flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-full font-bold shadow-lg hover:bg-blue-600 transition-all active:scale-95"
+                >
+                  <RotateCcw size={20} />
+                  Try Again
+                </motion.button>
+              )}
+            </AnimatePresence>
           </motion.div>
         )}
 
-        {/* PHASE 3: GIFT */}
         {phase === "gift" && (
           <motion.div
             key="gift"
@@ -246,79 +229,58 @@ const CuteSurprise: React.FC = () => {
             onClick={() => setPhase("flower")}
           >
             <motion.div
-              animate={{
-                y: [0, -20, 0],
-                rotate: [0, -8, 8, -8, 8, 0],
-              }}
+              animate={{ y: [0, -20, 0], rotate: [0, -8, 8, -8, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
             >
-              <Gift
-                size={140}
-                className="text-rose-500 drop-shadow-xl"
-                fill="currentColor"
-                fillOpacity={0.15}
-              />
+              <Gift size={140} className="text-blue-500 drop-shadow-xl" fill="currentColor" fillOpacity={0.15} />
             </motion.div>
-            <p className="mt-8 text-rose-600 font-black animate-bounce text-2xl tracking-wide">
-              TAP ME! 🎁
-            </p>
+            <p className="mt-8 text-blue-600 font-black animate-bounce text-2xl tracking-wide">TAP TO OPEN!</p>
           </motion.div>
         )}
 
-        {/* PHASE 4: FLOWER */}
         {phase === "flower" && (
+  <motion.div
+    key="flower"
+    variants={pageVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    transition={springTransition}
+    className="flex min-h-screen flex-col items-center text-center max-w-sm"
+  >
+    {/* 1. The Flower Container (Now sits at the top) */}
+    <div className="w-full h-auto relative top-14 flex items-end justify-center mt-20 md:mt-44">
+       <Flowers />
+    </div>
+
+    {/* 2. The Text Content (Now sits directly under the flowers) */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.8 }}
+      className="space-y-4 relative z-20"
+    >
+      <h1 className="text-4xl font-serif text-blue-800 italic">For You!</h1>
+      <p className="text-blue-600 text-lg font-medium leading-relaxed">
+        Because you make every day as bright as a blooming flower. <br />
+        I miss you more than words can say! ❤️
+      </p>
+
+      {/* Heart Icons */}
+      <div className="flex justify-center gap-4 pt-4">
+        {[...Array(3)].map((_, i) => (
           <motion.div
-            key="flower"
-            variants={pageVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={springTransition}
-            className="flex flex-col items-center text-center max-w-sm"
+            key={i}
+            animate={{ y: [0, -10, 0], scale: [1, 1.2, 1] }}
+            transition={{ repeat: Infinity, duration: 2, delay: i * 0.4 }}
           >
-            <motion.div
-              initial={{ scale: 0, rotate: -90 }}
-              animate={{ scale: 1.2, rotate: 0 }}
-              transition={{ ...springTransition, delay: 0.2 }}
-            >
-              <Flower2
-                size={160}
-                className="text-rose-500 mb-6 drop-shadow-lg"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="space-y-4"
-            >
-              <h1 className="text-4xl font-serif text-rose-800 italic">
-                For You!
-              </h1>
-              <p className="text-rose-600 text-lg font-medium leading-relaxed">
-                Because you make every day as bright as a blooming flower.{" "}
-                <br />I miss you more than words can say! ❤️
-              </p>
-
-              <div className="flex justify-center gap-4 pt-4">
-                {[...Array(3)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{ y: [0, -10, 0], scale: [1, 1.2, 1] }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 2,
-                      delay: i * 0.4,
-                    }}
-                  >
-                    <Heart className="text-rose-400 fill-rose-400" size={28} />
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+            <Heart className="text-blue-400 fill-blue-400" size={28} />
           </motion.div>
-        )}
+        ))}
+      </div>
+    </motion.div>
+  </motion.div>
+)}
       </AnimatePresence>
     </div>
   );
