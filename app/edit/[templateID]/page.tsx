@@ -122,7 +122,7 @@ export default function page() {
       <Navbar />
       <div className="h-full max-w-6xl px-3 w-full py-10 flex flex-col-reverse gap-6  lg:flex-row items-start ">
         <Toaster position="top-center" reverseOrder={false} />
-        <div className="w-full lg:w-[60%] bg-green-100 border-rose-400 border-2 rounded-2xl overflow-hidden relative">
+        <div className="w-full lg:w-[60%] bg-blue-50 border-rose-400 border-2 rounded-2xl overflow-hidden relative">
           <h3 className="text-center bg-black text-neutral-50 text-sm py-0.5">
             Live Preview
           </h3>
@@ -142,11 +142,11 @@ export default function page() {
               if (field.type === "text") {
                 return (
                   <div key={field.name}>
-                    <label className="block lowercase text-green-800 text-sm font-semibold mb-1">
+                    <label className="block lowercase text-neutral-900 text-sm font-semibold mb-1">
                       {field.name}:
                     </label>
                     <input
-                      className="w-full bg-green-100 border-3 border-green-400   p-2 rounded-2xl "
+                      className="w-full bg-blue-50 border-3 border-blue-300   p-2 rounded-2xl "
                       value={formData[field.name] || ""}
                       onChange={(e) =>
                         handleTextChange(field.name, e.target.value)
@@ -160,11 +160,11 @@ export default function page() {
               if (field.type === "textarea") {
                 return (
                   <div key={field.name}>
-                    <label className="block lowercase text-green-800 text-sm font-semibold mb-1">
+                    <label className="block lowercase text-neutral-900 text-sm font-semibold mb-1">
                       {field.name}:
                     </label>
                     <textarea
-                      className="w-full bg-green-100 border-3 border-green-400   p-2 rounded-2xl "
+                      className="w-full bg-blue-50 border-3 border-blue-300   p-2 rounded-2xl "
                       rows={4}
                       value={formData[field.name] || ""}
                       onChange={(e) =>
@@ -179,7 +179,7 @@ export default function page() {
               if (field.type === "images") {
                 return (
                   <div key={field.name}>
-                    <label className="block lowercase text-green-800 text-sm font-semibold mb-2">
+                    <label className="block lowercase text-neutral-900 text-sm font-semibold mb-2">
                       {field.name}:
                     </label>
 
@@ -196,7 +196,7 @@ export default function page() {
                                 formData[field.name]?.[index]?.img ||
                                 "https://placehold.co/80x80"
                               }
-                              className="w-20 h-20 rounded-2xl object-cover bg-green-100 border  border-neutral-400"
+                              className="w-20 h-20 rounded-2xl object-cover bg-blue-50 border  border-neutral-400"
                             />
 
                             {/* Upload */}
