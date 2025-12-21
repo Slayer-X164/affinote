@@ -20,7 +20,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
 
 
   return (
-    <div   onClick={onClick} className="w-72 bg-white rounded-2xl shadow-2xl shadow-rose-950/10    hover:-translate-y-1 cursor-pointer border border-pink-100 hover:shadow-rose-600/30 hover:shadow-2xl transition-all duration-200 ">
+    <div   onClick={onClick} className="w-72 bg-white rounded-2xl shadow-2xl shadow-blue-950/10    hover:-translate-y-1 cursor-pointer border border-blue-100 hover:shadow-blue-600/30 hover:shadow-2xl transition-all duration-200 ">
       {/* Preview Image */}
 
       <div className="h-48 w-full overflow-hidden rounded-t-2xl relative">
@@ -41,13 +41,13 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
         </p>
 
         <div className="flex items-center justify-between mt-4">
-          <span className="text-rose-600 font-semibold text-lg">
+          <span className="text-blue-600 font-semibold text-lg">
             ₹{price}
           </span>
 
           <button
             onClick={onClick}
-            className="px-4 py-2 cursor-pointer bg-rose-400 active:scale-90 text-white text-sm rounded-full hover:bg-rose-500 transition font-semibold"
+            className="px-4 py-2 cursor-pointer bg-blue-500 active:scale-90 text-white text-sm rounded-full hover:bg-blue-600 transition font-semibold"
           >
             Use Template
           </button>

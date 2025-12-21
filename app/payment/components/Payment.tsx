@@ -85,8 +85,8 @@ export default function PaymentPage() {
           className={`px-6 py-3 mt-6 rounded-lg text-white cursor-pointer transition-all duration-300
      ${
        !razorpayScriptLoader || loading
-         ? "bg-rose-200 cursor-not-allowed"
-         : "bg-rose-500/85 hover:bg-rose-500"
+         ? "bg-blue-200 cursor-not-allowed"
+         : "bg-blue-500/85 hover:bg-blue-500"
      }`}
         >
           {!razorpayScriptLoader ? (

@@ -122,16 +122,16 @@ export default function page() {
       <Navbar />
       <div className="h-full max-w-6xl px-3 w-full py-10 flex flex-col-reverse gap-6  lg:flex-row items-start ">
         <Toaster position="top-center" reverseOrder={false} />
-        <div className="w-full lg:w-[60%] bg-blue-50 border-rose-400 border-2 rounded-2xl overflow-hidden relative">
+        <div className="w-full lg:w-[60%] bg-blue-50 border-blue-400 border-2 rounded-2xl overflow-hidden relative">
           <h3 className="text-center bg-black text-neutral-50 text-sm py-0.5">
             Live Preview
           </h3>
           <DisplayTemplate {...formData} />
         </div>
         <div className="w-full lg:w-[40%] min-h-full  bg-white px-3">
-          <h2 className="text-xl font-bold mb-6 text-rose-950">
+          <h2 className="text-xl font-bold mb-6 text-blue-950">
             Customize:{" "}
-            <span className="underline-offset-4  text-rose-400">
+            <span className="underline-offset-4  text-blue-400">
               {currTemplate?.title} Template
             </span>
           </h2>
@@ -235,7 +235,7 @@ export default function page() {
             onClick={() => {
               createInstance();
             }}
-            className="w-full transition-all duration-300 py-4 active:scale-95 cursor-pointer mt-6 bg-rose-400 hover:bg-rose-500  rounded-2xl text-white text-xl font-semibold flex justify-center"
+            className="w-full transition-all duration-300 py-4 active:scale-95 cursor-pointer mt-6 bg-blue-500 hover:bg-blue-600  rounded-2xl text-white text-xl font-semibold flex justify-center"
           >
             {btnLoader ? (
               <ButtonLoder />

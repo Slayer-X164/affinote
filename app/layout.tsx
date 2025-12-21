@@ -16,9 +16,10 @@ export const cedarville = Cedarville_Cursive({
   subsets: ['latin'],
   display: 'swap',
 })
-const playfairDisplay = Playfair_Display({
+export const playfairDisplay = Playfair_Display({
   variable:"--font-playfair-display",
   subsets:['latin'],
+  display: 'swap',
 })
  const metadata: Metadata = {
   title: "Affinote - cute templates for your loved ones",
