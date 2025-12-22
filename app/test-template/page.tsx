@@ -1,12 +1,9 @@
-import CuteSurprise from "@/components/templates/CuteSurprise";
-import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
-import Flowers from "@/components/ui/CuteFlowerSurprise/Flowers";
+import ApologyForGf from "@/components/templates/ApologyForGf";
+
 
 
 export default function testTemplate(){
     return (
-        // <EnvelopeLetter />
-        <CuteSurprise/>
-        // <Flowers/>
+        <ApologyForGf from="bae"/>
     )
 }

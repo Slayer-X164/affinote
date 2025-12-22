@@ -2,11 +2,13 @@ import { createClient } from "@supabase/supabase-js";
 import BirthdayTimeline from "@/components/templates/Template1";
 import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
 import CuteSurprise from "@/components/templates/CuteSurprise";
+import ApologyForGf from "@/components/templates/ApologyForGf";
 
 const componentMap: any = {
   "birthday-timeline": BirthdayTimeline,
   "envolope-letter":EnvelopeLetter,
-  "flower-surprise":CuteSurprise
+  "flower-surprise":CuteSurprise,
+  "Apology-for-gf":ApologyForGf
 };
 
 export default async function ViewPage({ params }: any) {

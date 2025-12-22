@@ -11,10 +11,12 @@ import ButtonLoder from "@/components/ui/ButtonLoder";
 import { uploadImages } from "@/lib/uploadImages";
 import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
 import CuteSurprise from "@/components/templates/CuteSurprise";
+import ApologyForGf from "@/components/templates/ApologyForGf";
 const componentMap = {
   "birthday-timeline": BirthdayTimeline,
   "envolope-letter":EnvelopeLetter,
-  "flower-surprise":CuteSurprise
+  "flower-surprise":CuteSurprise,
+  "Apology-for-gf":ApologyForGf
 };
 type templateKey = keyof typeof componentMap;
 

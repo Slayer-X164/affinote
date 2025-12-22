@@ -39,5 +39,16 @@ export const Templates = [
       { name: "text", type: "text" },
     ],
   },
+  {
+    id: "Apology-for-gf",
+    title: "Apology For GF",
+    description:
+      "a small fun interactive Apology Template for your angry girlfriend",
+    price: 1,
+    previewImg: "/previewImg/ApologyForGf.png",
+    fields: [
+      { name: "from", type: "text" },
+    ],
+  },
 
 ];
