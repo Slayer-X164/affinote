@@ -20,11 +20,11 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
 
 
   return (
-    <div   onClick={onClick} className="w-72 bg-white rounded-2xl shadow-2xl shadow-blue-950/10    hover:-translate-y-1 cursor-pointer border border-blue-100 hover:shadow-blue-600/30 hover:shadow-2xl transition-all duration-200 ">
+    <div   onClick={onClick} className="w-full h-full flex flex-col bg-white rounded-2xl shadow-2xl shadow-blue-400/30    hover:-translate-y-1 cursor-pointer border border-blue-100 hover:shadow-blue-600/30 hover:shadow-2xl transition-all duration-200 ">
       {/* Preview Image */}
 
       <div className="h-48 w-full overflow-hidden rounded-t-2xl relative">
-        <h3 className="absolute bg-blue-600 text-xs py-0.5 px-4 text-neutral-50 font-semibold top-0 rounded-r-2xl left-0">Most Used</h3>
+
         <img
           src={img}
           alt={title}
@@ -33,21 +33,21 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
       </div>
 
       {/* Content */}
-      <div className="p-4 space-y-2">
-        <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
+      <div className="p-4 flex flex-1 flex-col">
+        <h2 className="text-md md:text-lg font-semibold text-gray-900">{title}</h2>
 
-        <p className="text-sm text-gray-600 line-clamp-2">
+        <p className="text-xs md:text-sm text-gray-600 line-clamp-2 pt-1">
           {description}
         </p>
 
-        <div className="flex items-center justify-between mt-4">
-          <span className="text-blue-600 font-semibold text-lg">
+        <div className="flex items-center justify-between mt-auto pt-4">
+          <span className="text-blue-600 font-semibold text-md md:text-lg">
             ₹{price}
           </span>
 
           <button
             onClick={onClick}
-            className="px-4 py-2 cursor-pointer bg-blue-500 active:scale-90 text-white text-sm rounded-full hover:bg-blue-600 transition font-semibold"
+            className="px-4 py-2 cursor-pointer bg-blue-500 active:scale-90 text-white rounded-full hover:bg-blue-600 transition font-semibold text-xs md:text-sm"
           >
             Use Template
           </button>

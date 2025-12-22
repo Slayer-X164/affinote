@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Gift, Flower2, RotateCcw } from "lucide-react";
 import Confetti from "react-confetti";
 import Flowers from "../ui/CuteFlowerSurprise/Flowers";
+import { playfairDisplay } from "@/app/layout";
 
 type Phase = "envelope" | "game" | "gift" | "flower";
 type SquareValue = "X" | "O" | null;
@@ -12,8 +13,13 @@ interface WinInfo {
   winner: "X" | "O";
   line: number[];
 }
-
-const CuteSurprise: React.FC = () => {
+type surprisePropsType = {
+  text?:string
+}
+const CuteSurprise = ({
+  text = `Because you make every day as bright as a blooming flower.
+        I miss you more than words can say!`
+}:surprisePropsType) => {
   const [phase, setPhase] = useState<Phase>("envelope");
   const [board, setBoard] = useState<SquareValue[]>(Array(9).fill(null));
   const [winner, setWinner] = useState<"X" | "O" | null>(null);
@@ -120,14 +126,14 @@ const CuteSurprise: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 bg-blue-50 flex items-center justify-center overflow-hidden p-4 font-sans selection:bg-blue-200">
+    <div className="min-h-screen bg-blue-50 flex items-center justify-center overflow-hidden p-4 font-sans selection:bg-blue-200">
 
       {/* CONFETTI ONLY ON THE LAST PHASE */}
       {phase === "flower" && (
         <Confetti
           width={windowSize.width}
           height={windowSize.height}
-          numberOfPieces={500}
+          numberOfPieces={200}
           recycle={false}
           gravity={0.15}
           colors={[
@@ -246,10 +252,10 @@ const CuteSurprise: React.FC = () => {
     animate="animate"
     exit="exit"
     transition={springTransition}
-    className="flex min-h-screen flex-col items-center text-center max-w-sm"
+    className="flex min-h-screen flex-col items-center text-center max-w-sm justify-center"
   >
     {/* 1. The Flower Container (Now sits at the top) */}
-    <div className="w-full h-auto relative top-14 flex items-end justify-center mt-20 md:mt-44">
+    <div className="w-full h-auto relative top-12 flex items-end justify-center mt-20 md:mt-44">
        <Flowers />
     </div>
 
@@ -260,10 +266,9 @@ const CuteSurprise: React.FC = () => {
       transition={{ delay: 0.8 }}
       className="space-y-4 relative z-20"
     >
-      <h1 className="text-4xl font-serif text-blue-800 italic">For You!</h1>
-      <p className="text-blue-600 text-lg font-medium leading-relaxed">
-        Because you make every day as bright as a blooming flower. <br />
-        I miss you more than words can say! ❤️
+      <h1 className={`text-4xl font-sans  font-bold text-blue-400`}>For You!</h1>
+      <p className="font-semibold text-blue-950 text-lg  ">
+        {text}
       </p>
 
       {/* Heart Icons */}
@@ -274,7 +279,7 @@ const CuteSurprise: React.FC = () => {
             animate={{ y: [0, -10, 0], scale: [1, 1.2, 1] }}
             transition={{ repeat: Infinity, duration: 2, delay: i * 0.4 }}
           >
-            <Heart className="text-blue-400 fill-blue-400" size={28} />
+            <Heart className="text-blue-600 fill-blue-400" size={28} />
           </motion.div>
         ))}
       </div>

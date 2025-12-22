@@ -1,12 +1,12 @@
 import { createClient } from "@supabase/supabase-js";
 import BirthdayTimeline from "@/components/templates/Template1";
-import LoveLetter from "@/components/templates/Template2";
 import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
+import CuteSurprise from "@/components/templates/CuteSurprise";
 
 const componentMap: any = {
   "birthday-timeline": BirthdayTimeline,
-  "love-letter": LoveLetter,
   "envolope-letter":EnvelopeLetter,
+  "flower-surprise":CuteSurprise
 };
 
 export default async function ViewPage({ params }: any) {
@@ -61,7 +61,7 @@ export default async function ViewPage({ params }: any) {
       <div className="w-full">
         <TemplateComponent {...data.data} />
       </div>
-      <p className="text-gray-400 text-sm py-3">
+      <p className="text-gray-400 text-xs py-2">
         Created using ❤️ <a className="underline text-blue-400" href="https://affinote.site">Affinote</a>
       </p>
     </div>

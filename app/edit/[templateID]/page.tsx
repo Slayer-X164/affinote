@@ -1,6 +1,5 @@
 "use client";
 import BirthdayTimeline from "@/components/templates/Template1";
-import LoveLetter from "@/components/templates/Template2";
 import Navbar from "@/components/ui/Navbar";
 import { Templates } from "@/data/template";
 import { useParams } from "next/navigation";
@@ -11,10 +10,11 @@ import toast, { Toaster } from "react-hot-toast";
 import ButtonLoder from "@/components/ui/ButtonLoder";
 import { uploadImages } from "@/lib/uploadImages";
 import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
+import CuteSurprise from "@/components/templates/CuteSurprise";
 const componentMap = {
   "birthday-timeline": BirthdayTimeline,
-  "love-letter": LoveLetter,
   "envolope-letter":EnvelopeLetter,
+  "flower-surprise":CuteSurprise
 };
 type templateKey = keyof typeof componentMap;
 
