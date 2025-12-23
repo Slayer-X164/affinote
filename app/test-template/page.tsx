@@ -1,9 +1,8 @@
-import ApologyForGf from "@/components/templates/ApologyForGf";
-
-
+import ApologyForBf from "@/components/templates/ApologyForBf";
 
 export default function testTemplate(){
     return (
-        <ApologyForGf from="bae"/>
+            // <ApologyForBf/>
+            <div>test</div>
     )
 }

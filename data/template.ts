@@ -50,5 +50,21 @@ export const Templates = [
       { name: "from", type: "text" },
     ],
   },
+  {
+    id: "Apology-for-bf-gf",
+    title: "Apology For BF/GF",
+    description:
+      "a message like cute template for you angry loved one , make them happy",
+    price: 1,
+    previewImg: "/previewImg/ApBfgF.png",
+    fields: [
+      { name: "name", type: "text" },
+      { name: "left_text_1", type: "text" },
+      { name: "right_text_1", type: "text" },
+      { name: "right_text_2", type: "text" },
+      { name: "sorry_message", type: "textarea" },
+      { name: "final_message", type: "text" },
+    ],
+  },
 
 ];

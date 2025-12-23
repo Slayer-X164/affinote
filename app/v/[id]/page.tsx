@@ -3,12 +3,14 @@ import BirthdayTimeline from "@/components/templates/Template1";
 import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
 import CuteSurprise from "@/components/templates/CuteSurprise";
 import ApologyForGf from "@/components/templates/ApologyForGf";
+import ApologyForBf from "@/components/templates/ApologyForBf";
 
 const componentMap: any = {
   "birthday-timeline": BirthdayTimeline,
   "envolope-letter":EnvelopeLetter,
   "flower-surprise":CuteSurprise,
-  "Apology-for-gf":ApologyForGf
+  "Apology-for-gf":ApologyForGf,
+  "Apology-for-bf-gf":ApologyForBf
 };
 
 export default async function ViewPage({ params }: any) {
