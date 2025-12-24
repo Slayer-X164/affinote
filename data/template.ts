@@ -5,6 +5,7 @@ export const Templates = [
     description: "A cute animated timeline to surprise your partner.",
     price: 1,
     previewImg: "/previewImg/temp1.png",
+    st_price:50,
     fields: [
       { name: "title", type: "text" },
       { name: "message", type: "textarea" },
@@ -20,6 +21,7 @@ export const Templates = [
     description:
       "Celebrate birthdays with warmth and timeless charm using this beautifully designed vintage-style birthday letter template. Featuring soft floral patterns, layered paper textures, and delicate handwritten accents, this template evokes a nostalgic",
     price: 1,
+    st_price:30,
     previewImg: "/previewImg/envLetter.png",
     fields: [
       { name: "name", type: "text" },
@@ -34,6 +36,7 @@ export const Templates = [
     description:
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
     price: 1,
+    st_price:120,
     previewImg: "/previewImg/flowerSurp.png",
     fields: [
       { name: "text", type: "text" },
@@ -45,6 +48,7 @@ export const Templates = [
     description:
       "a small fun interactive Apology Template for your angry girlfriend",
     price: 1,
+    st_price:68,
     previewImg: "/previewImg/ApologyForGf.png",
     fields: [
       { name: "from", type: "text" },
@@ -56,6 +60,7 @@ export const Templates = [
     description:
       "a message like cute template for you angry loved one , make them happy",
     price: 1,
+    st_price:45,
     previewImg: "/previewImg/ApBfgF.png",
     fields: [
       { name: "name", type: "text" },

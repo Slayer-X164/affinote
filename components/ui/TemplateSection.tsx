@@ -21,6 +21,7 @@ const TemplateSection = () => {
               description={temp.description}
               img={temp.previewImg}
               price={temp.price}
+              st_price={temp.st_price}
               onClick={() => router.push(`/edit/${temp.id}`)}
             />
           ))}

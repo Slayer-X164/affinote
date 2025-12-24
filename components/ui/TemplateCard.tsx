@@ -6,6 +6,7 @@ interface TemplateCardProps {
   description: string;
   img: string;
   price: number;
+  st_price:number;
   onClick?: () => void;
 }
 
@@ -15,6 +16,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
   description,
   img,
   price,
+  st_price,
   onClick,
 }) => {
 
@@ -40,14 +42,16 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
           {description}
         </p>
 
-        <div className="flex items-center justify-between mt-auto pt-4">
-          <span className="text-blue-600 font-semibold text-md md:text-lg">
+        <div className="flex flex-col lg:flex-row gap-3 items-center justify-between mt-auto pt-4">
+          <span className="text-blue-600 font-semibold text-md md:text-lg flex items-center gap-2 ">
+
             ₹{price}
+            <span className="line-through text-red-400 font-light">₹{st_price}</span>
           </span>
 
           <button
             onClick={onClick}
-            className="px-4 py-2 cursor-pointer bg-blue-500 active:scale-90 text-white rounded-full hover:bg-blue-600 transition font-semibold text-xs md:text-sm"
+            className="px-4 py-2 cursor-pointer bg-blue-500 active:scale-90 text-white rounded-full w-full lg:w-auto hover:bg-blue-600 transition font-semibold text-xs md:text-sm"
           >
             Use Template
           </button>
