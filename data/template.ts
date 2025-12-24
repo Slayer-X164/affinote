@@ -61,7 +61,7 @@ export const Templates = [
       "a message like cute template for you angry loved one , make them happy",
     price: 1,
     st_price:45,
-    previewImg: "/previewImg/ApBfgF.png",
+    previewImg: "/previewImg/ApologyForBFGF.png",
     fields: [
       { name: "name", type: "text" },
       { name: "left_text_1", type: "text" },
