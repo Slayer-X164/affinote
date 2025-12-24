@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@lottiefiles/dotlottie-react": "^0.17.8",
     "@supabase/supabase-js": "^2.86.0",
     "@toolwind/corner-shape": "^0.0.8-3",
