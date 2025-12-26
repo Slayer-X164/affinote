@@ -2,7 +2,26 @@
 
 import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import { motion, AnimatePresence, PanInfo, Variants } from "motion/react";
-const MemoryTimeline = () => {
+type memoryTlPropType = {
+  title_1: string;
+  photo_1: string;
+  photo_2: string;
+  title_2: string;
+  photo_3: string;
+  photo_4: string;
+  photo_5: string;
+  end_message: string;
+};
+const MemoryTimeline = ({
+  title_1 = "Our first Date 🥺 🎀",
+  photo_1 = "https://i.pinimg.com/1200x/52/e5/96/52e596c979015a0bb72835198aebc89a.jpg",
+  photo_2 = "https://i.pinimg.com/736x/00/d2/26/00d2261b4b92ad59a2e64371b08a6be7.jpg",
+  title_2 = "day out at mall 💗",
+  photo_3 = "https://i.pinimg.com/736x/a0/a9/b4/a0a9b4f285ef4d79d094f795a85ac84e.jpg",
+  photo_4 = "https://i.pinimg.com/736x/de/e0/19/dee0195c9e22d5e46ee86a8fba3b9f1a.jpg",
+  photo_5 = "https://i.pinimg.com/736x/8f/45/1a/8f451a332ea20582b015708fa1097027.jpg",
+  end_message = `Looking back through these photos, I’m reminded that even the simplest days—like just wandering through the mall together—become my favorite memories because you’re in them. I love how our energy just fits, like these stickers tucked between our pictures. Whether we’re geeking out over cute characters, losing track of time in our favorite shops, or just acting like kids again, every second feels like a highlight reel`,
+}: memoryTlPropType) => {
   const [phase, setPhase] = useState<"ph1" | "ph2" | "ph3" | "ph4">("ph1");
   const [showThanks, setShowThanks] = useState(false);
   const [capturedPhoto, setCapturedPhoto] = useState<string | null>(null);
@@ -120,7 +139,7 @@ const MemoryTimeline = () => {
               transition={{ delay: 0.4 }}
               className="text-xl font-semibold text-[#ff3898]"
             >
-              Our first Date 🥺 🎀
+              {title_1}
             </motion.h2>
 
             {/* Hanging string */}
@@ -154,7 +173,7 @@ const MemoryTimeline = () => {
                   >
                     <div
                       style={{
-                        backgroundImage: `url("https://i.pinimg.com/736x/00/d2/26/00d2261b4b92ad59a2e64371b08a6be7.jpg")`,
+                        backgroundImage: `url(${photo_1})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                       }}
@@ -189,7 +208,7 @@ const MemoryTimeline = () => {
                   >
                     <div
                       style={{
-                        backgroundImage: `url("https://i.pinimg.com/736x/dc/df/55/dcdf55d0384b78a4da088ae9a62d7a64.jpg")`,
+                        backgroundImage: `url(${photo_2})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                       }}
@@ -220,7 +239,7 @@ const MemoryTimeline = () => {
             className="w-full h-full flex flex-col items-center gap-3"
           >
             <h3 className="text-xl font-bold uppercase tracking-wider  py-10 text-[#ff3898]">
-              day out at mall 💗
+              {title_2}
             </h3>
             <motion.div
               variants={containerVariants}
@@ -238,7 +257,7 @@ const MemoryTimeline = () => {
                 <div className="p-4 w-46 h-64 rotate-12 bg-white flex items-start relative">
                   <div
                     style={{
-                      backgroundImage: `url("https://i.pinimg.com/736x/a0/a9/b4/a0a9b4f285ef4d79d094f795a85ac84e.jpg")`,
+                      backgroundImage: `url(${photo_3})`,
                       backgroundPosition: "center",
                       backgroundSize: "cover",
                     }}
@@ -260,7 +279,7 @@ const MemoryTimeline = () => {
                 <div className="p-4 w-46 h-64 -rotate-12 bg-white flex items-start relative">
                   <div
                     style={{
-                      backgroundImage: `url("https://i.pinimg.com/736x/de/e0/19/dee0195c9e22d5e46ee86a8fba3b9f1a.jpg")`,
+                      backgroundImage: `url(${photo_4})`,
                       backgroundPosition: "center",
                       backgroundSize: "cover",
                     }}
@@ -284,7 +303,7 @@ const MemoryTimeline = () => {
                 <div className="p-4 w-46 h-64 rotate-12 bg-white flex items-start relative">
                   <div
                     style={{
-                      backgroundImage: `url("https://i.pinimg.com/736x/8f/45/1a/8f451a332ea20582b015708fa1097027.jpg")`,
+                      backgroundImage: `url(${photo_5})`,
                       backgroundPosition: "center",
                       backgroundSize: "cover",
                     }}
@@ -312,7 +331,7 @@ const MemoryTimeline = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}  
+            exit={{ opacity: 0, y: 20 }}
             key="ph4"
             className="w-full min-h-screen flex items-center justify-center pt-20"
             style={{
@@ -322,13 +341,7 @@ const MemoryTimeline = () => {
             }}
           >
             <h3 className="max-w-md text-lg text-center bg-[#a2cbed] rounded-xl p-6 font-bold border-3 border-[#522912] text-[#274660] relative">
-              Looking back through these photos, I’m reminded that even the
-              simplest days—like just wandering through the mall together—become
-              my favorite memories because you’re in them. I love how our energy
-              just fits, like these stickers tucked between our pictures.
-              Whether we’re geeking out over cute characters, losing track of
-              time in our favorite shops, or just acting like kids again, every
-              second feels like a highlight reel{" "}
+              {end_message}
               <img
                 src="/Memotime/flg.gif"
                 alt="bear giving flower"

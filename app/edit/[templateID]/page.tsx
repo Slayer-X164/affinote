@@ -13,12 +13,14 @@ import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
 import CuteSurprise from "@/components/templates/CuteSurprise";
 import ApologyForGf from "@/components/templates/ApologyForGf";
 import ApologyForBf from "@/components/templates/ApologyForBf";
+import MemoryTimeline from "@/components/templates/MemoryTimeline";
 const componentMap = {
   "birthday-timeline": BirthdayTimeline,
-  "envolope-letter":EnvelopeLetter,
-  "flower-surprise":CuteSurprise,
-  "Apology-for-gf":ApologyForGf,
-  "Apology-for-bf-gf":ApologyForBf
+  "envolope-letter": EnvelopeLetter,
+  "flower-surprise": CuteSurprise,
+  "Apology-for-gf": ApologyForGf,
+  "Apology-for-bf-gf": ApologyForBf,
+  "memory-timeline": MemoryTimeline,
 };
 type templateKey = keyof typeof componentMap;
 
@@ -43,20 +45,12 @@ export default function page() {
       if (field.type === "textarea") {
         shape[field.name] = z.string().min(1, `${field.name} is required`);
       }
+      if (field.type === "image") {
+  shape[field.name] = z.string().min(1, "Image required");
+}
 
-      if (field.type === "images") {
-        shape[field.name] = z
-          .array(
-            z.object({
-              img: z.string().min(1, "Image missing"),
-              text: z.string().optional(),
-            })
-          )
-          .length(
-            field.count!,
-            `Please upload all ${field.count} images for ${field.name}`
-          );
-      }
+
+
     });
 
     return z.object(shape);
@@ -67,26 +61,15 @@ export default function page() {
       [name]: value,
     }));
   };
-  const handleImageUpload = async (
-    fieldName: string,
-    index: number,
-    file: File
-  ) => {
-    if (!templateID) return;
 
-    const imageUrl = await uploadImages(
-      file,
-      "temp",
-      fieldName,
-      index
-    );
+  const handleSingleImageUpload = async (fieldName: string, file: File) => {
+    const imageUrl = await uploadImages(file, "temp", fieldName, 0);
 
-    setFormData((prev: any) => {
-      const updated = { ...prev };
-      if (!updated[fieldName]) updated[fieldName] = [];
-      updated[fieldName][index] = { img: imageUrl, text: "" };
-      return updated;
-    });
+   setFormData((prev: any) => ({
+  ...prev,
+  [fieldName]: imageUrl,
+}));
+
   };
 
   // storing tempate data to supabase and redirect to payment page
@@ -180,47 +163,33 @@ export default function page() {
               }
 
               // IMAGES
-              if (field.type === "images") {
+              // SINGLE IMAGE
+              if (field.type === "image") {
                 return (
                   <div key={field.name}>
                     <label className="block lowercase text-neutral-900 text-sm font-semibold mb-2">
                       {field.name}:
                     </label>
 
-                    <div className="space-y-3">
-                      {Array.from({ length: field.count ?? 0 }).map(
-                        (_, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center p-2  bg-neutral-200 border-2 rounded-2xl  border-dashed "
-                          >
-                            {/* Preview */}
-                            <img
-                              src={
-                                formData[field.name]?.[index]?.img ||
-                                "https://placehold.co/80x80"
-                              }
-                              className="w-20 h-20 rounded-2xl object-cover bg-blue-50 border  border-neutral-400"
-                            />
+                    <div className="flex items-center p-2 bg-neutral-200 border-2 rounded-2xl border-dashed">
+                      <img
+                         src={formData[field.name] || "https://placehold.co/80x80"}
+                        className="w-20 h-20 rounded-2xl object-cover bg-blue-50 border border-neutral-400"
+                      />
 
-                            {/* Upload */}
-                            <input
-                              className="p-4 "
-                              type="file"
-                              accept="image/*"
-                              onChange={(e) => {
-                                if (e.target.files) {
-                                  handleImageUpload(
-                                    field.name,
-                                    index,
-                                    e.target.files[0]
-                                  );
-                                }
-                              }}
-                            />
-                          </div>
-                        )
-                      )}
+                      <input
+                        className="p-4"
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => {
+                          if (e.target.files) {
+                            handleSingleImageUpload(
+                              field.name,
+                              e.target.files[0]
+                            );
+                          }
+                        }}
+                      />
                     </div>
                   </div>
                 );

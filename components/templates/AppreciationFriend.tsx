@@ -92,7 +92,7 @@ export default function AppreciationFriend() {
             onLoad={() => {
               setTimeout(() => {
                 setPhase("ph3");
-              }, 5000);
+              }, 7000);
             }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -225,8 +225,8 @@ export default function AppreciationFriend() {
               className="w-50 translate-y-1"
             />
             <div className="rounded-2xl border-3 border-[#beab54] text-[#4b421c] min-w-60 max-w-[500px] text-md font-mono font-semibold px-4 py-10 min-h-60 bg-[#f3e299] text-center relative">
-              <img src="https://i.pinimg.com/originals/f7/6c/d7/f76cd7deb6ca74679258abb273850e8a.png" alt="" className="absolute -top-8 rotate-45 -left-8  w-20"/>
-               <img src="https://i.pinimg.com/originals/f7/6c/d7/f76cd7deb6ca74679258abb273850e8a.png" alt="" className="absolute -bottom-8 rotate-12 -right-8 w-20"/>
+              <img src="https://i.pinimg.com/originals/af/1f/9d/af1f9d34e42a47edf37a27417977c8d5.png" alt="" className="absolute -top-8 rotate-12 -left-8  w-20"/>
+               <img src="https://i.pinimg.com/originals/af/1f/9d/af1f9d34e42a47edf37a27417977c8d5.png" alt="" className="absolute -bottom-8 -rotate-12 -right-8 w-20"/>
               I was just thinking about how much I appreciate having you in my
               life. No matter how much time passes, nothing ever changes between
               us, and I love that. Thanks for being the one person I can always

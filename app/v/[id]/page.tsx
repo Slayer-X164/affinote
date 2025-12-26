@@ -4,13 +4,15 @@ import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
 import CuteSurprise from "@/components/templates/CuteSurprise";
 import ApologyForGf from "@/components/templates/ApologyForGf";
 import ApologyForBf from "@/components/templates/ApologyForBf";
+import MemoryTimeline from "@/components/templates/MemoryTimeline";
 
 const componentMap: any = {
   "birthday-timeline": BirthdayTimeline,
   "envolope-letter":EnvelopeLetter,
   "flower-surprise":CuteSurprise,
   "Apology-for-gf":ApologyForGf,
-  "Apology-for-bf-gf":ApologyForBf
+  "Apology-for-bf-gf":ApologyForBf,
+  "memory-timeline":MemoryTimeline
 };
 
 export default async function ViewPage({ params }: any) {
