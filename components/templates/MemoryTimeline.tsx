@@ -15,7 +15,7 @@ const MemoryTimeline = () => {
       setPhase("ph2");
     }, 3000);
   };
-  const containerVariants:Variants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -25,18 +25,18 @@ const MemoryTimeline = () => {
     },
   };
 
-  const rowVariants:Variants = {
+  const rowVariants: Variants = {
     hidden: {
       opacity: 0,
-      y: 50
+      y: 50,
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
+        ease: "easeOut",
+      },
     },
   };
   const images = [
@@ -222,63 +222,82 @@ const MemoryTimeline = () => {
             <h3 className="text-xl font-bold uppercase tracking-wider  py-10 text-[#ff3898]">
               day out at mall 💗
             </h3>
-           <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible" // Animates when it enters the viewport
-      viewport={{ once: true }} // Only animate once
-      className="flex flex-col items-center gap-3"
-    >
-      {/* Row 1 */}
-      <motion.div variants={rowVariants} className="row1 flex items-center gap-4">
-        <img src="/Memotime/g1.png" alt="g1" className="w-30" />
-        <div className="p-4 w-46 h-64 rotate-12 bg-white flex items-start relative">
-          <div
-            style={{
-              backgroundImage: `url("https://i.pinimg.com/736x/a0/a9/b4/a0a9b4f285ef4d79d094f795a85ac84e.jpg")`,
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-            className="w-full  h-46 "
-          >
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible" // Animates when it enters the viewport
+              viewport={{ once: true }} // Only animate once
+              className="flex flex-col items-center gap-3"
+            >
+              {/* Row 1 */}
+              <motion.div
+                variants={rowVariants}
+                className="row1 flex items-center gap-4"
+              >
+                <img src="/Memotime/g1.png" alt="g1" className="w-30" />
+                <div className="p-4 w-46 h-64 rotate-12 bg-white flex items-start relative">
+                  <div
+                    style={{
+                      backgroundImage: `url("https://i.pinimg.com/736x/a0/a9/b4/a0a9b4f285ef4d79d094f795a85ac84e.jpg")`,
+                      backgroundPosition: "center",
+                      backgroundSize: "cover",
+                    }}
+                    className="w-full  h-46 "
+                  ></div>
+                  <img
+                    src="/Memotime/star.png"
+                    alt="star"
+                    className="absolute w-10 -top-5 -right-5"
+                  />
+                </div>
+              </motion.div>
 
-          </div>
-          <img src="/Memotime/star.png" alt="star" className="absolute w-10 -top-5 -right-5" />
-        </div>
-      </motion.div>
+              {/* Row 2 */}
+              <motion.div
+                variants={rowVariants}
+                className="row2 flex items-center gap-4"
+              >
+                <div className="p-4 w-46 h-64 -rotate-12 bg-white flex items-start relative">
+                  <div
+                    style={{
+                      backgroundImage: `url("https://i.pinimg.com/736x/de/e0/19/dee0195c9e22d5e46ee86a8fba3b9f1a.jpg")`,
+                      backgroundPosition: "center",
+                      backgroundSize: "cover",
+                    }}
+                    className="w-full  h-46 "
+                  ></div>
+                  <img
+                    src="/Memotime/star.png"
+                    alt="star"
+                    className="absolute w-10 -top-5 -left-5"
+                  />
+                </div>
+                <img src="/Memotime/g2.png" alt="g1" className="w-30" />
+              </motion.div>
 
-      {/* Row 2 */}
-      <motion.div variants={rowVariants} className="row2 flex items-center gap-4">
-        <div className="p-4 w-46 h-64 -rotate-12 bg-white flex items-start relative">
-          <div
-            style={{
-              backgroundImage: `url("https://i.pinimg.com/736x/de/e0/19/dee0195c9e22d5e46ee86a8fba3b9f1a.jpg")`,
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-            className="w-full  h-46 "
-          ></div>
-          <img src="/Memotime/star.png" alt="star" className="absolute w-10 -top-5 -left-5" />
-        </div>
-        <img src="/Memotime/g2.png" alt="g1" className="w-30" />
-      </motion.div>
-
-      {/* Row 3 */}
-      <motion.div variants={rowVariants} className="row3 flex items-center gap-4">
-        <img src="/Memotime/g3.png" alt="g1" className="w-30" />
-        <div className="p-4 w-46 h-64 rotate-12 bg-white flex items-start relative">
-          <div
-            style={{
-              backgroundImage: `url("https://i.pinimg.com/736x/8f/45/1a/8f451a332ea20582b015708fa1097027.jpg")`,
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-            className="w-full  h-46 "
-          ></div>
-          <img src="/Memotime/star.png" alt="star" className="absolute w-10 -top-5 -right-5" />
-        </div>
-      </motion.div>
-    </motion.div>
+              {/* Row 3 */}
+              <motion.div
+                variants={rowVariants}
+                className="row3 flex items-center gap-4"
+              >
+                <img src="/Memotime/g3.png" alt="g1" className="w-30" />
+                <div className="p-4 w-46 h-64 rotate-12 bg-white flex items-start relative">
+                  <div
+                    style={{
+                      backgroundImage: `url("https://i.pinimg.com/736x/8f/45/1a/8f451a332ea20582b015708fa1097027.jpg")`,
+                      backgroundPosition: "center",
+                      backgroundSize: "cover",
+                    }}
+                    className="w-full  h-46 "
+                  ></div>
+                  <img
+                    src="/Memotime/star.png"
+                    alt="star"
+                    className="absolute w-10 -top-5 -right-5"
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
             <button
               onClick={() => {
                 setPhase("ph4");
@@ -288,24 +307,36 @@ const MemoryTimeline = () => {
               Next
             </button>
           </motion.div>
-        )}{
-            phase == 'ph4' && (
-                <motion.div
-
-                initial={{ opacity: 0, y: 20 }}
+        )}
+        {phase == "ph4" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-                key='ph4'
-                className="w-full min-h-screen flex items-center justify-center pt-20"
-                style={{
-                    backgroundImage:`url("https://i.pinimg.com/1200x/02/ad/b1/02adb1beb56fc11a7bd7c584b3f1ef3b.jpg")`,
-                    backgroundSize:'cover',
-                    backgroundPosition:'center'
-                }}>
-                    <h3 className="max-w-md text-lg text-center bg-[#a2cbed] rounded-xl p-6 font-bold border-3 border-[#522912] text-[#274660] relative">Looking back through these photos, I’m reminded that even the simplest days—like just wandering through the mall together—become my favorite memories because you’re in them. I love how our energy just fits, like these stickers tucked between our pictures. Whether we’re geeking out over cute characters, losing track of time in our favorite shops, or just acting like kids again, every second feels like a highlight reel <img src="/Memotime/flg.gif" alt="bear giving flower" className="absolute -top-40 left-26" /></h3>
-                </motion.div>
-            )
-        }
+            exit={{ opacity: 0, y: 20 }}  
+            key="ph4"
+            className="w-full min-h-screen flex items-center justify-center pt-20"
+            style={{
+              backgroundImage: `url("https://i.pinimg.com/1200x/02/ad/b1/02adb1beb56fc11a7bd7c584b3f1ef3b.jpg")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <h3 className="max-w-md text-lg text-center bg-[#a2cbed] rounded-xl p-6 font-bold border-3 border-[#522912] text-[#274660] relative">
+              Looking back through these photos, I’m reminded that even the
+              simplest days—like just wandering through the mall together—become
+              my favorite memories because you’re in them. I love how our energy
+              just fits, like these stickers tucked between our pictures.
+              Whether we’re geeking out over cute characters, losing track of
+              time in our favorite shops, or just acting like kids again, every
+              second feels like a highlight reel{" "}
+              <img
+                src="/Memotime/flg.gif"
+                alt="bear giving flower"
+                className="absolute -top-40 left-26"
+              />
+            </h3>
+          </motion.div>
+        )}
       </AnimatePresence>
     </div>
   );

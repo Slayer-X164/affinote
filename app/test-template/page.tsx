@@ -1,9 +1,10 @@
 import ApologyForBf from "@/components/templates/ApologyForBf";
-import MemoryTimeline from "@/components/templates/MemoryTimeline";
+import AppreciationFriend from "@/components/templates/AppreciationFriend";
+
 
 export default function testTemplate(){
     return (
-            <MemoryTimeline/>
+            <AppreciationFriend/>
             // <div>test</div>
     )
 }
