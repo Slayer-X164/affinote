@@ -1,5 +1,4 @@
 "use client";
-import BirthdayTimeline from "@/components/templates/Template1";
 import Navbar from "@/components/ui/Navbar";
 import { Templates } from "@/data/template";
 import { useParams } from "next/navigation";
@@ -14,13 +13,14 @@ import CuteSurprise from "@/components/templates/CuteSurprise";
 import ApologyForGf from "@/components/templates/ApologyForGf";
 import ApologyForBf from "@/components/templates/ApologyForBf";
 import MemoryTimeline from "@/components/templates/MemoryTimeline";
+import AppreciationFriend from "@/components/templates/AppreciationFriend";
 const componentMap = {
-  "birthday-timeline": BirthdayTimeline,
   "envolope-letter": EnvelopeLetter,
   "flower-surprise": CuteSurprise,
   "Apology-for-gf": ApologyForGf,
   "Apology-for-bf-gf": ApologyForBf,
   "memory-timeline": MemoryTimeline,
+  "appreciation-for-friend": AppreciationFriend,
 };
 type templateKey = keyof typeof componentMap;
 
@@ -46,11 +46,8 @@ export default function page() {
         shape[field.name] = z.string().min(1, `${field.name} is required`);
       }
       if (field.type === "image") {
-  shape[field.name] = z.string().min(1, "Image required");
-}
-
-
-
+        shape[field.name] = z.string().min(1, "Image required");
+      }
     });
 
     return z.object(shape);
@@ -65,11 +62,10 @@ export default function page() {
   const handleSingleImageUpload = async (fieldName: string, file: File) => {
     const imageUrl = await uploadImages(file, "temp", fieldName, 0);
 
-   setFormData((prev: any) => ({
-  ...prev,
-  [fieldName]: imageUrl,
-}));
-
+    setFormData((prev: any) => ({
+      ...prev,
+      [fieldName]: imageUrl,
+    }));
   };
 
   // storing tempate data to supabase and redirect to payment page
@@ -173,7 +169,9 @@ export default function page() {
 
                     <div className="flex items-center p-2 bg-neutral-200 border-2 rounded-2xl border-dashed">
                       <img
-                         src={formData[field.name] || "https://placehold.co/80x80"}
+                        src={
+                          formData[field.name] || "https://placehold.co/80x80"
+                        }
                         className="w-20 h-20 rounded-2xl object-cover bg-blue-50 border border-neutral-400"
                       />
 

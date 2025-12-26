@@ -127,7 +127,7 @@ const MemoryTimeline = ({
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-4xl font-serif italic text-[#ff3898]"
+              className="text-4xl text-center font-serif italic text-[#ff3898]"
             >
               Welcome to our ✨ Timeline ✨
             </motion.h1>
@@ -333,14 +333,14 @@ const MemoryTimeline = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             key="ph4"
-            className="w-full min-h-screen flex items-center justify-center pt-20"
+            className="w-full min-h-screen flex items-center justify-center pt-20 px-4"
             style={{
               backgroundImage: `url("https://i.pinimg.com/1200x/02/ad/b1/02adb1beb56fc11a7bd7c584b3f1ef3b.jpg")`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <h3 className="max-w-md text-lg text-center bg-[#a2cbed] rounded-xl p-6 font-bold border-3 border-[#522912] text-[#274660] relative">
+            <h3 className="max-w-md text-lg text-center bg-[#a2cbed] rounded-xl p-6 font-bold border-3 border-[#522912] text-[#274660] relative break-words">
               {end_message}
               <img
                 src="/Memotime/flg.gif"

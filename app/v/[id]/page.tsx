@@ -1,18 +1,19 @@
 import { createClient } from "@supabase/supabase-js";
-import BirthdayTimeline from "@/components/templates/Template1";
+
 import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
 import CuteSurprise from "@/components/templates/CuteSurprise";
 import ApologyForGf from "@/components/templates/ApologyForGf";
 import ApologyForBf from "@/components/templates/ApologyForBf";
 import MemoryTimeline from "@/components/templates/MemoryTimeline";
+import AppreciationFriend from "@/components/templates/AppreciationFriend";
 
 const componentMap: any = {
-  "birthday-timeline": BirthdayTimeline,
-  "envolope-letter":EnvelopeLetter,
-  "flower-surprise":CuteSurprise,
-  "Apology-for-gf":ApologyForGf,
-  "Apology-for-bf-gf":ApologyForBf,
-  "memory-timeline":MemoryTimeline
+  "envolope-letter": EnvelopeLetter,
+  "flower-surprise": CuteSurprise,
+  "Apology-for-gf": ApologyForGf,
+  "Apology-for-bf-gf": ApologyForBf,
+  "memory-timeline": MemoryTimeline,
+  "appreciation-for-friend": AppreciationFriend,
 };
 
 export default async function ViewPage({ params }: any) {
@@ -68,7 +69,10 @@ export default async function ViewPage({ params }: any) {
         <TemplateComponent {...data.data} />
       </div>
       <p className="text-gray-400 text-xs py-2">
-        Created using ❤️ <a className="underline text-blue-400" href="https://affinote.site">Affinote</a>
+        Created using ❤️{" "}
+        <a className="underline text-blue-400" href="https://affinote.site">
+          Affinote
+        </a>
       </p>
     </div>
   );

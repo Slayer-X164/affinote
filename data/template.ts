@@ -1,27 +1,11 @@
 export const Templates = [
   {
-    id: "birthday-timeline",
-    title: "Birthday Timeline",
-    description: "A cute animated timeline to surprise your partner.",
-    price: 1,
-    previewImg: "/previewImg/temp1.png",
-    st_price:50,
-    fields: [
-      { name: "title", type: "text" },
-      { name: "message", type: "textarea" },
-      { name: "sectionTitle", type: "text" },
-      { name: "buttonText", type: "text" },
-      { name: "timelineImages", type: "images", count: 3 },
-    ],
-  },
-
-  {
     id: "envolope-letter",
     title: "Birthday Envolope Letter",
     description:
       "Celebrate birthdays with warmth and timeless charm using this beautifully designed vintage-style birthday letter template. Featuring soft floral patterns, layered paper textures, and delicate handwritten accents, this template evokes a nostalgic",
     price: 1,
-    st_price:30,
+    st_price: 30,
     previewImg: "/previewImg/envLetter.png",
     fields: [
       { name: "name", type: "text" },
@@ -36,11 +20,9 @@ export const Templates = [
     description:
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
     price: 1,
-    st_price:120,
+    st_price: 120,
     previewImg: "/previewImg/flowerSurp.png",
-    fields: [
-      { name: "text", type: "text" },
-    ],
+    fields: [{ name: "text", type: "text" }],
   },
   {
     id: "Apology-for-gf",
@@ -48,11 +30,9 @@ export const Templates = [
     description:
       "a small fun interactive Apology Template for your angry girlfriend",
     price: 1,
-    st_price:68,
+    st_price: 68,
     previewImg: "/previewImg/ApologyForGf.png",
-    fields: [
-      { name: "from", type: "text" },
-    ],
+    fields: [{ name: "from", type: "text" }],
   },
   {
     id: "Apology-for-bf-gf",
@@ -60,7 +40,7 @@ export const Templates = [
     description:
       "a message like cute template for you angry loved one , make them happy",
     price: 1,
-    st_price:45,
+    st_price: 45,
     previewImg: "/previewImg/ApologyForBFGF.png",
     fields: [
       { name: "name", type: "text" },
@@ -72,27 +52,47 @@ export const Templates = [
     ],
   },
   {
-  id: "memory-timeline",
-  title: "Memory Timeline",
-  description: "A nostalgic memory timeline with photos and notes for your loved one",
-  price: 1,
-  st_price: 99,
-  previewImg: "/previewImg/memoTime.png",
-   fields: [
-    { name: "title_1", type: "text" },
+    id: "memory-timeline",
+    title: "Memory Timeline",
+    description:
+      "A nostalgic memory timeline with photos and notes for your loved one",
+    price: 1,
+    st_price: 99,
+    previewImg: "/previewImg/memoTime.png",
+    fields: [
+      { name: "title_1", type: "text" },
 
-    { name: "photo_1", type: "image" },
-    { name: "photo_2", type: "image" },
+      { name: "photo_1", type: "image" },
+      { name: "photo_2", type: "image" },
 
-    { name: "title_2", type: "text" },
+      { name: "title_2", type: "text" },
 
-    { name: "photo_3", type: "image" },
-    { name: "photo_4", type: "image" },
-    { name: "photo_5", type: "image" },
+      { name: "photo_3", type: "image" },
+      { name: "photo_4", type: "image" },
+      { name: "photo_5", type: "image" },
 
-    { name: "end_message", type: "textarea" },
-  ],
-}
+      { name: "end_message", type: "textarea" },
+    ],
+  },
+  {
+    id: "appreciation-for-friend",
+    title: "Appreciation for a Friend",
+    description:
+      "A heartfelt appreciation page with memories, photos, and a meaningful message for your best friend.",
+    price: 1,
+    st_price: 79,
+    previewImg: "/previewImg/appreciationFriend.png",
+    fields: [
+      { name: "photo_text_1", type: "text" },
+      { name: "photo_1", type: "image" },
 
+      { name: "photo_text_2", type: "text" },
+      { name: "photo_2", type: "image" },
 
+      { name: "photo_text_3", type: "text" },
+      { name: "photo_3", type: "image" },
+
+      { name: "end_message", type: "textarea" },
+    ],
+  },
 ];

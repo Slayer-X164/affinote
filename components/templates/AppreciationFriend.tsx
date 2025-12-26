@@ -24,8 +24,27 @@ const item: Variants = {
     },
   },
 };
+type AppreciationFriendProptype = {
+  photo_text_1: string;
+  photo_1: string;
+  photo_text_2: string;
+  photo_2: string;
+  photo_text_3: string;
+  photo_3: string;
+  end_message: string;
+};
+export default function AppreciationFriend({
+  photo_text_1 = "day at college",
+  photo_1 = "https://i.pinimg.com/1200x/01/7c/04/017c04c42e32a0a774fed4fe54c4a3a5.jpg",
 
-export default function AppreciationFriend() {
+  photo_text_2 = "our cafe hops",
+  photo_2 = "https://i.pinimg.com/736x/53/21/16/5321167fe285f106a7630ccf1e527b1d.jpg",
+
+  photo_text_3 = "Random hangout",
+  photo_3 = "https://i.pinimg.com/736x/3b/2e/a2/3b2ea263064478864d4349a6211a4443.jpg",
+
+  end_message = ` I was just thinking about how much I appreciate having you in my life. No matter how much time passes, nothing ever changes between us, and I love that. Thanks for being the one person I can always be 100% myself around, no filters needed. You’ve been there for the big wins and the messy days, and it means the world to me. Life is just a lot better and way funnier with you in my corner. I don’t say it enough, but thanks for being the best friend I could ask for. You’re stuck with me forever , just thought you should know! no filters needed. You’ve been there for the big wins and the messy days, and it means the world to me. Life is just a lot better and way funnier with you in my corner.`,
+}: AppreciationFriendProptype) {
   const [phase, setPhase] = useState<"ph1" | "ph2" | "ph3" | "ph4">("ph1");
   const [showThanks, setShowThanks] = useState(false);
   const [capturedPhoto, setCapturedPhoto] = useState<string | null>(null);
@@ -146,15 +165,14 @@ export default function AppreciationFriend() {
                 />
                 <div
                   style={{
-                    backgroundImage:
-                      'url("https://i.pinimg.com/1200x/01/7c/04/017c04c42e32a0a774fed4fe54c4a3a5.jpg")',
+                    backgroundImage: `url(${photo_1})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
                   className="w-44  h-46"
                 ></div>
                 <h3 className="text-[#615b41] font-mono font-semibold text-md">
-                  day at college
+                  {photo_text_1}
                 </h3>
               </motion.div>
               {/* photo 2 */}
@@ -169,15 +187,14 @@ export default function AppreciationFriend() {
                 />
                 <div
                   style={{
-                    backgroundImage:
-                      'url("https://i.pinimg.com/736x/53/21/16/5321167fe285f106a7630ccf1e527b1d.jpg")',
+                    backgroundImage: `url(${photo_2})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
                   className="w-44  h-46"
                 ></div>
                 <h3 className="text-[#615b41] font-mono font-semibold text-md">
-                  our cafe hops
+                  {photo_text_2}
                 </h3>
               </motion.div>
               {/* photo 3  */}
@@ -192,15 +209,14 @@ export default function AppreciationFriend() {
                 />
                 <div
                   style={{
-                    backgroundImage:
-                      'url("https://i.pinimg.com/736x/3b/2e/a2/3b2ea263064478864d4349a6211a4443.jpg")',
+                    backgroundImage: `url(${photo_3})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
                   className="w-44  h-46"
                 ></div>
                 <h3 className="text-[#615b41] font-mono font-semibold text-md">
-                  Random hangout
+                  {photo_text_3}
                 </h3>
               </motion.div>
             </motion.div>
@@ -218,26 +234,23 @@ export default function AppreciationFriend() {
             }}
             className="px-4 pb-6 flex flex-col items-center justify-center"
           >
-
             <img
               src="https://media.tenor.com/TRSYCx4GnGoAAAAj/budding-pop-friends.gif"
               alt="high five gif"
               className="w-50 translate-y-1"
             />
-            <div className="rounded-2xl border-3 border-[#beab54] text-[#4b421c] min-w-60 max-w-[500px] text-md font-mono font-semibold px-4 py-10 min-h-60 bg-[#f3e299] text-center relative">
-              <img src="https://i.pinimg.com/originals/af/1f/9d/af1f9d34e42a47edf37a27417977c8d5.png" alt="" className="absolute -top-8 rotate-12 -left-8  w-20"/>
-               <img src="https://i.pinimg.com/originals/af/1f/9d/af1f9d34e42a47edf37a27417977c8d5.png" alt="" className="absolute -bottom-8 -rotate-12 -right-8 w-20"/>
-              I was just thinking about how much I appreciate having you in my
-              life. No matter how much time passes, nothing ever changes between
-              us, and I love that. Thanks for being the one person I can always
-              be 100% myself around, no filters needed. You’ve been there for
-              the big wins and the messy days, and it means the world to me.
-              Life is just a lot better (and way funnier) with you in my corner.
-              I don’t say it enough, but thanks for being the best friend I
-              could ask for. You’re stuck with me forever , just thought you
-              should know! no filters needed. You’ve been there for the big wins
-              and the messy days, and it means the world to me. Life is just a
-              lot better (and way funnier) with you in my corner.
+            <div className="rounded-2xl border-3 border-[#beab54] text-[#4b421c] min-w-60 max-w-[500px] text-md font-mono font-semibold px-4 py-10 min-h-60 bg-[#f3e299] text-center relative break-words">
+              <img
+                src="https://i.pinimg.com/originals/af/1f/9d/af1f9d34e42a47edf37a27417977c8d5.png"
+                alt=""
+                className="absolute -top-8 rotate-12 -left-8  w-20"
+              />
+              <img
+                src="https://i.pinimg.com/originals/af/1f/9d/af1f9d34e42a47edf37a27417977c8d5.png"
+                alt=""
+                className="absolute -bottom-8 -rotate-12 -right-8 w-20"
+              />
+              {end_message}
             </div>
           </motion.div>
         )}
