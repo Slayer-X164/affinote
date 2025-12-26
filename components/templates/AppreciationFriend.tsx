@@ -239,7 +239,7 @@ export default function AppreciationFriend({
               alt="high five gif"
               className="w-50 translate-y-1"
             />
-            <div className="rounded-2xl border-3 border-[#beab54] text-[#4b421c] min-w-60 max-w-[500px] text-md font-mono font-semibold px-4 py-10 min-h-60 bg-[#f3e299] text-center relative break-words">
+            <div className="rounded-2xl border-3 border-[#beab54] text-[#4b421c]  max-w-[500px] text-md font-mono font-semibold px-4 py-10 min-h-60 bg-[#f3e299] text-center relative break-words">
               <img
                 src="https://i.pinimg.com/originals/af/1f/9d/af1f9d34e42a47edf37a27417977c8d5.png"
                 alt=""
