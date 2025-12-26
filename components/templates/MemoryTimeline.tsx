@@ -340,7 +340,7 @@ const MemoryTimeline = ({
               backgroundPosition: "center",
             }}
           >
-            <h3 className="max-w-md text-lg text-center bg-[#a2cbed] rounded-xl p-6 font-bold border-3 border-[#522912] text-[#274660] relative break-words">
+            <h3 className="min-w-sm min-h-sm text-lg text-center bg-[#a2cbed] rounded-xl p-6 font-bold border-3 border-[#522912] text-[#274660] relative break-words">
               {end_message}
               <img
                 src="/Memotime/flg.gif"
