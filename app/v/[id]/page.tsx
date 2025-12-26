@@ -6,6 +6,12 @@ import ApologyForGf from "@/components/templates/ApologyForGf";
 import ApologyForBf from "@/components/templates/ApologyForBf";
 import MemoryTimeline from "@/components/templates/MemoryTimeline";
 import AppreciationFriend from "@/components/templates/AppreciationFriend";
+export const metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 const componentMap: any = {
   "envolope-letter": EnvelopeLetter,
