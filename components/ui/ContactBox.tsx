@@ -29,13 +29,14 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 
   if (res.ok) {
     setSent(true);
-    form.reset(); 
+    form.reset();
   }
 }
 
 
   return (
-    <div className="max-w-xl mx-auto my-10 p-6  bg-blue-100 border-blue-400 rounded-2xl  relative">
+    <div className="flex justify-center items-center w-screen h-auto px-3">
+      <div className="max-w-xl w-full mx-auto my-10 p-6  bg-blue-100 border-blue-400 rounded-2xl  relative">
       <span className="w-full -z-1 h-full  absolute left-2 top-2 "></span>
       {!sent && (
         <h2 className="text-2xl font-bold text-blue-900 text-center mb-4 font-sans">
@@ -76,6 +77,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
           </button>
         </form>
       )}
+    </div>
     </div>
   );
 }
