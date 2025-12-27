@@ -6,7 +6,7 @@ import { geistSans, playfairDisplay } from "./font";
   metadataBase: new URL("https://affinote.site"),
 
   title: {
-    default: "Affinote — Create Cute & Animated Notes for Your Loved Ones",
+    default: "Affinote — Create Cute & Shareable Pages for Your Loved Ones",
     template: "%s | Affinote",
   },
 
