@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { cedarville } from "@/app/layout";
+import { cedarville } from "@/app/font";
 
 type letterProps = {
   name?: string;

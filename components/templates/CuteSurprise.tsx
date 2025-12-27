@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Gift, Flower2, RotateCcw } from "lucide-react";
 import Confetti from "react-confetti";
 import Flowers from "../ui/CuteFlowerSurprise/Flowers";
-import { playfairDisplay } from "@/app/layout";
+import { playfairDisplay } from "@/app/font";
 
 type Phase = "envelope" | "game" | "gift" | "flower";
 type SquareValue = "X" | "O" | null;

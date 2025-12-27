@@ -17,8 +17,8 @@ import AppreciationFriend from "@/components/templates/AppreciationFriend";
 const componentMap = {
   "envolope-letter": EnvelopeLetter,
   "flower-surprise": CuteSurprise,
-  "Apology-for-gf": ApologyForGf,
-  "Apology-for-bf-gf": ApologyForBf,
+  "apology-for-gf": ApologyForGf,
+  "apology-for-bf-gf": ApologyForBf,
   "memory-timeline": MemoryTimeline,
   "appreciation-for-friend": AppreciationFriend,
 };

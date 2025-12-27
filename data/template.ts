@@ -25,7 +25,7 @@ export const Templates = [
     fields: [{ name: "text", type: "text" }],
   },
   {
-    id: "Apology-for-gf",
+    id: "apology-for-gf",
     title: "Apology For GF",
     description:
       "a small fun interactive Apology Template for your angry girlfriend",
@@ -35,7 +35,7 @@ export const Templates = [
     fields: [{ name: "from", type: "text" }],
   },
   {
-    id: "Apology-for-bf-gf",
+    id: "apology-for-bf-gf",
     title: "Apology For BF/GF",
     description:
       "a message like cute template for you angry loved one , make them happy",

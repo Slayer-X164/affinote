@@ -1,3 +1,4 @@
+// app/v/[id]/page.tsx
 import { createClient } from "@supabase/supabase-js";
 
 import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
@@ -6,6 +7,7 @@ import ApologyForGf from "@/components/templates/ApologyForGf";
 import ApologyForBf from "@/components/templates/ApologyForBf";
 import MemoryTimeline from "@/components/templates/MemoryTimeline";
 import AppreciationFriend from "@/components/templates/AppreciationFriend";
+
 export const metadata = {
   robots: {
     index: false,
@@ -16,16 +18,15 @@ export const metadata = {
 const componentMap: any = {
   "envolope-letter": EnvelopeLetter,
   "flower-surprise": CuteSurprise,
-  "Apology-for-gf": ApologyForGf,
-  "Apology-for-bf-gf": ApologyForBf,
+  "apology-for-gf": ApologyForGf,
+  "apology-for-bf-gf": ApologyForBf,
   "memory-timeline": MemoryTimeline,
   "appreciation-for-friend": AppreciationFriend,
 };
 
 export default async function ViewPage({ params }: any) {
   // FIX: unwrap promise
-  const resolvedParams = await params;
-  const id = resolvedParams.id;
+  const { id } = params;
 
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,

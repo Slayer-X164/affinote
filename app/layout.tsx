@@ -1,22 +1,7 @@
 import type { Metadata } from "next";
-import { Cedarville_Cursive, Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { geistSans, playfairDisplay } from "./font";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-export const cedarville = Cedarville_Cursive({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-})
-export const playfairDisplay = Playfair_Display({
-  variable:"--font-playfair-display",
-  subsets:['latin'],
-  display: 'swap',
-})
  export const metadata: Metadata = {
   metadataBase: new URL("https://affinote.site"),
 

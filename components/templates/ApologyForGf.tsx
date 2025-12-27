@@ -1,17 +1,15 @@
+// components/templates/ApologyForGf.tsx
 "use client";
 
 import { FaLock } from "react-icons/fa";
 import { PiCursorClickThin } from "react-icons/pi";
-import { TbHandClick } from "react-icons/tb";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react";
-import { cedarville, playfairDisplay } from "@/app/layout";
+import { useState } from "react";
+import { playfairDisplay } from "@/app/font";
 type apologyPropType = {
-    from:string
-}
-const ApologyForGf = ({
-    from = 'Bae'
-}:apologyPropType) => {
+  from: string;
+};
+const ApologyForGf = ({ from = "Bae" }: apologyPropType) => {
   const [phase, setPhase] = useState<"ph1" | "ph2" | "ph3" | "ph4">("ph1");
 
   return (
@@ -19,9 +17,8 @@ const ApologyForGf = ({
       {/* Phone */}
       <AnimatePresence mode="wait">
         {phase == "ph1" && (
-
           <motion.div
-          key={'ph1'}
+            key={"ph1"}
             initial={{
               y: 300,
               opacity: 0.5,
@@ -67,7 +64,10 @@ const ApologyForGf = ({
               <h1 className="text-5xl font-bold mt-2 text-black">11:11</h1>
 
               {/* Notification */}
-              <div onClick={()=>setPhase('ph2')} className="mt-10 w-full relative hover:scale-105 transition-all duration-300 cursor-default active:scale-105 ">
+              <div
+                onClick={() => setPhase("ph2")}
+                className="mt-10 w-full relative hover:scale-105 transition-all duration-300 cursor-default active:scale-105 "
+              >
                 <motion.h3
                   animate={{
                     scale: [1, 1.3, 1],
@@ -99,98 +99,139 @@ const ApologyForGf = ({
               </div>
             </div>
           </motion.div>
-
-      )}
-      {phase == 'ph2' &&
-        <motion.div
-        initial={{
-            scale:0.8,
-            opacity:0.8
-        }}
-        animate={{
-            scale:1,
-            opacity:1
-        }}
-        exit={{
-             scale:0.1,
-            opacity:0.8
-        }}
-        key={'ph2'}
-        className="flex flex-col items-center gap-8"
-
-        onLoad={()=>{
-            setTimeout(() => {
-                setPhase('ph3')
-            }, 5000);
-        }}>
-            <h1 className="text-2xl font-semibold">i know you are mad at me babe </h1>
-            <img src="/ApologyGf/sad_teddy.gif" alt="teddy gif" className="border-4 border-[#9b6cffaf] rounded-2xl"/>
-             <HeartRain/>
-            <h3 className="text-center text-xl font-semibold">Wait to see what <br /> i made for you...</h3>
-        </motion.div>
-      }
-      {phase == 'ph3' && (
-        <motion.div
-key={'ph3'}
-        initial={{
-            scale:0,
-            opacity:0
-        }}
-        animate={{
-            scale:1,
-            opacity:1
-        }}
-        transition={{
-            duration:1,
-            ease:"backInOut"
-        }}exit={{
-                    y:-500
-                 }} className="flex flex-col items-center gap-8 px-3">
-
+        )}
+        {phase == "ph2" && (
+          <motion.div
+            initial={{
+              scale: 0.8,
+              opacity: 0.8,
+            }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+            }}
+            exit={{
+              scale: 0.1,
+              opacity: 0.8,
+            }}
+            key={"ph2"}
+            className="flex flex-col items-center gap-8"
+            onLoad={() => {
+              setTimeout(() => {
+                setPhase("ph3");
+              }, 5000);
+            }}
+          >
+            <h1 className="text-2xl font-semibold">
+              i know you are mad at me babe{" "}
+            </h1>
+            <img
+              src="/ApologyGf/sad_teddy.gif"
+              alt="teddy gif"
+              className="border-4 border-[#9b6cffaf] rounded-2xl"
+            />
+            <HeartRain />
+            <h3 className="text-center text-xl font-semibold">
+              Wait to see what <br /> i made for you...
+            </h3>
+          </motion.div>
+        )}
+        {phase == "ph3" && (
+          <motion.div
+            key={"ph3"}
+            initial={{
+              scale: 0,
+              opacity: 0,
+            }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 1,
+              ease: "backInOut",
+            }}
+            exit={{
+              y: -500,
+            }}
+            className="flex flex-col items-center gap-8 px-3"
+          >
             <div className="relative rounded-2xl bg-[#ff988c] w-60  h-auto p-4 flex flex-col items-center gap-6 py-8 border-2 border-[#522912]">
-                 <motion.img initial={{
-                    y:50
-                 }}
-                 animate={{
-                    y:0
-                 }}  src="/ApologyGf/cat.gif" alt="cat gif" className="absolute -top-45 w-44" />
-                <img src="/ApologyGf/letter.gif" alt="letter" className="w-30"/>
-                <div className="w-full flex justify-center">
-                    <button onClick={()=>{
-                        setPhase('ph4')
-                    }} className="bg-[#fffceb] px-6 py-2 cursor-pointer hover:scale-105 active:scale-105 transition-all duration-300 text-lg font-semibold rounded-full shadow-xl shadow-[#e98d82]">Accept This Gift</button>
-                </div>
+              <motion.img
+                initial={{
+                  y: 50,
+                }}
+                animate={{
+                  y: 0,
+                }}
+                src="/ApologyGf/cat.gif"
+                alt="cat gif"
+                className="absolute -top-45 w-44"
+              />
+              <img src="/ApologyGf/letter.gif" alt="letter" className="w-30" />
+              <div className="w-full flex justify-center">
+                <button
+                  onClick={() => {
+                    setPhase("ph4");
+                  }}
+                  className="bg-[#fffceb] px-6 py-2 cursor-pointer hover:scale-105 active:scale-105 transition-all duration-300 text-lg font-semibold rounded-full shadow-xl shadow-[#e98d82]"
+                >
+                  Accept This Gift
+                </button>
+              </div>
             </div>
-        </motion.div>
-      )}
-      {phase == 'ph4' && (
-        <motion.div
-        initial={{
-            y:500,
-            scale:0.5
-        }}
-        animate={{
-            y:0,
-            scale:1
-        }}
-        transition={{
-            duration:1,
-            ease:"backInOut"
-        }}
-        key={'ph4'} className="flex w-screen min-h-screen pt-10 flex-col gap-4 items-center">
-            <h1 className={`${playfairDisplay.className} text-[#4a4941] font-bold text-3xl w-[60%] text-center `}>i'm Sorry i Hurt You!</h1>
-            <h3 className="text-center italic text-[#4a4941]  text-lg font-semibold w-46">Got this Bouquet and a Cat for you </h3>
+          </motion.div>
+        )}
+        {phase == "ph4" && (
+          <motion.div
+            initial={{
+              y: 500,
+              scale: 0.5,
+            }}
+            animate={{
+              y: 0,
+              scale: 1,
+            }}
+            transition={{
+              duration: 1,
+              ease: "backInOut",
+            }}
+            key={"ph4"}
+            className="flex w-screen min-h-screen pt-10 flex-col gap-4 items-center"
+          >
+            <h1
+              className={`${playfairDisplay.className} text-[#4a4941] font-bold text-3xl w-[60%] text-center `}
+            >
+              i'm Sorry i Hurt You!
+            </h1>
+            <h3 className="text-center italic text-[#4a4941]  text-lg font-semibold w-46">
+              Got this Bouquet and a Cat for you{" "}
+            </h3>
             <div className="w-auto h-auto flex flex-col items-center md:flex-row gap-4">
-                <img src="/ApologyGf/fl2.png" alt="flower bouq" className="-rotate-45 w-40" />
-                <img src="/ApologyGf/fly_cat.gif" alt="cat gif flying" className="w-60"/>
+              <img
+                src="/ApologyGf/fl2.png"
+                alt="flower bouq"
+                className="-rotate-45 w-40"
+              />
+              <img
+                src="/ApologyGf/fly_cat.gif"
+                alt="cat gif flying"
+                className="w-60"
+              />
             </div>
 
             <div className="flex flex-col gap-3  items-center">
-                <h3 className="text-3xl uppercase font-bold text-pink-400">i love you babe 💗</h3>
-                <img src="/ApologyGf/fly_kiss.gif" alt="cat fly kiss gif" className="w-50"/>
+              <h3 className="text-3xl uppercase font-bold text-pink-400">
+                i love you babe 💗
+              </h3>
+              <img
+                src="/ApologyGf/fly_kiss.gif"
+                alt="cat fly kiss gif"
+                className="w-50"
+              />
             </div>
-        </motion.div>
-      )}
+          </motion.div>
+        )}
       </AnimatePresence>
     </div>
   );
@@ -212,7 +253,6 @@ const HeartRain = () => {
   );
 };
 
-
 const HollowHeart = ({ left, size, duration, delay }: any) => (
   <svg
     className="heart"
@@ -231,6 +271,5 @@ const HollowHeart = ({ left, size, duration, delay }: any) => (
     <path d="M20.8 4.6c-1.4-1.4-3.6-1.4-5 0L12 8.4 8.2 4.6c-1.4-1.4-3.6-1.4-5 0s-1.4 3.6 0 5l8.8 8.8 8.8-8.8c1.4-1.4 1.4-3.6 0-5z" />
   </svg>
 );
-
 
 export default ApologyForGf;
