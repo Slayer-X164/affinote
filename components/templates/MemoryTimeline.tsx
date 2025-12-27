@@ -3,14 +3,14 @@
 import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import { motion, AnimatePresence, PanInfo, Variants } from "motion/react";
 type memoryTlPropType = {
-  title_1: string;
-  photo_1: string;
-  photo_2: string;
-  title_2: string;
-  photo_3: string;
-  photo_4: string;
-  photo_5: string;
-  end_message: string;
+  title_1?: string;
+  photo_1?: string;
+  photo_2?: string;
+  title_2?: string;
+  photo_3?: string;
+  photo_4?: string;
+  photo_5?: string;
+  end_message?: string;
 };
 const MemoryTimeline = ({
   title_1 = "Our first Date 🥺 🎀",
@@ -340,7 +340,7 @@ const MemoryTimeline = ({
               backgroundPosition: "center",
             }}
           >
-            <h3 className="min-w-sm min-h-sm text-lg text-center bg-[#a2cbed] rounded-xl p-6 font-bold border-3 border-[#522912] text-[#274660] relative break-words">
+            <h3 className="sm:w-[450px] w-full min-h-sm text-lg text-center bg-[#a2cbed] rounded-xl p-6 font-bold border-3 border-[#522912] text-[#274660] relative break-words">
               {end_message}
               <img
                 src="/Memotime/flg.gif"

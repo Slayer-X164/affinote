@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { playfairDisplay } from "@/app/font";
 type apologyPropType = {
-  from: string;
+  from?: string;
 };
 const ApologyForGf = ({ from = "Bae" }: apologyPropType) => {
   const [phase, setPhase] = useState<"ph1" | "ph2" | "ph3" | "ph4">("ph1");

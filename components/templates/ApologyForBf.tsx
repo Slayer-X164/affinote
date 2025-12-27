@@ -70,12 +70,12 @@ const chatBubble: Variants = {
   },
 };
 type ApologyPropType = {
-    name:string
-    left_text_1:string
-    right_text_1:string
-    right_text_2:string
-    sorry_message:string
-    final_message:string
+    name?:string
+    left_text_1?:string
+    right_text_1?:string
+    right_text_2?:string
+    sorry_message?:string
+    final_message?:string
 
 }
 export default function ApologyForBf({

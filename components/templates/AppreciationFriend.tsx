@@ -25,13 +25,13 @@ const item: Variants = {
   },
 };
 type AppreciationFriendProptype = {
-  photo_text_1: string;
-  photo_1: string;
-  photo_text_2: string;
-  photo_2: string;
-  photo_text_3: string;
-  photo_3: string;
-  end_message: string;
+  photo_text_1?: string;
+  photo_1?: string;
+  photo_text_2?: string;
+  photo_2?: string;
+  photo_text_3?: string;
+  photo_3?: string;
+  end_message?: string;
 };
 export default function AppreciationFriend({
   photo_text_1 = "day at college",
