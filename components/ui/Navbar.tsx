@@ -117,7 +117,7 @@ const Navbar = () => {
               )}
 
               {links.map((item) => (
-                <div key={item.id} className="flex flex-col gap-1 ">
+                <div key={item.id} className="flex flex-col gap-1 pt-2">
                   <h3 className="text-sm capitalize font-semibold text-neutral-800">
                     {item.template_id.replaceAll("-", " ")}
                   </h3>

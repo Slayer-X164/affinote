@@ -26,7 +26,7 @@ const componentMap: any = {
 
 export default async function ViewPage({ params }: any) {
   // FIX: unwrap promise
-  const { id } = params;
+  const { id } =await params;
 
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
