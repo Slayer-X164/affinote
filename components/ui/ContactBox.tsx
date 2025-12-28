@@ -35,7 +35,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 
 
   return (
-    <div className="flex justify-center items-center w-screen h-auto px-3">
+    <div id="contact" className=" flex justify-center items-center w-full h-auto px-3">
       <div className="max-w-xl w-full mx-auto my-10 p-6  bg-blue-100 border-blue-400 rounded-2xl  relative">
       <span className="w-full -z-1 h-full  absolute left-2 top-2 "></span>
       {!sent && (

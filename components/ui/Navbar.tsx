@@ -72,8 +72,8 @@ const Navbar = () => {
                 Chat with Us
               </a>
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=connectaffinote@gmail.com"
-                target="_blank"
+                href="#contact"
+                
                 className="flex hover:bg-neutral-100 shadow-2xl shadow-blue-800  text-neutral-600 font-semibold  items-center gap-3 bg-neutral-50 rounded-xl px-4 py-2"
               >
                 <img src="/gmail.png" alt="instagram" className="w-6 " />
