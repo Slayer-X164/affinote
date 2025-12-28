@@ -14,6 +14,7 @@ import ApologyForGf from "@/components/templates/ApologyForGf";
 import ApologyForBf from "@/components/templates/ApologyForBf";
 import MemoryTimeline from "@/components/templates/MemoryTimeline";
 import AppreciationFriend from "@/components/templates/AppreciationFriend";
+import { getVisitorId } from "@/lib/visitor";
 const componentMap = {
   "envolope-letter": EnvelopeLetter,
   "flower-surprise": CuteSurprise,
@@ -82,11 +83,14 @@ export default function page() {
       return;
     }
     setBtnLoader(true);
+    const visitor_ID = getVisitorId()
     const response = await fetch("/api/create-instance", {
       method: "POST",
       body: JSON.stringify({
         template_id: templateID,
         data: formData,
+        visitor_id:visitor_ID
+
       }),
     });
     const supData = await response.json();
