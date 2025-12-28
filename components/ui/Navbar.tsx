@@ -98,7 +98,7 @@ const Navbar = () => {
                 duration: 0.3,
                 ease: "backInOut",
               }}
-              className="absolute px-3 py-3  right-0 top-16 bg-blue-100 border-blue-400 rounded-2xl flex flex-col  min-h-20  shadow-blue-900/40 z-1000 max-h-90   justify-center items-center"
+              className="absolute px-4 py-3  right-0 top-16 bg-blue-100 border-blue-400 rounded-2xl flex flex-col  min-h-20  shadow-blue-800/30 z-1000 max-h-90   justify-center items-center shadow-2xl "
             >
               <h3 className="flex text-center flex-col items-center w-full font-semibold gap-1 text-sm text-neutral-500">
                 visitor id: <br /> <span className="text-xs w-[80%]  font-mono">{visitID}</span>
@@ -117,9 +117,9 @@ const Navbar = () => {
               )}
 
               {links.map((item) => (
-                <div key={item.id} className="flex flex-col gap-1 pt-2">
-                  <h3 className="text-sm capitalize font-semibold text-neutral-800">
-                    {item.template_id.replaceAll("-", " ")}
+                <div key={item.id} className="flex flex-col gap-1 pt-2.5">
+                  <h3 className="text-sm pl-1 pb-0.5 capitalize font-semibold text-neutral-800">
+                    {item.template_id.replaceAll("-", " ")}:
                   </h3>
                   <a
                     href={`/v/${item.id}`}
