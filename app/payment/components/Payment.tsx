@@ -55,7 +55,6 @@ export default function PaymentPage() {
       },
     };
 
-
     const rzp = new (window as any).Razorpay(options);
     rzp.open();
   };
@@ -73,7 +72,7 @@ export default function PaymentPage() {
       />
 
       <div className="min-h-screen flex flex-col items-center justify-start  px-3">
-        <Navbar/>
+        <Navbar />
         <Toaster position="top-center" reverseOrder={false} />
         <h1 className="text-3xl font-bold mb-4 pt-20">Complete your Payment</h1>
 
@@ -97,7 +96,11 @@ export default function PaymentPage() {
             `Pay ₹${price}`
           )}
         </button>
-
+        {!razorpayScriptLoader && (
+          <h3 className="mt-6 text-sm px-4 py-1.5 border-2 border-dashed border-amber-500 text-center text-amber-500 font-semibold rounded-2xl">
+            NOTE: if its taking to long to laod, <br /> refresh page
+          </h3>
+        )}
         {loading && <p className="mt-4">Payment Processing...</p>}
       </div>
     </>

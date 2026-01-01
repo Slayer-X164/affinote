@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { geistSans, playfairDisplay } from "./font";
 
- export const metadata: Metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL("https://affinote.site"),
 
   title: {
     default: "Affinote — Create Cute & Shareable Pages for Your Loved Ones",
     template: "%s | Affinote",
+  },
+  icons: {
+    icon: "/favicon.ico",
   },
 
   description:
@@ -60,7 +63,6 @@ import { geistSans, playfairDisplay } from "./font";
     follow: true,
   },
 };
-
 
 export default function RootLayout({
   children,

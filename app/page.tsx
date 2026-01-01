@@ -1,4 +1,5 @@
 import ContactBox from "@/components/ui/ContactBox";
+import Footer from "@/components/ui/Footer";
 import Hero from "@/components/ui/Hero";
 import Navbar from "@/components/ui/Navbar";
 import TemplateSection from "@/components/ui/TemplateSection";
@@ -10,6 +11,7 @@ export default function Home() {
     <Hero/>
     <TemplateSection/>
     <ContactBox/>
+    <Footer/>
    </div>
   );
 }
