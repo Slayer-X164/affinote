@@ -4,8 +4,8 @@ export const Templates = [
     title: "Birthday Envolope Letter",
     description:
       "Celebrate birthdays with warmth and timeless charm using this beautifully designed vintage-style birthday letter template. Featuring soft floral patterns, layered paper textures, and delicate handwritten accents, this template evokes a nostalgic",
-    price: 1,
-    st_price: 30,
+    price: 49,
+    st_price: 129,
     previewImg: "/previewImg/envLetter.png",
     fields: [
       { name: "person_name", type: "text" },
@@ -19,8 +19,8 @@ export const Templates = [
     title: "Flower Surpirse",
     description:
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
-    price: 1,
-    st_price: 120,
+    price: 49,
+    st_price: 199,
     previewImg: "/previewImg/flowerSurp.png",
     fields: [
       { name: "start_message", type: "text" },
@@ -32,8 +32,8 @@ export const Templates = [
     title: "Apology For GF",
     description:
       "a small fun interactive Apology Template for your angry girlfriend",
-    price: 1,
-    st_price: 68,
+    price: 79,
+    st_price: 249,
     previewImg: "/previewImg/ApologyForGf.png",
     fields: [
       { name: "from_name", type: "text" },
@@ -46,8 +46,8 @@ export const Templates = [
     title: "Apology For BF/GF",
     description:
       "a message like cute template for you angry loved one , make them happy",
-    price: 1,
-    st_price: 45,
+    price: 79,
+    st_price: 249,
     previewImg: "/previewImg/ApologyForBFGF.png",
     fields: [
       { name: "from_name", type: "text" },
@@ -63,8 +63,8 @@ export const Templates = [
     title: "Memory Timeline",
     description:
       "A nostalgic memory timeline with photos and notes for your loved one",
-    price: 1,
-    st_price: 99,
+    price: 59,
+    st_price: 199,
     previewImg: "/previewImg/memoTime.png",
     fields: [
       { name: "title_1", type: "text" },
@@ -86,8 +86,8 @@ export const Templates = [
     title: "Appreciation for a Friend",
     description:
       "A heartfelt appreciation page with memories, photos, and a meaningful message for your best friend.",
-    price: 1,
-    st_price: 79,
+    price: 49,
+    st_price: 229,
     previewImg: "/previewImg/appreciationFriend.png",
     fields: [
       { name: "photo_text_1", type: "text" },

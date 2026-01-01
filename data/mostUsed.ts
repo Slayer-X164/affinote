@@ -5,8 +5,8 @@ export const MostUsedTemplates = [
     title: "Flower Surpirse",
     description:
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
-    price: 1,
-    st_price: 120,
+    price: 49,
+    st_price: 190,
     previewImg: "/previewImg/flowerSurp.png",
     fields: [{ name: "text", type: "text" }],
   },
@@ -15,28 +15,30 @@ export const MostUsedTemplates = [
     title: "Apology For GF",
     description:
       "a small fun interactive Apology Template for your angry girlfriend",
-    price: 1,
-    st_price: 68,
+    price: 79,
+    st_price: 249,
     previewImg: "/previewImg/ApologyForGf.png",
     fields: [{ name: "from", type: "text" }],
   },
   {
-    id: "appreciation-for-friend",
-    title: "Appreciation for a Friend",
+    id: "memory-timeline",
+    title: "Memory Timeline",
     description:
-      "A heartfelt appreciation page with memories, photos, and a meaningful message for your best friend.",
-    price: 1,
-    st_price: 79,
-    previewImg: "/previewImg/appreciationFriend.png",
+      "A nostalgic memory timeline with photos and notes for your loved one",
+    price: 59,
+    st_price: 199,
+    previewImg: "/previewImg/memoTime.png",
     fields: [
-      { name: "photo_text_1", type: "text" },
-      { name: "photo_1", type: "image" },
+      { name: "title_1", type: "text" },
 
-      { name: "photo_text_2", type: "text" },
+      { name: "photo_1", type: "image" },
       { name: "photo_2", type: "image" },
 
-      { name: "photo_text_3", type: "text" },
+      { name: "title_2", type: "text" },
+
       { name: "photo_3", type: "image" },
+      { name: "photo_4", type: "image" },
+      { name: "photo_5", type: "image" },
 
       { name: "end_message", type: "textarea" },
     ],
