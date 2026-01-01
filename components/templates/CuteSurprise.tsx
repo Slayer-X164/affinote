@@ -14,10 +14,12 @@ interface WinInfo {
   line: number[];
 }
 type surprisePropsType = {
-  text?:string
+  start_message?:string
+  end_message?:string
 }
 const CuteSurprise = ({
-  text = `Because you make every day as bright as a blooming flower.
+  start_message = "Open when u miss me !",
+  end_message = `Because you make every day as bright as a blooming flower.
         I miss you more than words can say!`
 }:surprisePropsType) => {
   const [phase, setPhase] = useState<Phase>("envelope");
@@ -163,7 +165,7 @@ const CuteSurprise = ({
             <div className="relative w-80 h-52 bg-white rounded-b-2xl shadow-2xl shadow-blue-800/30 flex items-center justify-center border-2 border-blue-100 overflow-hidden">
               <div className="absolute inset-0 bg-blue-300" style={{ clipPath: "polygon(0 0, 50% 50%, 100% 0)" }}></div>
               <p className="z-10 text-blue-400 font-semibold text-center px-4 pt-20">
-                Open when you miss me !
+                {start_message}
               </p>
             </div>
           </motion.div>
@@ -268,7 +270,7 @@ const CuteSurprise = ({
     >
       <h1 className={`text-4xl font-sans  font-bold text-blue-400`}>For You!</h1>
       <p className="font-semibold text-blue-950 text-lg  ">
-        {text}
+        {end_message}
       </p>
 
       {/* Heart Icons */}

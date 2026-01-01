@@ -8,7 +8,7 @@ export const Templates = [
     st_price: 30,
     previewImg: "/previewImg/envLetter.png",
     fields: [
-      { name: "name", type: "text" },
+      { name: "person_name", type: "text" },
       { name: "paragraph_1", type: "textarea" },
       { name: "paragraph_2", type: "textarea" },
       { name: "signature", type: "text" },
@@ -22,7 +22,10 @@ export const Templates = [
     price: 1,
     st_price: 120,
     previewImg: "/previewImg/flowerSurp.png",
-    fields: [{ name: "text", type: "text" }],
+    fields: [
+      { name: "start_message", type: "text" },
+      { name: "end_message", type: "text" },
+    ],
   },
   {
     id: "apology-for-gf",
@@ -32,7 +35,11 @@ export const Templates = [
     price: 1,
     st_price: 68,
     previewImg: "/previewImg/ApologyForGf.png",
-    fields: [{ name: "from", type: "text" }],
+    fields: [
+      { name: "from_name", type: "text" },
+      { name: "sorry_message", type: "text" },
+      { name: "end_message", type: "text" }
+    ],
   },
   {
     id: "apology-for-bf-gf",
@@ -43,7 +50,7 @@ export const Templates = [
     st_price: 45,
     previewImg: "/previewImg/ApologyForBFGF.png",
     fields: [
-      { name: "name", type: "text" },
+      { name: "from_name", type: "text" },
       { name: "left_text_1", type: "text" },
       { name: "right_text_1", type: "text" },
       { name: "right_text_2", type: "text" },

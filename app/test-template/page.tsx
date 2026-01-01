@@ -14,7 +14,7 @@ export default function testTemplate() {
     {/* <ApologyForGf/> */}
     {/* <AppreciationFriend/> */}
     {/* <CuteSurprise/> */}
-    {/* <EnvelopeLetter/> */}
+    <EnvelopeLetter/>
     {/* <MemoryTimeline/> */}
     {/* <Success/> */}
     {/* // <div>test</div> */}

@@ -7,9 +7,15 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { playfairDisplay } from "@/app/font";
 type apologyPropType = {
-  from?: string;
+  from_name?: string;
+  sorry_message?: string;
+  end_message?: string;
 };
-const ApologyForGf = ({ from = "Bae" }: apologyPropType) => {
+const ApologyForGf = ({
+  from_name = "From Bae",
+  sorry_message = `I’m really sorry, okay? I messed up and I know I hurt you. That was not cool of me at all. You matter to me a lot and I hate that I made you feel bad. Please forgive me`,
+  end_message = ` Got this Bouquet and a Cat for you baby ❤️`
+}: apologyPropType) => {
   const [phase, setPhase] = useState<"ph1" | "ph2" | "ph3" | "ph4">("ph1");
 
   return (
@@ -89,7 +95,7 @@ const ApologyForGf = ({ from = "Bae" }: apologyPropType) => {
                     className="w-8 pt-1 rounded-full"
                   />
                   <div className="text-left text-sm w-32">
-                    <p className="font-bold">from {from} 💕</p>
+                    <p className="font-bold">{from_name} 💕</p>
                     <p className="text-gray-700 font-semibold text-xs">
                       I have smth for you &lt;3
                     </p>
@@ -168,7 +174,10 @@ const ApologyForGf = ({ from = "Bae" }: apologyPropType) => {
                 alt="cat gif"
                 className="absolute -top-45 w-44"
               />
-              <img src="/ApologyGf/letter.gif" alt="letter" className="w-30" />
+              <h3 className="text-center font-semibold text-[#35180a]">
+               {sorry_message}
+              </h3>
+
               <div className="w-full flex justify-center">
                 <button
                   onClick={() => {
@@ -205,7 +214,7 @@ const ApologyForGf = ({ from = "Bae" }: apologyPropType) => {
               i'm Sorry i Hurt You!
             </h1>
             <h3 className="text-center italic text-[#4a4941]  text-lg font-semibold w-46">
-              Got this Bouquet and a Cat for you{" "}
+             {end_message}
             </h3>
             <div className="w-auto h-auto flex flex-col items-center md:flex-row gap-4">
               <img

@@ -70,7 +70,7 @@ const chatBubble: Variants = {
   },
 };
 type ApologyPropType = {
-    name?:string
+    from_name?:string
     left_text_1?:string
     right_text_1?:string
     right_text_2?:string
@@ -79,7 +79,7 @@ type ApologyPropType = {
 
 }
 export default function ApologyForBf({
-    name = 'Lover❤️',
+    from_name = 'Lover❤️',
     left_text_1 = "Im soo done with you 😠",
     right_text_1 = "im sorry babe i know i messed up😔",
     right_text_2 = "But i made smth for you",
@@ -157,7 +157,7 @@ export default function ApologyForBf({
                   alt="teddy image"
                   className="w-8 rounded-full"
                 />
-                <h3 className="text-xl font-bold">{name}</h3>
+                <h3 className="text-xl font-bold">{from_name}</h3>
               </div>
               <div className="flex items-center gap-3 ">
                 <BsCameraVideo className="text-xl" />
