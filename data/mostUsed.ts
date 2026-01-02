@@ -2,7 +2,7 @@ export const MostUsedTemplates = [
 
   {
     id: "flower-surprise",
-    title: "Flower Surpirse",
+    title: "Flower Surprise",
     description:
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
     price: 49,
@@ -12,7 +12,7 @@ export const MostUsedTemplates = [
   },
   {
     id: "apology-for-gf",
-    title: "Apology For GF",
+    title: "Apology For GF/BF 2.0",
     description:
       "a small fun interactive Apology Template for your angry girlfriend",
     price: 79,

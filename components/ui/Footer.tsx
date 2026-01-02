@@ -24,10 +24,10 @@ const Footer = () => {
             <h3 className='text-sm font-semibold '>@ 2026 affinote. All Rights Reserved</h3>
             <div className='flex items-center gap-3'>
                <a href="https://www.instagram.com/getaffinote?igsh=N2JvZ3Ewdjdlenph" target='_blank'>
-                 <FaInstagram className='text-lg md:text-2xl cursor-pointer' />
+                 <FaInstagram className='text-xl md:text-2xl cursor-pointer' />
                </a>
                <a href="#">
-                 <BsTwitterX  className='text-lg md:text-1xl cursor-pointer'/>
+                 <BsTwitterX  className='text-md md:text-xl cursor-pointer'/>
                </a>
             </div>
         </div>

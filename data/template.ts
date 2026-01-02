@@ -1,7 +1,7 @@
 export const Templates = [
   {
     id: "envolope-letter",
-    title: "Birthday Envolope Letter",
+    title: "Birthday Envelope Letter",
     description:
       "Celebrate birthdays with warmth and timeless charm using this beautifully designed vintage-style birthday letter template. Featuring soft floral patterns, layered paper textures, and delicate handwritten accents, this template evokes a nostalgic",
     price: 49,
@@ -16,7 +16,7 @@ export const Templates = [
   },
   {
     id: "flower-surprise",
-    title: "Flower Surpirse",
+    title: "Flower Surprise",
     description:
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
     price: 49,
@@ -29,7 +29,7 @@ export const Templates = [
   },
   {
     id: "apology-for-gf",
-    title: "Apology For GF",
+    title: "Apology For GF/BF 2.0",
     description:
       "a small fun interactive Apology Template for your angry girlfriend",
     price: 79,
