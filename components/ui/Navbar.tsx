@@ -7,6 +7,7 @@ import { LuLink } from "react-icons/lu";
 import { getVisitorId } from "@/lib/visitor";
 import ButtonLoder from "./ButtonLoder";
 import { lobster } from "@/app/font";
+import { FaCode } from "react-icons/fa";
 
 const Navbar = () => {
   const [openContact, setOpenContact] = useState<boolean>(false);
@@ -158,7 +159,7 @@ const Navbar = () => {
                 duration: 0.3,
                 ease: "backInOut",
               }}
-              className="absolute px-3 py-3  right-0 -bottom-32 bg-blue-100 border-blue-400 rounded-2xl flex flex-col gap-3  shadow-blue-900/40 z-1000"
+              className="absolute px-3 py-3  right-0 top-16 bg-blue-100 border-blue-400 rounded-2xl flex flex-col gap-3  shadow-blue-900/40 z-1000"
             >
               <a
                 href="https://www.instagram.com/getaffinote?igsh=N2JvZ3Ewdjdlenph"
@@ -174,6 +175,14 @@ const Navbar = () => {
               >
                 <img src="/gmail.png" alt="instagram" className="w-6 " />
                 Mail Us
+              </a>
+               <a
+                href="https://www.instagram.com/getaffinote?igsh=N2JvZ3Ewdjdlenph"
+                target="_blank"
+                className="flex hover:bg-neutral-100 shadow-2xl shadow-blue-800  text-neutral-600 font-semibold  items-center gap-3 bg-neutral-50 rounded-xl text-xs px-4 py-2"
+              >
+               <FaCode className="text-lg w-6"/>
+                Looking For Source Code? <br />dm/mail Us 
               </a>
             </motion.div>
           )}
