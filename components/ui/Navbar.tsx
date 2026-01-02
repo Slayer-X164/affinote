@@ -6,6 +6,7 @@ import { IoIosLink } from "react-icons/io";
 import { LuLink } from "react-icons/lu";
 import { getVisitorId } from "@/lib/visitor";
 import ButtonLoder from "./ButtonLoder";
+import { lobster } from "@/app/font";
 
 const Navbar = () => {
   const [openContact, setOpenContact] = useState<boolean>(false);
@@ -34,14 +35,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="w-full h-20  flex justify-center items-center px-3 mb-3 mt-2">
+    <header className="w-full h-20  flex justify-center items-center px-3 mb-3 mt-0">
       <div
         ref={contactRef}
         className="max-w-6xl relative py-2 items-center w-full bg-blue-100/70  border-blue-300  rounded-full px-2 flex justify-between"
       >
         <Link href={"/"}>
-          <h3 className="text-xl lg:text-2xl font-semibold">
-            <span className="text-blue-400  pl-3 font-bold">Affinote</span>.site
+          <h3 className={`text-xl lg:text-2xl  ${lobster.className} `}>
+            <span className={`text-blue-500 pl-3 `}>Affinote</span>.site
           </h3>
         </Link>
 
@@ -62,9 +63,9 @@ const Navbar = () => {
                 setLoadingLinks(false);
               }
             }}
-            className="cursor-pointer transition-all duration-300 active:scale-90 text-blue-500  py-1.5 px-4 border-blue-400 border-2 border-dashed   font-semibold rounded-full "
+            className="cursor-pointer transition-all duration-300 active:scale-90 text-blue-500  py-1 px-4 border-blue-400 border-2 border-dashed   font-semibold rounded-full "
           >
-            Links
+            My Links
           </button>
           <button
             onClick={() => {
@@ -112,7 +113,7 @@ const Navbar = () => {
               {!loadingLinks && links.length === 0 && (
                 <p className="text-sm px-5  py-5 text-red-700 w-60 text-center">
                   No links found since you haven't purchased any
-                  Template
+                  <br /> Template
                 </p>
               )}
 

@@ -1,3 +1,4 @@
+import { lobster } from '@/app/font'
 import React from 'react'
 import { BsTwitterX } from 'react-icons/bs'
 import { FaInstagram } from 'react-icons/fa'
@@ -10,7 +11,7 @@ const Footer = () => {
            <div className='flex flex-col items-start gap-4'>
             <div className='flex items-center gap-2'>
                 <img src="/logo1.svg" alt="logo" className='w-10' />
-                <h3 className='text-2xl font-bold '>Affinote</h3>
+                <h3 className={`text-2xl font-bold ${lobster.className}`}>Affinote</h3>
             </div>
              <h3 className='text-sm md:text-lg font-normal md:w-[60%] w-full'>Create beautiful animated love Templates, apology letters, and appreciation pages. Pay once and share forever</h3>
            </div>

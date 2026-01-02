@@ -33,6 +33,7 @@ const Hero = () => {
           autoplay
         />
       </button>
+      <h4 className="text-center text-sm italic capitalize text-neutral-400">No login required • Pay once • Link stays forever</h4>
     </div>
   );
 };

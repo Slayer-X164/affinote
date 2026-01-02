@@ -7,6 +7,7 @@ import ApologyForGf from "@/components/templates/ApologyForGf";
 import ApologyForBf from "@/components/templates/ApologyForBf";
 import MemoryTimeline from "@/components/templates/MemoryTimeline";
 import AppreciationFriend from "@/components/templates/AppreciationFriend";
+import { FaHeart } from "react-icons/fa";
 
 export const metadata = {
   robots: {
@@ -71,12 +72,12 @@ export default async function ViewPage({ params }: any) {
   }
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center ">
+    <div className="min-h-screen w-full relative flex flex-col items-center ">
       <div className="w-full">
         <TemplateComponent {...data.data} />
       </div>
-      <p className="text-gray-400 text-xs py-2">
-        Created using ❤️{" "}
+      <p className="text-neutral-400 absolute bottom-0 text-xs py-2 flex items-center gap-1">
+        Created using <FaHeart className="text-red-400" />
         <a className="underline text-blue-400" href="https://affinote.site">
           Affinote
         </a>
