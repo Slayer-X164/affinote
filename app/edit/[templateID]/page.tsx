@@ -110,8 +110,8 @@ export default function page() {
       <div className="h-full max-w-6xl px-3 w-full py-10 flex flex-col-reverse gap-6  lg:flex-row items-start ">
         <Toaster position="top-center" reverseOrder={false} />
         <div className="w-full lg:w-[60%] bg-blue-50 border-blue-400 border-2 rounded-2xl overflow-hidden relative">
-          <h3 className="text-center bg-black text-neutral-50 text-sm py-0.5">
-            Live Preview
+          <h3 className="text-center bg-black text-neutral-50 text-sm p-0.5 pb-1">
+            Live Preview - updates as you type 👇
           </h3>
           <DisplayTemplate {...formData} />
         </div>
