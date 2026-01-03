@@ -13,7 +13,7 @@ type memoryTlPropType = {
   end_message?: string;
 };
 const MemoryTimeline = ({
-  title_1 = "Our first Date 🥺 🎀",
+  title_1 = "Our first Date 🥺",
   photo_1 = "https://i.pinimg.com/1200x/52/e5/96/52e596c979015a0bb72835198aebc89a.jpg",
   photo_2 = "https://i.pinimg.com/736x/00/d2/26/00d2261b4b92ad59a2e64371b08a6be7.jpg",
   title_2 = "day out at mall 💗",

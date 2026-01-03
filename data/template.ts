@@ -8,10 +8,18 @@ export const Templates = [
     st_price: 129,
     previewImg: "/previewImg/envLetter.png",
     fields: [
-      { name: "person_name", type: "text" },
-      { name: "paragraph_1", type: "textarea" },
-      { name: "paragraph_2", type: "textarea" },
-      { name: "signature", type: "text" },
+      { name: "person_name", type: "text", placeholder: "example: Raj" },
+      {
+        name: "paragraph_1",
+        type: "textarea",
+        placeholder: `example: Today feels special, not just because it marks another... `,
+      },
+      {
+        name: "paragraph_2",
+        type: "textarea",
+        placeholder: `example: May this year bring you memories worth keeping, dreams that feel closer than ever... `,
+      },
+      { name: "signature", type: "text", placeholder: "example: Your Riya" },
     ],
   },
   {
@@ -23,8 +31,17 @@ export const Templates = [
     st_price: 199,
     previewImg: "/previewImg/flowerSurp.png",
     fields: [
-      { name: "start_message", type: "text" },
-      { name: "end_message", type: "text" },
+      {
+        name: "start_message",
+        type: "text",
+        placeholder: "example: Open when u miss me !",
+      },
+      {
+        name: "end_message",
+        type: "textarea",
+        placeholder:
+          "example: Because you make every day as bright as a blooming flower.I miss you...",
+      },
     ],
   },
   {
@@ -36,9 +53,18 @@ export const Templates = [
     st_price: 249,
     previewImg: "/previewImg/ApologyForGf.png",
     fields: [
-      { name: "from_name", type: "text" },
-      { name: "sorry_message", type: "text" },
-      { name: "end_message", type: "text" }
+      { name: "from_name", type: "text", placeholder: "example: Raj" },
+      {
+        name: "sorry_message",
+        type: "textarea",
+        placeholder:
+          "example: I’m really sorry, okay? I messed up and I know I hurt you. That was not cool of me at all...",
+      },
+      {
+        name: "end_message",
+        type: "text",
+        placeholder: "example: Got this Bouquet and a Cat for you baby❤️...",
+      },
     ],
   },
   {
@@ -50,12 +76,33 @@ export const Templates = [
     st_price: 249,
     previewImg: "/previewImg/ApologyForBFGF.png",
     fields: [
-      { name: "from_name", type: "text" },
-      { name: "left_text_1", type: "text" },
-      { name: "right_text_1", type: "text" },
-      { name: "right_text_2", type: "text" },
-      { name: "sorry_message", type: "textarea" },
-      { name: "final_message", type: "text" },
+      { name: "from_name", type: "text", placeholder: "example: Raj❤️" },
+      {
+        name: "left_text_1",
+        type: "text",
+        placeholder: "example: Im soo done with you 😠",
+      },
+      {
+        name: "right_text_1",
+        type: "text",
+        placeholder: "example: im sorry babe i messed up😔",
+      },
+      {
+        name: "right_text_2",
+        type: "text",
+        placeholder: "example: But i made smth for you",
+      },
+      {
+        name: "sorry_message",
+        type: "textarea",
+        placeholder:
+          "example: I’m really sorry, okay? I messed up and I know I hurt you. That was not cool of me at all...",
+      },
+      {
+        name: "final_message",
+        type: "text",
+        placeholder: "example: Forgive me baby ily ❤️",
+      },
     ],
   },
   {
@@ -67,18 +114,18 @@ export const Templates = [
     st_price: 199,
     previewImg: "/previewImg/memoTime.png",
     fields: [
-      { name: "title_1", type: "text" },
+      { name: "title_1", type: "text",placeholder:"example: Our first Date 🥺" },
 
       { name: "photo_1", type: "image" },
       { name: "photo_2", type: "image" },
 
-      { name: "title_2", type: "text" },
+      { name: "title_2", type: "text",placeholder:"example: day out at mall 💗" },
 
       { name: "photo_3", type: "image" },
       { name: "photo_4", type: "image" },
       { name: "photo_5", type: "image" },
 
-      { name: "end_message", type: "textarea" },
+      { name: "end_message", type: "textarea",placeholder:"example: Looking back through these photos, I’m reminded that even the..." },
     ],
   },
   {
@@ -90,16 +137,16 @@ export const Templates = [
     st_price: 229,
     previewImg: "/previewImg/appreciationFriend.png",
     fields: [
-      { name: "photo_text_1", type: "text" },
+      { name: "photo_text_1", type: "text",placeholder:"example: day at college" },
       { name: "photo_1", type: "image" },
 
-      { name: "photo_text_2", type: "text" },
+      { name: "photo_text_2", type: "text",placeholder:"example: our cafe hops" },
       { name: "photo_2", type: "image" },
 
-      { name: "photo_text_3", type: "text" },
+      { name: "photo_text_3", type: "text",placeholder:"example: Random hangout" },
       { name: "photo_3", type: "image" },
 
-      { name: "end_message", type: "textarea" },
+      { name: "end_message", type: "textarea",placeholder:"example: I  was just thinking about how much I appreciate having you in..." },
     ],
   },
 ];

@@ -19,8 +19,7 @@ type surprisePropsType = {
 }
 const CuteSurprise = ({
   start_message = "Open when u miss me !",
-  end_message = `Because you make every day as bright as a blooming flower.
-        I miss you more than words can say!`
+  end_message = `Because you make every day as bright as a blooming flower.I miss you more than words can say!`
 }:surprisePropsType) => {
   const [phase, setPhase] = useState<Phase>("envelope");
   const [board, setBoard] = useState<SquareValue[]>(Array(9).fill(null));

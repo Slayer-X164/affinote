@@ -133,7 +133,8 @@ export default function page() {
                       {field.name}:
                     </label>
                     <input
-                      className="w-full bg-blue-50 border-3 border-blue-300   p-2 rounded-2xl "
+                      placeholder={field.placeholder || ""}
+                      className="w-full  placeholder:opacity-80 placeholder:text-blue-400 bg-blue-50 border-3 border-blue-300   p-2 rounded-2xl "
                       value={formData[field.name] || ""}
                       onChange={(e) =>
                         handleTextChange(field.name, e.target.value)
@@ -151,7 +152,8 @@ export default function page() {
                       {field.name}:
                     </label>
                     <textarea
-                      className="w-full bg-blue-50 border-3 border-blue-300   p-2 rounded-2xl "
+                    placeholder={field.placeholder || ""}
+                      className="w-full placeholder:opacity-80 placeholder:text-blue-400 bg-blue-50 border-3 border-blue-300   p-2 rounded-2xl "
                       rows={4}
                       value={formData[field.name] || ""}
                       onChange={(e) =>

@@ -79,7 +79,7 @@ type ApologyPropType = {
 
 }
 export default function ApologyForBf({
-    from_name = 'Lover❤️',
+    from_name = 'Raj❤️',
     left_text_1 = "Im soo done with you 😠",
     right_text_1 = "im sorry babe i know i messed up😔",
     right_text_2 = "But i made smth for you",

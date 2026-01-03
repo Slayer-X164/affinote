@@ -85,7 +85,7 @@ export default function PaymentPage() {
      ${
        !razorpayScriptLoader || loading
          ? "bg-blue-200 cursor-not-allowed"
-         : "bg-blue-500/85 hover:bg-blue-500"
+         : "bg-blue-500 hover:bg-blue-600"
      }`}
         >
           {!razorpayScriptLoader ? (

@@ -10,7 +10,7 @@ type letterProps = {
   signature?: string;
 };
 export default function EnvelopeLetter({
-  person_name = "Lover",
+  person_name = "Raj",
   paragraph_1 = `Today feels special, not just because it marks another year,
                   but because it celebrates you. Your birthday is the perfect
                   reminder of all the little moments that make life brighter —
@@ -22,7 +22,7 @@ export default function EnvelopeLetter({
                   appreciated, and how many hearts are warmer because you exist.
                   Here’s to you — to your past, your future, and all the
                   beautiful moments in between. With love,`,
-  signature = "Your Love",
+  signature = "Your Riya",
 }: letterProps) {
   const [open, setOpen] = useState(false);
   const [showSurprise, setShowSurprise] = useState(false);

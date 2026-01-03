@@ -12,7 +12,7 @@ type apologyPropType = {
   end_message?: string;
 };
 const ApologyForGf = ({
-  from_name = "From Bae",
+  from_name = "Raj",
   sorry_message = `I’m really sorry, okay? I messed up and I know I hurt you. That was not cool of me at all. You matter to me a lot and I hate that I made you feel bad. Please forgive me`,
   end_message = ` Got this Bouquet and a Cat for you baby ❤️`
 }: apologyPropType) => {
