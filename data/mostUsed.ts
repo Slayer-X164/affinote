@@ -6,7 +6,7 @@ export const MostUsedTemplates = [
     description:
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
     price: 49,
-    st_price: 190,
+    st_price: 89,
     previewImg: "/previewImg/flowerSurp.png",
     fields: [{ name: "text", type: "text" }],
   },
@@ -16,7 +16,7 @@ export const MostUsedTemplates = [
     description:
       "a small fun interactive Apology Template for your angry girlfriend",
     price: 79,
-    st_price: 249,
+    st_price: 129,
     previewImg: "/previewImg/ApologyForGf.png",
     fields: [{ name: "from", type: "text" }],
   },
@@ -26,7 +26,7 @@ export const MostUsedTemplates = [
     description:
       "A nostalgic memory timeline with photos and notes for your loved one",
     price: 59,
-    st_price: 199,
+    st_price: 99,
     previewImg: "/previewImg/memoTime.png",
     fields: [
       { name: "title_1", type: "text" },

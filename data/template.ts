@@ -5,7 +5,7 @@ export const Templates = [
     description:
       "Celebrate birthdays with warmth and timeless charm using this beautifully designed vintage-style birthday letter template. Featuring soft floral patterns, layered paper textures, and delicate handwritten accents, this template evokes a nostalgic",
     price: 49,
-    st_price: 129,
+    st_price: 89,
     previewImg: "/previewImg/envLetter.png",
     fields: [
       { name: "person_name", type: "text", placeholder: "example: Raj" },
@@ -28,7 +28,7 @@ export const Templates = [
     description:
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
     price: 49,
-    st_price: 199,
+    st_price: 89,
     previewImg: "/previewImg/flowerSurp.png",
     fields: [
       {
@@ -50,7 +50,7 @@ export const Templates = [
     description:
       "a small fun interactive Apology Template for your angry girlfriend",
     price: 79,
-    st_price: 249,
+    st_price: 129,
     previewImg: "/previewImg/ApologyForGf.png",
     fields: [
       { name: "from_name", type: "text", placeholder: "example: Raj" },
@@ -73,7 +73,7 @@ export const Templates = [
     description:
       "a message like cute template for you angry loved one , make them happy",
     price: 79,
-    st_price: 249,
+    st_price: 129,
     previewImg: "/previewImg/ApologyForBFGF.png",
     fields: [
       { name: "from_name", type: "text", placeholder: "example: Raj❤️" },
@@ -111,7 +111,7 @@ export const Templates = [
     description:
       "A nostalgic memory timeline with photos and notes for your loved one",
     price: 59,
-    st_price: 199,
+    st_price: 99,
     previewImg: "/previewImg/memoTime.png",
     fields: [
       { name: "title_1", type: "text",placeholder:"example: Our first Date 🥺" },
@@ -134,7 +134,7 @@ export const Templates = [
     description:
       "A heartfelt appreciation page with memories, photos, and a meaningful message for your best friend.",
     price: 49,
-    st_price: 229,
+    st_price: 89,
     previewImg: "/previewImg/appreciationFriend.png",
     fields: [
       { name: "photo_text_1", type: "text",placeholder:"example: day at college" },
