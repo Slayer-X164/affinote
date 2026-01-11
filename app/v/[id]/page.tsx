@@ -76,12 +76,12 @@ export default async function ViewPage({ params }: any) {
       <div className="w-full">
         <TemplateComponent {...data.data} />
       </div>
-      <p className="text-neutral-400 absolute bottom-0 text-xs py-2 flex items-center gap-1">
+      {/* <p className="text-neutral-400 absolute bottom-0 text-xs py-2 flex items-center gap-1">
         Created using <FaHeart className="text-red-400" />
         <a className="underline text-blue-400" href="https://affinote.site">
           Affinote
         </a>
-      </p>
+      </p> */}
     </div>
   );
 }
