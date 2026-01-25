@@ -7,7 +7,8 @@ import ApologyForGf from "@/components/templates/ApologyForGf";
 import ApologyForBf from "@/components/templates/ApologyForBf";
 import MemoryTimeline from "@/components/templates/MemoryTimeline";
 import AppreciationFriend from "@/components/templates/AppreciationFriend";
-import { FaHeart } from "react-icons/fa";
+import Birthday from "@/components/templates/Birthday";
+
 
 export const metadata = {
   robots: {
@@ -23,6 +24,7 @@ const componentMap: any = {
   "apology-for-bf-gf": ApologyForBf,
   "memory-timeline": MemoryTimeline,
   "appreciation-for-friend": AppreciationFriend,
+   "birthday":Birthday
 };
 
 export default async function ViewPage({ params }: any) {

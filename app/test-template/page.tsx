@@ -6,12 +6,13 @@ import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
 import MemoryTimeline from "@/components/templates/MemoryTimeline";
 import Success from "../success/component/Success";
 import Valentine_1 from "@/components/templates/Valentine_1";
+import Birthday from "@/components/templates/Birthday";
 
 export default function testTemplate() {
   return (
 
    <>
-   <Valentine_1/>
+   {/* <Valentine_1/> */}
     {/* <ApologyForBf/> */}
     {/* <ApologyForGf/> */}
     {/* <AppreciationFriend/> */}
@@ -20,6 +21,7 @@ export default function testTemplate() {
     {/* <MemoryTimeline/> */}
     {/* <Success/> */}
     {/* // <div>test</div> */}
+    <Birthday/>
    </>
 
   );

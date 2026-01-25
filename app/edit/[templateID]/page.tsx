@@ -14,6 +14,7 @@ import ApologyForGf from "@/components/templates/ApologyForGf";
 import ApologyForBf from "@/components/templates/ApologyForBf";
 import MemoryTimeline from "@/components/templates/MemoryTimeline";
 import AppreciationFriend from "@/components/templates/AppreciationFriend";
+import  Birthday  from "@/components/templates/Birthday";
 import { getVisitorId } from "@/lib/visitor";
 const componentMap = {
   "envolope-letter": EnvelopeLetter,
@@ -22,6 +23,7 @@ const componentMap = {
   "apology-for-bf-gf": ApologyForBf,
   "memory-timeline": MemoryTimeline,
   "appreciation-for-friend": AppreciationFriend,
+  "birthday":Birthday
 };
 type templateKey = keyof typeof componentMap;
 
@@ -109,7 +111,7 @@ export default function page() {
       <Navbar />
       <div className="h-full max-w-6xl px-3 w-full py-10 flex flex-col-reverse gap-6  lg:flex-row items-start ">
         <Toaster position="top-center" reverseOrder={false} />
-        <div className="w-full lg:w-[60%] bg-blue-50 border-blue-400 border-2 rounded-2xl overflow-hidden relative">
+        <div className="w-full lg:w-[60%] bg-transparent border-blue-400 border-2 rounded-2xl overflow-hidden relative">
           <h3 className="text-center bg-black text-neutral-50 text-sm p-0.5 pb-1">
             Live Preview - updates as you type 👇
           </h3>

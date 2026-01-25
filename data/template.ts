@@ -149,4 +149,62 @@ export const Templates = [
       { name: "end_message", type: "textarea",placeholder:"example: I  was just thinking about how much I appreciate having you in..." },
     ],
   },
+  {
+  id: "birthday",
+  title: "Birthday",
+  description:
+    "birthday template with cake animation, memory wall, wish jar, confetti celebration and floating hearts interaction.",
+  price: 59,
+  st_price: 99,
+  previewImg: "/previewImg/birthdayMagic.png",
+  fields: [
+    {
+      name: "name",
+      type: "text",
+      placeholder: "example: Shruti",
+    },
+    {
+      name: "birthday_message",
+      type: "textarea",
+      placeholder:
+        "example: Be happy! Today is the day you were brought into this world to be a blessing and inspiration...",
+    },
+    {
+      name: "memory_image_1",
+      type: "image",
+      placeholder: "Upload first memory image",
+    },
+    {
+      name: "memory_image_2",
+      type: "image",
+      placeholder: "Upload second memory image",
+    },
+    {
+      name: "memory_image_3",
+      type: "image",
+      placeholder: "Upload third memory image",
+    },
+    {
+      name: "wish_1",
+      type: "text",
+      placeholder: "example: You make every day brighter 💖",
+    },
+    {
+      name: "wish_2",
+      type: "text",
+      placeholder: "example: May all your dreams come true 🌟",
+    },
+    {
+      name: "wish_3",
+      type: "text",
+      placeholder: "example: Never stop smiling 😊",
+    },
+    {
+      name: "wish_4",
+      type: "text",
+      placeholder: "example: You are truly special 🎀",
+    },
+  ],
+}
+
 ];
