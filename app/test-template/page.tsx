@@ -21,7 +21,7 @@ export default function testTemplate() {
     {/* <MemoryTimeline/> */}
     {/* <Success/> */}
     {/* // <div>test</div> */}
-    <Birthday/>
+    {/* <Birthday/> */}
    </>
 
   );

@@ -129,7 +129,7 @@ const MemoryTimeline = ({
               transition={{ delay: 0.2 }}
               className="text-4xl text-center font-serif italic text-[#ff3898]"
             >
-              Welcome to our ✨ Timeline ✨
+              Welcome to our Timeline ✨
             </motion.h1>
 
             {/* Subtitle */}
@@ -238,7 +238,7 @@ const MemoryTimeline = ({
             exit={{ opacity: 0, y: 20 }}
             className="w-full h-full flex flex-col items-center gap-3"
           >
-            <h3 className="text-xl font-bold uppercase tracking-wider  py-10 text-[#ff3898]">
+            <h3 className="text-xl font-bold text-center uppercase tracking-wider  py-10 text-[#ff3898]">
               {title_2}
             </h3>
             <motion.div
@@ -329,25 +329,28 @@ const MemoryTimeline = ({
         )}
         {phase == "ph4" && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            key="ph4"
-            className="w-full min-h-screen flex items-center justify-center pt-20 px-4"
-            style={{
-              backgroundImage: `url("https://i.pinimg.com/1200x/02/ad/b1/02adb1beb56fc11a7bd7c584b3f1ef3b.jpg")`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <h3 className="sm:w-[450px] w-full min-h-sm text-lg text-center bg-[#a2cbed] rounded-xl p-6 font-bold border-3 border-[#522912] text-[#274660] relative break-words">
-              {end_message}
-              <img
-                src="/Memotime/flg.gif"
-                alt="bear giving flower"
-                className="absolute -top-40 left-26"
-              />
-            </h3>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  exit={{ opacity: 0, y: 20 }}
+  key="ph4"
+  className="w-full min-h-screen flex justify-center px-4 py-32"
+  style={{
+    backgroundImage: `url("https://i.pinimg.com/1200x/02/ad/b1/02adb1beb56fc11a7bd7c584b3f1ef3b.jpg")`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+
+            <h3 className="sm:w-[450px] w-full text-lg text-center bg-[#a2cbed] rounded-xl p-6 font-bold border-3 border-[#522912] text-[#274660] relative break-words">
+  {end_message}
+
+  <img
+    src="/Memotime/flg.gif"
+    alt="bear giving flower"
+    className="absolute -top-40 left-1/2 -translate-x-1/2"
+  />
+</h3>
+
           </motion.div>
         )}
       </AnimatePresence>
