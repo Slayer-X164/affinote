@@ -152,7 +152,7 @@ const Valentine_1 = ({
               alt="toton chcick"
               className="w-40"
             />
-            <div className="w-md flex items-center justify-between">
+            <div className=" w-full max-w-md flex items-center justify-between">
               <button
                 onClick={() => setPhase("ph3")}
                 className="bg-[#28061f] text-amber-50 text-2xl px-6 py-2 rounded-2xl border-2 border-[#28061f] transition-all duration-300 cursor-pointer hover:border-2 hover:scale-110  hover:shadow-2xl shadow-amber-950/80 active:scale-90"
