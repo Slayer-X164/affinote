@@ -128,7 +128,7 @@ const ApologyForGf = ({
               }, 5000);
             }}
           >
-            <h1 className="text-2xl font-semibold">
+            <h1 className="text-2xl font-semibold text-center">
               i know you are mad at me babe{" "}
             </h1>
             <img
@@ -160,9 +160,9 @@ const ApologyForGf = ({
             exit={{
               y: -500,
             }}
-            className="flex flex-col items-center gap-8 px-3"
+            className="flex flex-col items-center gap-8 px-3 py-20"
           >
-            <div className="relative rounded-2xl bg-[#ff988c] w-60  h-auto p-4 flex flex-col items-center gap-6 py-8 border-2 border-[#522912]">
+            <div className="relative rounded-2xl bg-[#ff988c]   h-auto p-4 flex flex-col items-center gap-6 py-8 border-2 border-[#522912]">
               <motion.img
                 initial={{
                   y: 50,
@@ -174,7 +174,7 @@ const ApologyForGf = ({
                 alt="cat gif"
                 className="absolute -top-45 w-44"
               />
-              <h3 className="text-center font-semibold text-[#35180a]">
+              <h3 className="text-center  w-full max-w-md font-semibold text-[#35180a]">
                {sorry_message}
               </h3>
 

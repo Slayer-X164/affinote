@@ -20,7 +20,7 @@ export default function testTemplate() {
     {/* <EnvelopeLetter/> */}
     {/* <MemoryTimeline/> */}
     {/* <Success/> */}
-    {/* // <div>test</div> */}
+     <div>test</div>
     {/* <Birthday/> */}
    </>
 
