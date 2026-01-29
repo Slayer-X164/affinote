@@ -5,10 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import { FaHeart } from "react-icons/fa";
 
 type Valentine_1PropType = {
-  end_message?: String;
+  your_message?: String;
 };
 const Valentine_1 = ({
-  end_message = `In your eyes, I have found a home where my soul finally feels at rest. Every moment spent with you is a beautiful reminder that true happiness exists, and I am so grateful to walk this path by your side. You are the melody that my heart beats to and the light that guides me through every storm. Thank you for loving me so completely and for making even the simplest days feel like a dream come true. I love you more than words could ever express, now and for all the days to come.`,
+  your_message = `In your eyes, I have found a home where my soul finally feels at rest. Every moment spent with you is a beautiful reminder that true happiness exists, and I am so grateful to walk this path by your side. You are the melody that my heart beats to and the light that guides me through every storm. Thank you for loving me so completely and for making even the simplest days feel like a dream come true. I love you more than words could ever express, now and for all the days to come.`,
 }: Valentine_1PropType) => {
   const [phase, setPhase] = useState<
     "ph1" | "ph2" | "ph3" | "ph4" | "no" | null
@@ -74,7 +74,7 @@ const Valentine_1 = ({
     return () => clearInterval(interval);
   }, [selectedGift]);
   return (
-    <div className="w-screen min-h-screen  bg-radial from-white from-40% to-[#fddec8] flex  items-center justify-center text-center">
+    <div className="w-full min-h-screen  bg-radial from-white from-40% to-[#fddec8] flex  items-center justify-center text-center">
       <motion.div
         className="fixed inset-0 bg-[#28061f] origin-top z-50"
         variants={curtainVariants}
@@ -203,7 +203,7 @@ const Valentine_1 = ({
             </h1>
             <div className="flex items-center gap-6 justify-center flex-wrap">
               <motion.img
-                src="Valentine_1/gift-svgrepo-com.svg"
+                src="/Valentine_1/gift.svg"
                 className="w-40 cursor-pointer hover:scale-110 transition-transform active:scale-90"
                 onClick={() => {
                   handleGiftClick("gift1");
@@ -218,7 +218,7 @@ const Valentine_1 = ({
               />
 
               <motion.img
-                src="Valentine_1/gift-svgrepo-com.svg"
+                src="/Valentine_1/gift.svg"
                 className="w-40 cursor-pointer hover:scale-110 transition-transform active:scale-90"
                 onClick={() => {
                   handleGiftClick("gift2");
@@ -234,7 +234,7 @@ const Valentine_1 = ({
               />
 
               <motion.img
-                src="Valentine_1/gift-svgrepo-com.svg"
+                src="/Valentine_1/gift.svg"
                 className="w-40 cursor-pointer hover:scale-110 transition-transform active:scale-90"
                 onClick={() => {
                   handleGiftClick("gift3");
@@ -387,7 +387,7 @@ const Valentine_1 = ({
               ))}
             <div className="wrap-words max-w-[550px] text-lg md:text-xl font-sans font-normal px-6 py-6  rounded-3xl min-h-60 bg-[#4a2611] text-[#fff4ea] relative">
 
-              {end_message}
+              {your_message}
               <img src="https://i.pinimg.com/originals/ee/4f/31/ee4f31ff74d72b7a66483c423f5df84c.png" alt="tulip flower" className="absolute md:w-26 rotate-26 -right-5 w-16 -bottom-8 md:-right-14 md:-bottom-10" />
               <div className="flex items-center gap-6 absolute left-1/2 -translate-x-1/2 -top-2">
                 <FaHeart className="text-pink-500 text-xl -rotate-6" />

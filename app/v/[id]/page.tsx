@@ -8,6 +8,7 @@ import ApologyForBf from "@/components/templates/ApologyForBf";
 import MemoryTimeline from "@/components/templates/MemoryTimeline";
 import AppreciationFriend from "@/components/templates/AppreciationFriend";
 import Birthday from "@/components/templates/Birthday";
+import Valentine_1 from "@/components/templates/Valentine_1";
 
 
 export const metadata = {
@@ -24,7 +25,8 @@ const componentMap: any = {
   "apology-for-bf-gf": ApologyForBf,
   "memory-timeline": MemoryTimeline,
   "appreciation-for-friend": AppreciationFriend,
-   "birthday":Birthday
+   "birthday":Birthday,
+   "valentine_1":Valentine_1
 };
 
 export default async function ViewPage({ params }: any) {

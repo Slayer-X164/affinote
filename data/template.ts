@@ -151,12 +151,12 @@ export const Templates = [
   },
   {
   id: "birthday",
-  title: "Birthday",
+  title: "Birthday Page",
   description:
     "birthday template with cake animation, memory wall, wish jar, confetti celebration and floating hearts interaction.",
   price: 59,
   st_price: 99,
-  previewImg: "/previewImg/birthdayMagic.png",
+  previewImg: "./previewImg/birthday.png",
   fields: [
     {
       name: "name",
@@ -204,6 +204,25 @@ export const Templates = [
       type: "text",
       placeholder: "example: You are truly special 🎀",
     },
+  ],
+},
+ {
+  id: "valentine_1",
+  title: "Valentine's Gift",
+  description:
+    "Beautiful Valentine Template with multiple gift options to choose from",
+  price: 79,
+  st_price: 129,
+  previewImg: "/previewImg/valentine_1.png",
+  fields: [
+
+    {
+      name: "your_message",
+      type: "textarea",
+      placeholder:
+        "In your eyes, I have found a home where my soul finally feels at rest. Every moment spent with you is a ...",
+    },
+
   ],
 }
 

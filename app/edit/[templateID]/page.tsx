@@ -16,6 +16,7 @@ import MemoryTimeline from "@/components/templates/MemoryTimeline";
 import AppreciationFriend from "@/components/templates/AppreciationFriend";
 import  Birthday  from "@/components/templates/Birthday";
 import { getVisitorId } from "@/lib/visitor";
+import Valentine_1 from "@/components/templates/Valentine_1";
 const componentMap = {
   "envolope-letter": EnvelopeLetter,
   "flower-surprise": CuteSurprise,
@@ -23,7 +24,8 @@ const componentMap = {
   "apology-for-bf-gf": ApologyForBf,
   "memory-timeline": MemoryTimeline,
   "appreciation-for-friend": AppreciationFriend,
-  "birthday":Birthday
+  "birthday":Birthday,
+  "valentine_1":Valentine_1
 };
 type templateKey = keyof typeof componentMap;
 
