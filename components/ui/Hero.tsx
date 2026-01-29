@@ -12,9 +12,8 @@ const Hero = () => {
         </span>{" "}
         that live <br /> on Web Forever{" "}
       </h1>
-      <p className="text-neutral-500 text-center text-sm lg:text-lg ">
-        Beautiful templates for your special someone customizable, <br />{" "}
-        shareable, and made with love.{" "}
+      <p className="text-neutral-500 text-center text-sm lg:text-lg max-w-xs lg:max-w-lg  ">
+        No coding needed. Customize live and get your personal shareable link.
       </p>
       <button
         onClick={() => {
