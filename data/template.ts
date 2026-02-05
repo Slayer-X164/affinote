@@ -156,7 +156,7 @@ export const Templates = [
     "birthday template with cake animation, memory wall, wish jar, confetti celebration and floating hearts interaction.",
   price: 59,
   st_price: 99,
-  previewImg: "./previewImg/birthday.png",
+  previewImg: "/previewImg/birthday.png",
   fields: [
     {
       name: "name",
