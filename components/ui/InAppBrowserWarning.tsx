@@ -35,7 +35,7 @@ export default function InAppBrowserWarning() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-black text-white p-4 text-center">
+    <div className="fixed bottom-0 left-0 right-0 z-50 h-[50vh] bg-black text-white p-4 text-center">
       <p className="text-sm mb-3">
         Instagram browser may not save your purchased link 😢
         Please open in Chrome/Safari for full experience.
