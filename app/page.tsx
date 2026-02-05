@@ -1,3 +1,5 @@
+export const revalidate = 86400; // 24 hours
+
 import AnnouncementBar from "@/components/ui/AnnouncmentBar";
 import ContactBox from "@/components/ui/ContactBox";
 import Footer from "@/components/ui/Footer";

@@ -1,4 +1,5 @@
-// app/v/[id]/page.tsx
+export const revalidate = 3600; // cache 1 hour
+
 import { createClient } from "@supabase/supabase-js";
 
 import dynamic from "next/dynamic";
