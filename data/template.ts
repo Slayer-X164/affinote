@@ -4,8 +4,8 @@ export const Templates = [
     title: "Birthday Envelope Letter",
     description:
       "Celebrate birthdays with warmth and timeless charm using this beautifully designed vintage-style birthday letter template. Featuring soft floral patterns, layered paper textures, and delicate handwritten accents, this template evokes a nostalgic",
-    price: 69,
-    st_price: 119,
+    price: 49,
+    st_price: 89,
     previewImg: "/previewImg/envLetter.png",
     fields: [
       { name: "person_name", type: "text", placeholder: "example: Raj" },
@@ -27,8 +27,8 @@ export const Templates = [
     title: "Flower Surprise",
     description:
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
-    price: 69,
-    st_price: 119,
+    price: 49,
+    st_price: 89,
     previewImg: "/previewImg/flowerSurp.png",
     fields: [
       {
@@ -49,8 +49,8 @@ export const Templates = [
     title: "Apology For GF/BF 2.0",
     description:
       "a small fun interactive Apology Template for your angry girlfriend",
-    price: 99,
-    st_price: 149,
+    price: 79,
+    st_price: 129,
     previewImg: "/previewImg/ApologyForGf.png",
     fields: [
       { name: "from_name", type: "text", placeholder: "example: Raj" },
@@ -72,8 +72,8 @@ export const Templates = [
     title: "Apology For BF/GF",
     description:
       "a message like cute template for you angry loved one , make them happy",
-    price: 99,
-    st_price: 149,
+    price: 79,
+    st_price: 129,
     previewImg: "/previewImg/ApologyForBFGF.png",
     fields: [
       { name: "from_name", type: "text", placeholder: "example: Raj❤️" },
@@ -110,8 +110,8 @@ export const Templates = [
     title: "Memory Timeline",
     description:
       "A nostalgic memory timeline with photos and notes for your loved one",
-    price: 79,
-    st_price: 119,
+    price: 59,
+    st_price: 99,
     previewImg: "/previewImg/memoTime.png",
     fields: [
       { name: "title_1", type: "text",placeholder:"example: Our first Date 🥺" },
@@ -133,8 +133,8 @@ export const Templates = [
     title: "Appreciation for a Friend",
     description:
       "A heartfelt appreciation page with memories, photos, and a meaningful message for your best friend.",
-    price: 69,
-    st_price: 99,
+    price: 49,
+    st_price: 89,
     previewImg: "/previewImg/appreciationFriend.png",
     fields: [
       { name: "photo_text_1", type: "text",placeholder:"example: day at college" },
@@ -154,8 +154,8 @@ export const Templates = [
   title: "Birthday Page",
   description:
     "birthday template with cake animation, memory wall, wish jar, confetti celebration and floating hearts interaction.",
-  price: 79,
-  st_price: 119,
+  price: 59,
+    st_price: 99,
   previewImg: "/previewImg/birthday.png",
   fields: [
     {
@@ -211,8 +211,8 @@ export const Templates = [
   title: "Valentine's Gift",
   description:
     "Beautiful Valentine Template with multiple gift options to choose from",
-  price: 99,
-  st_price: 149,
+  price: 79,
+  st_price: 129,
   previewImg: "/previewImg/valentine_1.png",
   fields: [
 

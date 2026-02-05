@@ -2,11 +2,11 @@
 import { motion } from "motion/react";
 
 const announcements = [
-  "🔥 Save up to 45% on each Template",
-  "🔥 Save up to 45% on each Template",
-  "🔥 Save up to 45% on each Template",
-  "🔥 Save up to 45% on each Template",
-  "🔥 Save up to 45% on each Template",
+  "Prices will increase from 8th feb!",
+  "Prices will increase from 8th feb!",
+  "Prices will increase from 8th feb!",
+  "Prices will increase from 8th feb!",
+  "Prices will increase from 8th feb!",
 ];
 
 export default function AnnouncementBar() {
