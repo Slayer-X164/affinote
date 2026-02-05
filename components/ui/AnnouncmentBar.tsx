@@ -3,9 +3,9 @@ import { motion } from "motion/react";
 
 const announcements = [
   "Prices will increase from 8th feb!",
+  "Save upto 45% on each template!",
   "Prices will increase from 8th feb!",
-  "Prices will increase from 8th feb!",
-  "Prices will increase from 8th feb!",
+  "Save upto 45% on each template!",
   "Prices will increase from 8th feb!",
 ];
 

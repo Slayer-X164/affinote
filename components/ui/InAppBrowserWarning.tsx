@@ -40,6 +40,11 @@ export default function InAppBrowserWarning() {
         Instagram browser may not save your purchased link 😢
         Please open in Chrome/Safari for full experience.
       </p>
+      <p className="text-xs mt-2 text-neutral-500 text-center"> Instagram opens links inside its own browser which can prevent
+  your purchased page from saving correctly and some animations may not load.
+
+  To make sure everything works perfectly and your link is محفوظ forever,
+  please open this page in Chrome or Safari.</p>
 
       <button
         onClick={openInBrowser}
@@ -47,6 +52,9 @@ export default function InAppBrowserWarning() {
       >
         Open in Browser
       </button>
+      <p className="text-xs text-center mt-4">
+  — Affinote Team 💙
+</p>
     </div>
   );
 }
