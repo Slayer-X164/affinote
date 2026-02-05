@@ -1,5 +1,7 @@
 "use client";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+
+import ScrollButton from "./ScrollButton";
+
 
 const Hero = () => {
   return (
@@ -15,23 +17,7 @@ const Hero = () => {
       <p className="text-neutral-500 text-center text-sm lg:text-lg max-w-xs lg:max-w-lg  ">
         No coding needed. Customize live and get your personal shareable link.
       </p>
-      <button
-        onClick={() => {
-          document
-            .getElementById("explore")
-            ?.scrollIntoView({ behavior: "smooth" });
-        }}
-        className="bg-blue-200 mt-4 py-3  px-6 border font-semibold cursor-pointer relative"
-      >
-        Explore Templates{" "}
-        <span className="w-full -z-1 h-full bg-neutral-900 absolute left-1.5 top-1.5"></span>{" "}
-        <DotLottieReact
-          className="absolute w-50 -top-16 -left-20"
-          src="https://lottie.host/bb483b81-4605-4206-b7ca-340d2eb02403/vpJGGNScCm.lottie"
-          loop
-          autoplay
-        />
-      </button>
+      <ScrollButton />
       <h4 className="text-center text-sm italic capitalize text-neutral-400">No login required • Pay once • Link stays forever</h4>
     </div>
   );

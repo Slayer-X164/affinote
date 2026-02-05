@@ -1,16 +1,8 @@
 // app/v/[id]/page.tsx
 import { createClient } from "@supabase/supabase-js";
 
-import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
-import CuteSurprise from "@/components/templates/CuteSurprise";
-import ApologyForGf from "@/components/templates/ApologyForGf";
-import ApologyForBf from "@/components/templates/ApologyForBf";
-import MemoryTimeline from "@/components/templates/MemoryTimeline";
-import AppreciationFriend from "@/components/templates/AppreciationFriend";
-import Birthday from "@/components/templates/Birthday";
-import Valentine_1 from "@/components/templates/Valentine_1";
-
-
+import dynamic from "next/dynamic";
+import {headers} from "next/headers";
 export const metadata = {
   robots: {
     index: false,
@@ -19,17 +11,21 @@ export const metadata = {
 };
 
 const componentMap: any = {
-  "envolope-letter": EnvelopeLetter,
-  "flower-surprise": CuteSurprise,
-  "apology-for-gf": ApologyForGf,
-  "apology-for-bf-gf": ApologyForBf,
-  "memory-timeline": MemoryTimeline,
-  "appreciation-for-friend": AppreciationFriend,
-   "birthday":Birthday,
-   "valentine_1":Valentine_1
+  "envolope-letter": dynamic(() => import("@/components/templates/EnvolopeTemplate")),
+  "flower-surprise": dynamic(() => import("@/components/templates/CuteSurprise")),
+  "apology-for-gf": dynamic(() => import("@/components/templates/ApologyForGf")),
+  "apology-for-bf-gf": dynamic(() => import("@/components/templates/ApologyForBf")),
+  "memory-timeline": dynamic(() => import("@/components/templates/MemoryTimeline")),
+  "appreciation-for-friend": dynamic(() => import("@/components/templates/AppreciationFriend")),
+  "birthday": dynamic(() => import("@/components/templates/Birthday")),
+  "valentine_1": dynamic(() => import("@/components/templates/Valentine_1")),
 };
 
+type templateKey = keyof typeof componentMap;
+
 export default async function ViewPage({ params }: any) {
+   const headersList = await headers();
+  const isBot = headersList.get("x-bot-traffic") === "true";
   // FIX: unwrap promise
   const { id } =await params;
 
@@ -74,9 +70,23 @@ export default async function ViewPage({ params }: any) {
       </div>
     );
   }
-
+  if (isBot) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <h1 className="text-xl text-gray-600">Template not found.</h1>
+      <div className="min-h-screen flex items-center justify-center p-6 text-center">
+        <h1 className="text-2xl font-semibold">
+          Someone shared a special page with you 💌
+        </h1>
+        <p className="text-gray-500 mt-2">
+          Open the link to view the full surprise.
+        </p>
+      </div>
+      </div>
+    );
+  }
   return (
-    <div className="min-h-screen w-full relative flex flex-col items-center ">
+    <div className="min-h-screen w-full flex flex-col items-center ">
       <div className="w-full">
         <TemplateComponent {...data.data} />
       </div>

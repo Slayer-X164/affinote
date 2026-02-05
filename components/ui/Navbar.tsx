@@ -182,7 +182,7 @@ const Navbar = () => {
                 className="flex hover:bg-neutral-100 shadow-2xl shadow-blue-800  text-neutral-600 font-semibold  items-center gap-3 bg-neutral-50 rounded-xl text-xs px-4 py-2"
               >
                <FaCode className="text-lg w-6"/>
-                Looking For Source Code? <br />dm/mail Us 
+                Looking For Source Code? <br />dm/mail Us
               </a>
             </motion.div>
           )}

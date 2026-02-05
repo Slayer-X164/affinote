@@ -5,29 +5,42 @@ import { useParams } from "next/navigation";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import z from "zod";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import ButtonLoder from "@/components/ui/ButtonLoder";
 import { uploadImages } from "@/lib/uploadImages";
-import EnvelopeLetter from "@/components/templates/EnvolopeTemplate";
-import CuteSurprise from "@/components/templates/CuteSurprise";
-import ApologyForGf from "@/components/templates/ApologyForGf";
-import ApologyForBf from "@/components/templates/ApologyForBf";
-import MemoryTimeline from "@/components/templates/MemoryTimeline";
-import AppreciationFriend from "@/components/templates/AppreciationFriend";
-import  Birthday  from "@/components/templates/Birthday";
+import dynamic from "next/dynamic";
 import { getVisitorId } from "@/lib/visitor";
-import Valentine_1 from "@/components/templates/Valentine_1";
-const componentMap = {
-  "envolope-letter": EnvelopeLetter,
-  "flower-surprise": CuteSurprise,
-  "apology-for-gf": ApologyForGf,
-  "apology-for-bf-gf": ApologyForBf,
-  "memory-timeline": MemoryTimeline,
-  "appreciation-for-friend": AppreciationFriend,
-  "birthday":Birthday,
-  "valentine_1":Valentine_1
+
+const componentMap: any = {
+  "envolope-letter": dynamic(() => import("@/components/templates/EnvolopeTemplate")),
+  "flower-surprise": dynamic(() => import("@/components/templates/CuteSurprise")),
+  "apology-for-gf": dynamic(() => import("@/components/templates/ApologyForGf")),
+  "apology-for-bf-gf": dynamic(() => import("@/components/templates/ApologyForBf")),
+  "memory-timeline": dynamic(() => import("@/components/templates/MemoryTimeline")),
+  "appreciation-for-friend": dynamic(() => import("@/components/templates/AppreciationFriend")),
+  "birthday": dynamic(() => import("@/components/templates/Birthday")),
+  "valentine_1": dynamic(() => import("@/components/templates/Valentine_1")),
 };
+
 type templateKey = keyof typeof componentMap;
+const generateSchema = (fields: any[]) => {
+  const shape: any = {};
+
+  fields.forEach((field) => {
+    if (field.type === "text") {
+      shape[field.name] = z.string().min(1, `${field.name} is required`);
+    }
+
+    if (field.type === "textarea") {
+      shape[field.name] = z.string().min(1, `${field.name} is required`);
+    }
+    if (field.type === "image") {
+      shape[field.name] = z.string().min(1, "Image required");
+    }
+  });
+
+  return z.object(shape);
+};
 
 export default function page() {
   const router = useRouter();
@@ -39,24 +52,7 @@ export default function page() {
   const [inputErr, setInputError] = useState<string>("");
   const [btnLoader, setBtnLoader] = useState<boolean>(false);
   // Generate Zod schema from template field validation
-  const generateSchema = (fields: any[]) => {
-    const shape: any = {};
 
-    fields.forEach((field) => {
-      if (field.type === "text") {
-        shape[field.name] = z.string().min(1, `${field.name} is required`);
-      }
-
-      if (field.type === "textarea") {
-        shape[field.name] = z.string().min(1, `${field.name} is required`);
-      }
-      if (field.type === "image") {
-        shape[field.name] = z.string().min(1, "Image required");
-      }
-    });
-
-    return z.object(shape);
-  };
   const handleTextChange = (name: string, value: string) => {
     setFormData((prev: any) => ({
       ...prev,
@@ -93,7 +89,7 @@ export default function page() {
       body: JSON.stringify({
         template_id: templateID,
         data: formData,
-        visitor_id:visitor_ID
+        visitor_id: visitor_ID
 
       }),
     });
@@ -156,7 +152,7 @@ export default function page() {
                       {field.name}:
                     </label>
                     <textarea
-                    placeholder={field.placeholder || ""}
+                      placeholder={field.placeholder || ""}
                       className="w-full placeholder:opacity-80 placeholder:text-blue-400 bg-blue-50 border-3 border-blue-300   p-2 rounded-2xl "
                       rows={4}
                       value={formData[field.name] || ""}
@@ -213,13 +209,27 @@ export default function page() {
             )}
           </div>
           <button
-            onClick={() => {
-              createInstance();
-            }}
-            className="w-full transition-all duration-300 py-4 active:scale-95 cursor-pointer mt-6 bg-blue-500 hover:bg-blue-600  rounded-2xl text-white text-xl font-semibold flex justify-center"
+           onClick={createInstance}
+            disabled={btnLoader}
+            aria-busy={btnLoader}
+            aria-live="polite"
+            className="
+    w-full mt-6 py-4 rounded-2xl text-white text-xl font-semibold
+    flex items-center justify-center gap-2
+    bg-blue-500 hover:bg-blue-600
+    active:scale-95 transition-all duration-300
+
+    disabled:bg-blue-300
+    disabled:cursor-not-allowed
+    disabled:active:scale-100
+  "
+
           >
             {btnLoader ? (
-              <ButtonLoder />
+               <>
+                <ButtonLoder />
+                Creating link...
+              </>
             ) : (
               ` Get Shareable Link at ₹${currTemplate?.price}`
             )}
