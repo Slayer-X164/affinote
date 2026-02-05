@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { geistSans, playfairDisplay } from "./font";
+import InAppBrowserWarning from "@/components/ui/InAppBrowserWarning";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://affinote.site"),
@@ -75,6 +76,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${playfairDisplay.variable} antialiased`}
       >
         {children}
+        <InAppBrowserWarning />
       </body>
     </html>
   );
