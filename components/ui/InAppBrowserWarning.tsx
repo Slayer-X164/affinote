@@ -43,17 +43,17 @@ export default function InAppBrowserWarning() {
       <p className="text-xs mt-2 text-neutral-500 text-center"> Instagram opens links inside its own browser which can prevent
   your purchased page from saving correctly and some animations may not load.
 
-  To make sure everything works perfectly and your link is محفوظ forever,
+  To make sure everything works perfectly and your link is stays forever,
   please open this page in Chrome or Safari.</p>
 
       <button
         onClick={openInBrowser}
-        className="bg-blue-500 px-4 py-2 rounded-full font-semibold"
+        className="bg-blue-500 px-4 py-2 rounded-full mt-4 font-semibold"
       >
         Open in Browser
       </button>
       <p className="text-xs text-center mt-4">
-  — Affinote Team 💙
+  — Affinote 💙
 </p>
     </div>
   );
