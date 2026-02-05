@@ -6,7 +6,7 @@ export const Templates = [
       "Celebrate birthdays with warmth and timeless charm using this beautifully designed vintage-style birthday letter template. Featuring soft floral patterns, layered paper textures, and delicate handwritten accents, this template evokes a nostalgic",
     price: 49,
     st_price: 89,
-    previewImg: "/previewImg/envLetter.png",
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/envLetter.png?updatedAt=1770318114046",
     fields: [
       { name: "person_name", type: "text", placeholder: "example: Raj" },
       {
@@ -29,7 +29,7 @@ export const Templates = [
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
     price: 49,
     st_price: 89,
-    previewImg: "/previewImg/flowerSurp.png",
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/flowerSurp.png?updatedAt=1770318113959",
     fields: [
       {
         name: "start_message",
@@ -51,7 +51,7 @@ export const Templates = [
       "a small fun interactive Apology Template for your angry girlfriend",
     price: 79,
     st_price: 129,
-    previewImg: "/previewImg/ApologyForGf.png",
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/ApologyForGf.png?updatedAt=1770318113956",
     fields: [
       { name: "from_name", type: "text", placeholder: "example: Raj" },
       {
@@ -74,7 +74,7 @@ export const Templates = [
       "a message like cute template for you angry loved one , make them happy",
     price: 79,
     st_price: 129,
-    previewImg: "/previewImg/ApologyForBFGF.png",
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/ApologyForBFGF.png?updatedAt=1770318113974",
     fields: [
       { name: "from_name", type: "text", placeholder: "example: Raj❤️" },
       {
@@ -112,7 +112,7 @@ export const Templates = [
       "A nostalgic memory timeline with photos and notes for your loved one",
     price: 59,
     st_price: 99,
-    previewImg: "/previewImg/memoTime.png",
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/memoTime.png?updatedAt=1770318113968",
     fields: [
       { name: "title_1", type: "text",placeholder:"example: Our first Date 🥺" },
 
@@ -135,7 +135,7 @@ export const Templates = [
       "A heartfelt appreciation page with memories, photos, and a meaningful message for your best friend.",
     price: 49,
     st_price: 89,
-    previewImg: "/previewImg/appreciationFriend.png",
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/appreciationFriend.png?updatedAt=1770318113957",
     fields: [
       { name: "photo_text_1", type: "text",placeholder:"example: day at college" },
       { name: "photo_1", type: "image" },
@@ -156,7 +156,7 @@ export const Templates = [
     "birthday template with cake animation, memory wall, wish jar, confetti celebration and floating hearts interaction.",
   price: 59,
     st_price: 99,
-  previewImg: "/previewImg/birthday.png",
+  previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/birthday.png?updatedAt=1770318114009",
   fields: [
     {
       name: "name",
@@ -213,7 +213,7 @@ export const Templates = [
     "Beautiful Valentine Template with multiple gift options to choose from",
   price: 79,
   st_price: 129,
-  previewImg: "/previewImg/valentine_1.png",
+  previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/valentine_1.png?updatedAt=1770318113983",
   fields: [
 
     {
