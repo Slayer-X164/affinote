@@ -5,8 +5,9 @@ import ContactBox from "@/components/ui/ContactBox";
 import Footer from "@/components/ui/Footer";
 import Hero from "@/components/ui/Hero";
 import Navbar from "@/components/ui/Navbar";
+
 import TemplateSection from "@/components/ui/TemplateSection";
-import Image from "next/image";
+
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <h3 className="animate-pulse">will be back soon...</h3>
     </div> */}
     <AnnouncementBar/>
+
     <Navbar/>
     <Hero/>
     <TemplateSection/>

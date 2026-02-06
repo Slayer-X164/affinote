@@ -26,9 +26,9 @@ const Footer = () => {
                <a href="https://www.instagram.com/getaffinote?igsh=N2JvZ3Ewdjdlenph" target='_blank'>
                  <FaInstagram className='text-xl md:text-2xl cursor-pointer' />
                </a>
-               <a href="#">
+               {/* <a href="#">
                  <BsTwitterX  className='text-md md:text-xl cursor-pointer'/>
-               </a>
+               </a> */}
             </div>
         </div>
        </div>

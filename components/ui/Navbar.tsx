@@ -64,7 +64,7 @@ const Navbar = () => {
                 setLoadingLinks(false);
               }
             }}
-            className="cursor-pointer transition-all duration-300 active:scale-90 text-blue-500  py-1 px-4 border-blue-400 border-2 border-dashed   font-semibold rounded-full "
+            className="cursor-pointer  transition-all duration-300 active:scale-90 text-blue-500  py-1 px-4 border-blue-400 border-2 border-dashed   font-semibold rounded-full "
           >
             My Links
           </button>

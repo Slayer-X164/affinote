@@ -39,8 +39,8 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
       <div className="max-w-xl w-full mx-auto my-10 p-6  bg-blue-100 border-blue-400 rounded-2xl  relative">
       <span className="w-full -z-1 h-full  absolute left-2 top-2 "></span>
       {!sent && (
-        <h2 className="text-2xl font-bold text-blue-900 text-center mb-4 font-sans">
-          Got any Queries?
+        <h2 className="text-2xl font-bold text-blue-900 capitalize text-center mb-5 font-sans">
+          Get in Touch for <br /> any issues or suggestions
         </h2>
       )}
 
@@ -66,7 +66,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
             name="message"
             required
             rows={4}
-            placeholder="Your message"
+            placeholder="Your Issues / Suggestions / feedback"
             className="bg-neutral-50 px-4 py-2 rounded-2xl shadow-2xl shadow-blue-800/30 outline-0"
           />
           <button

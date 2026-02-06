@@ -1,12 +1,15 @@
 "use client";
 
+import PaidCustomer from "./PaidCustomer";
 import ScrollButton from "./ScrollButton";
 
 
 const Hero = () => {
   return (
     <div className="w-full h-auto flex items-center gap-6 justify-center flex-col px-3">
-      <h1 className="text-3xl lg:text-6xl  text-center font-semibold pt-10 relative">
+
+      <h1 className="text-3xl lg:text-6xl  text-center font-semibold pt-3 relative">
+        <PaidCustomer/>
         <span
           className={`text-blue-500 italic font-playfairDisplay font-semibold`}
         >
