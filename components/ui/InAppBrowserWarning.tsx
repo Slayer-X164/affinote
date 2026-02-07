@@ -35,12 +35,11 @@ export default function InAppBrowserWarning() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 h-[50vh] bg-black text-white p-4 text-center">
-      <p className="text-sm mb-3">
-        Instagram browser may not save your purchased link 😢
+    <div className="fixed bottom-0 left-0 right-0 z-50 h-[70vh] bg-black text-white p-4 text-center">
+      <p className="text-sm mb-3 pt-6">
         Please open in Chrome/Safari for full experience.
       </p>
-      <p className="text-xs mt-2 text-neutral-500 text-center"> Instagram opens links inside its own browser which can prevent
+      <p className="text-xs mt-2 text-neutral-400 text-center"> Instagram opens links inside its own browser which can prevent
   your purchased page from saving correctly and some animations may not load.
 
   To make sure everything works perfectly and your link is stays forever,
