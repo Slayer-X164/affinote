@@ -3,7 +3,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
-
+import { RiErrorWarningFill } from "react-icons/ri";
 const Success = () => {
   const [mounted, setMounted] = useState(false);
 
@@ -27,23 +27,24 @@ const Success = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-5">
-    {mounted && (
-  <Confetti
-    width={width}
-    height={height}
-    numberOfPieces={180}
-    recycle={false}
-  />
-)}
+      {mounted && (
+        <Confetti
+          width={width}
+          height={height}
+          numberOfPieces={180}
+          recycle={false}
+        />
+      )}
 
-      <h1 className="text-4xl font-bold text-green-500 mb-4 text-center">
-        Payment Successful!
+      <h1 className="text-2xl md:text-4xl  font-bold flex items-center flex-col gap-3 text-green-500 mb-8 text-center">
+        Payment Successful! <br /> <span className="text-sm md:text-lg text-blue-900 rounded-full border border-blue-900 px-3 py-1 bg-blue-600/20 font-light flex items-center gap-2 "><RiErrorWarningFill />
+          Please save your link in Notepad or Bookmark it.</span>
       </h1>
 
-      <p className="text-lg text-gray-700 font-bold mb-8 text-center">
-        Your page has been created. <br />
+      {/* <p className="text-lg text-gray-700 font-bold mb-8 text-center">
+
         You can now share it with anyone!
-      </p>
+      </p> */}
 
       {/* Shareable Link Box */}
       <div className="bg-blue-100 p-4 rounded-xl w-full max-w-xl ">
