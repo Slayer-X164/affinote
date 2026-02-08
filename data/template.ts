@@ -1,9 +1,9 @@
 export const Templates = [
   {
     id: "envolope-letter",
-    title: "Birthday Envelope Letter",
+    title: "Vintage Letter",
     description:
-      "Celebrate birthdays with warmth and timeless charm using this beautifully designed vintage-style birthday letter template. Featuring soft floral patterns, layered paper textures, and delicate handwritten accents, this template evokes a nostalgic",
+      "An Letter with warmth and timeless charm using this beautifully designed vintage-style birthday letter template. Featuring soft floral patterns, layered paper textures, and delicate handwritten accents, this template evokes a nostalgic",
     price: 69,
     st_price: 99,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/envLetter.png?updatedAt=1770318114046",
