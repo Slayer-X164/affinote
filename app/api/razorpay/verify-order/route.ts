@@ -12,6 +12,7 @@ export async function POST(req: Request) {
       razorpay_order_id,
       razorpay_payment_id,
       razorpay_signature,
+      phone
     } = body;
 
     const data = razorpay_order_id + "|" + razorpay_payment_id;
@@ -30,7 +31,7 @@ export async function POST(req: Request) {
 
     const { error } = await supabase
       .from("template_instance")
-      .update({ paid: true })
+      .update({ paid: true,payment_id: razorpay_payment_id, phone })
       .eq("id", instanceID);
 
     if (error) {
