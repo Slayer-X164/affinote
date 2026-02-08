@@ -4,7 +4,7 @@ export const Templates = [
     title: "Vintage Letter",
     description:
       "An Letter with warmth and timeless charm using this beautifully designed vintage-style birthday letter template. Featuring soft floral patterns, layered paper textures, and delicate handwritten accents, this template evokes a nostalgic",
-    price: 69,
+    price: 49,
     st_price: 99,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/envLetter.png?updatedAt=1770318114046",
     fields: [
@@ -68,7 +68,7 @@ export const Templates = [
     title: "Apology For BF/GF",
     description:
       "a message like cute template for you angry loved one , make them happy",
-    price: 99,
+    price: 79,
   st_price: 149,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/ApologyForBFGF.png?updatedAt=1770318113974",
     fields: [
@@ -106,7 +106,7 @@ export const Templates = [
     title: "Apology For GF/BF 2.0",
     description:
       "a small fun interactive Apology Template for your angry girlfriend",
-    price: 99,
+    price: 79,
   st_price: 149,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/ApologyForGf.png?updatedAt=1770318113956",
     fields: [
@@ -130,7 +130,7 @@ export const Templates = [
     title: "Memory Timeline",
     description:
       "A nostalgic memory timeline with photos and notes for your loved one",
-    price: 79,
+    price: 69,
     st_price: 119,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/memoTime.png?updatedAt=1770318113968",
     fields: [
@@ -153,7 +153,7 @@ export const Templates = [
     title: "Appreciation for a Friend",
     description:
       "A heartfelt appreciation page with memories, photos, and a meaningful message for your best friend.",
-    price: 69,
+    price: 59,
     st_price: 99,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/appreciationFriend.png?updatedAt=1770318113957",
     fields: [
@@ -174,7 +174,7 @@ export const Templates = [
   title: "Birthday Page",
   description:
     "birthday template with cake animation, memory wall, wish jar, confetti celebration and floating hearts interaction.",
-  price: 79,
+  price: 69,
     st_price: 119,
   previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/birthday.png?updatedAt=1770318114009",
   fields: [

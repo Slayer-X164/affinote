@@ -45,7 +45,7 @@ export const MostUsedTemplates = [
     title: "Apology For GF/BF 2.0",
     description:
       "a small fun interactive Apology Template for your angry girlfriend",
-    price: 99,
+    price: 79,
   st_price: 149,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/ApologyForGf.png?updatedAt=1770318113956",
     fields: [
