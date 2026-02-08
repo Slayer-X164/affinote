@@ -4,8 +4,8 @@ export const MostUsedTemplates = [
   title: "Valentine's Gift",
   description:
     "Beautiful Valentine Template with multiple gift options to choose from",
-  price: 79,
-  st_price: 129,
+  price: 99,
+  st_price: 149,
   previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/valentine_1.png?updatedAt=1770318113983",
   fields: [
 
@@ -18,13 +18,13 @@ export const MostUsedTemplates = [
 
   ],
 },
-  {
+   {
     id: "flower-surprise",
     title: "Flower Surprise",
     description:
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
-    price: 49,
-    st_price: 89,
+    price: 69,
+    st_price: 99,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/flowerSurp.png?updatedAt=1770318113959",
     fields: [
       {
@@ -45,8 +45,8 @@ export const MostUsedTemplates = [
     title: "Apology For GF/BF 2.0",
     description:
       "a small fun interactive Apology Template for your angry girlfriend",
-    price: 79,
-    st_price: 129,
+    price: 99,
+  st_price: 149,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/ApologyForGf.png?updatedAt=1770318113956",
     fields: [
       { name: "from_name", type: "text", placeholder: "example: Raj" },
