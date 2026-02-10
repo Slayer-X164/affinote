@@ -15,6 +15,11 @@ export default function PaymentPage() {
   const price = searchParams.get("price");
   const [loading, setLoading] = useState(false);
   const [razorpayScriptLoader, setRSLoader] = useState<boolean>(false);
+  
+  if (price && parseInt(price) <= 0) {
+    router.replace("/");
+    return null;
+  }
   const startPayment = async () => {
     setLoading(true);
 
@@ -47,7 +52,7 @@ export default function PaymentPage() {
             razorpay_order_id: response.razorpay_order_id,
             razorpay_payment_id: response.razorpay_payment_id,
             razorpay_signature: response.razorpay_signature,
-            phone: response.phone, 
+            phone: response.phone,
           }),
         });
 
@@ -83,11 +88,10 @@ export default function PaymentPage() {
           disabled={!razorpayScriptLoader || loading}
           onClick={startPayment}
           className={`px-6 py-3 mt-6 rounded-lg text-white cursor-pointer transition-all duration-300
-     ${
-       !razorpayScriptLoader || loading
-         ? "bg-blue-200 cursor-not-allowed"
-         : "bg-blue-500 hover:bg-blue-600"
-     }`}
+     ${!razorpayScriptLoader || loading
+              ? "bg-blue-200 cursor-not-allowed"
+              : "bg-blue-500 hover:bg-blue-600"
+            }`}
         >
           {!razorpayScriptLoader ? (
             "Loading Razorpay…"

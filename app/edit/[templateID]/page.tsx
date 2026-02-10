@@ -98,6 +98,10 @@ export default function page() {
 
     if (supData.id) {
       setBtnLoader(false);
+      if(currTemplate?.isFree){
+        router.push(`/free-affinote?instance=${supData.id}`);
+        return;
+      }
       router.push(
         `/payment?instance=${supData.id}&price=${currTemplate?.price}`
       );
@@ -229,7 +233,7 @@ export default function page() {
             {btnLoader ? (
                <>
                 <ButtonLoder />
-                Creating link...
+                Creating Payment...
               </>
             ) : (
               ` Get Shareable Link at ₹${currTemplate?.price}`

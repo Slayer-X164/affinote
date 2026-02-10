@@ -1,15 +1,20 @@
+import { Templates } from "@/data/template";
 import { supabase } from "@/lib/supabase";
 
 export const POST = async (req: Request) => {
   const body = await req.json();
   const { template_id, data, visitor_id } = body;
 
+  const currentTemplate = Templates.find((t) => t.id === template_id);
+  if (!currentTemplate) {
+    return Response.json({ error: "Template not found" }, { status: 404 });
+  }
   const { data: inserted, error } = await supabase
     .from("template_instance")
     .insert({
       template_id: template_id,
       data: data,
-      paid: false,
+      paid: currentTemplate.isFree ? true : false,
       visitor_id,
     })
     .select("id")

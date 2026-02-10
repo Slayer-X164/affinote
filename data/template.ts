@@ -1,50 +1,51 @@
 export const Templates = [
-  {
-  id: "gratitude-page",
-  title: "Gratitude Page",
-  description:
-    "A all-occasion Gratitude page with memories, gallery, promises and a heartfelt message.",
-  price: 79,
-  st_price: 129,
-  previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/gratitude_page.png",
-  fields: [
-    { name: "partnerName", type: "text", placeholder: "example: My Cutie" },
-    { name: "openingLine", type: "textarea", placeholder: "example: Every moment with you feels like a dream..." },
+//   {
+//   id: "gratitude-page",
+//   title: "Gratitude Page",
+//   description:
+//     "A all-occasion Gratitude page with memories, gallery, promises and a heartfelt message.",
+//   price: 0,
+//   st_price: 129,
+//   isFree:true,
+//   previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/gratitude_page.png",
+//   fields: [
+//     { name: "partnerName", type: "text", placeholder: "example: My Cutie" },
+//     { name: "openingLine", type: "textarea", placeholder: "example: Every moment with you feels like a dream..." },
 
-    // LOVE REASONS
-    // { name: "reason_1", type: "text", placeholder: "example: Your smile brightens my darkest days" },
-    // { name: "reason_2", type: "text", placeholder: "example: You understand me like no one else" },
-    // { name: "reason_3", type: "text", placeholder: "example: Your kindness inspires me to be better" },
-    // { name: "reason_4", type: "text", placeholder: "example: I love how we can be silly together" },
-
-
-    // MEMORIES (2)
-    { name: "image_1", type: "image" },
-    { name: "title_1", type: "text", placeholder: "example: Our First Date" },
-    { name: "description_1", type: "text", placeholder: "example: The day we met at the park..." },
-
-    { name: "image_2", type: "image" },
-    { name: "title_2", type: "text", placeholder: "example: Beach Getaway" },
-    { name: "description_2", type: "text", placeholder: "example: That weekend we spent by the ocean..." },
-    // LONG MESSAGE
-    { name: "longMessage", type: "textarea", placeholder: "Write your heartfelt message..." },
-
-    // GALLERY (3)
-    { name: "galleryImage_1", type: "image" },
-    { name: "galleryImage_2", type: "image" },
-    { name: "galleryImage_3", type: "image" },
+//     // LOVE REASONS
+//     // { name: "reason_1", type: "text", placeholder: "example: Your smile brightens my darkest days" },
+//     // { name: "reason_2", type: "text", placeholder: "example: You understand me like no one else" },
+//     // { name: "reason_3", type: "text", placeholder: "example: Your kindness inspires me to be better" },
+//     // { name: "reason_4", type: "text", placeholder: "example: I love how we can be silly together" },
 
 
-    // PROMISES
-    { name: "promise_1", type: "text", placeholder: "example: I promise to always support your dreams" },
-    { name: "promise_2", type: "text", placeholder: "example: I promise to be there through thick and thin" },
-    { name: "promise_3", type: "text", placeholder: "example: I promise to make you laugh every day" },
+//     // MEMORIES (2)
+//     { name: "image_1", type: "image" },
+//     { name: "title_1", type: "text", placeholder: "example: Our First Date" },
+//     { name: "description_1", type: "text", placeholder: "example: The day we met at the park..." },
 
-    // ENDING
-    { name: "endingLine", type: "text", placeholder: "example: Thank you for being you, and for loving me." },
-    { name: "senderName", type: "text", placeholder: "example: Hubby" },
-  ],
-},
+//     { name: "image_2", type: "image" },
+//     { name: "title_2", type: "text", placeholder: "example: Beach Getaway" },
+//     { name: "description_2", type: "text", placeholder: "example: That weekend we spent by the ocean..." },
+//     // LONG MESSAGE
+//     { name: "longMessage", type: "textarea", placeholder: "Write your heartfelt message..." },
+
+//     // GALLERY (3)
+//     { name: "galleryImage_1", type: "image" },
+//     { name: "galleryImage_2", type: "image" },
+//     { name: "galleryImage_3", type: "image" },
+
+
+//     // PROMISES
+//     { name: "promise_1", type: "text", placeholder: "example: I promise to always support your dreams" },
+//     { name: "promise_2", type: "text", placeholder: "example: I promise to be there through thick and thin" },
+//     { name: "promise_3", type: "text", placeholder: "example: I promise to make you laugh every day" },
+
+//     // ENDING
+//     { name: "endingLine", type: "text", placeholder: "example: Thank you for being you, and for loving me." },
+//     { name: "senderName", type: "text", placeholder: "example: Hubby" },
+//   ],
+// },
   {
     id: "envolope-letter",
     title: "Vintage Letter",
@@ -52,6 +53,7 @@ export const Templates = [
       "An Letter with warmth and timeless charm using this beautifully designed vintage-style birthday letter template. Featuring soft floral patterns, layered paper textures, and delicate handwritten accents, this template evokes a nostalgic",
     price: 49,
     st_price: 99,
+    isFree:false,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/envLetter.png?updatedAt=1770318114046",
     fields: [
       { name: "person_name", type: "text", placeholder: "example: Raj" },
@@ -75,6 +77,7 @@ export const Templates = [
     "Beautiful Valentine Template with multiple gift options to choose from",
   price: 99,
   st_price: 149,
+   isFree:false,
   previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/valentine_1.png?updatedAt=1770318113983",
   fields: [
 
@@ -94,6 +97,7 @@ export const Templates = [
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
     price: 69,
     st_price: 99,
+     isFree:false,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/flowerSurp.png?updatedAt=1770318113959",
     fields: [
       {
@@ -116,6 +120,7 @@ export const Templates = [
       "a message like cute template for you angry loved one , make them happy",
     price: 79,
   st_price: 149,
+   isFree:false,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/ApologyForBFGF.png?updatedAt=1770318113974",
     fields: [
       { name: "from_name", type: "text", placeholder: "example: Raj❤️" },
@@ -154,6 +159,7 @@ export const Templates = [
       "a small fun interactive Apology Template for your angry girlfriend",
     price: 79,
   st_price: 149,
+   isFree:false,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/ApologyForGf.png?updatedAt=1770318113956",
     fields: [
       { name: "from_name", type: "text", placeholder: "example: Raj" },
@@ -178,6 +184,7 @@ export const Templates = [
       "A nostalgic memory timeline with photos and notes for your loved one",
     price: 69,
     st_price: 119,
+     isFree:false,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/memoTime.png?updatedAt=1770318113968",
     fields: [
       { name: "title_1", type: "text",placeholder:"example: Our first Date 🥺" },
@@ -201,6 +208,7 @@ export const Templates = [
       "A heartfelt appreciation page with memories, photos, and a meaningful message for your best friend.",
     price: 59,
     st_price: 99,
+     isFree:false,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/appreciationFriend.png?updatedAt=1770318113957",
     fields: [
       { name: "photo_text_1", type: "text",placeholder:"example: day at college" },
@@ -222,6 +230,7 @@ export const Templates = [
     "birthday template with cake animation, memory wall, wish jar, confetti celebration and floating hearts interaction.",
   price: 69,
     st_price: 119,
+     isFree:false,
   previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/birthday.png?updatedAt=1770318114009",
   fields: [
     {

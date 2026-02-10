@@ -6,6 +6,7 @@ export const MostUsedTemplates = [
     "Beautiful Valentine Template with multiple gift options to choose from",
   price: 99,
   st_price: 149,
+   isFree:false,
   previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/valentine_1.png?updatedAt=1770318113983",
   fields: [
 
@@ -25,6 +26,7 @@ export const MostUsedTemplates = [
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
     price: 69,
     st_price: 99,
+     isFree:false,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/flowerSurp.png?updatedAt=1770318113959",
     fields: [
       {
@@ -47,6 +49,7 @@ export const MostUsedTemplates = [
       "a small fun interactive Apology Template for your angry girlfriend",
     price: 79,
   st_price: 149,
+   isFree:false,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/ApologyForGf.png?updatedAt=1770318113956",
     fields: [
       { name: "from_name", type: "text", placeholder: "example: Raj" },
