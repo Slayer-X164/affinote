@@ -7,6 +7,9 @@ import MemoryTimeline from "@/components/templates/MemoryTimeline";
 import Success from "../success/component/Success";
 import Valentine_1 from "@/components/templates/Valentine_1";
 import Birthday from "@/components/templates/Birthday";
+import ModernLoveWebsite from "@/components/templates/FreeTemp";
+import WhyYouAreAwesome from "@/components/templates/Gratitude";
+import JustUsTemplate from "@/components/templates/Gratitude";
 
 export default function testTemplate() {
   return (
@@ -20,7 +23,8 @@ export default function testTemplate() {
     {/* <EnvelopeLetter/> */}
     {/* <MemoryTimeline/> */}
     {/* <Success/> */}
-     <div>test</div>
+    {/* <ModernLoveWebsite/> */}
+    <JustUsTemplate/>
     {/* <Birthday/> */}
    </>
 
