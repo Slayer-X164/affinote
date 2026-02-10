@@ -12,15 +12,15 @@ export const metadata = {
 };
 
 const componentMap: any = {
-  "envolope-letter": dynamic(() => import("@/components/templates/EnvolopeTemplate")),
-  "flower-surprise": dynamic(() => import("@/components/templates/CuteSurprise")),
-  "apology-for-gf": dynamic(() => import("@/components/templates/ApologyForGf")),
-  "apology-for-bf-gf": dynamic(() => import("@/components/templates/ApologyForBf")),
-  "memory-timeline": dynamic(() => import("@/components/templates/MemoryTimeline")),
-  "appreciation-for-friend": dynamic(() => import("@/components/templates/AppreciationFriend")),
-  "birthday": dynamic(() => import("@/components/templates/Birthday")),
-  "valentine_1": dynamic(() => import("@/components/templates/Valentine_1")),
-  "gratitude-page": dynamic(() => import("@/components/templates/Gratitude")),
+  "envolope-letter": dynamic(() => import("@/components/templates/EnvolopeTemplate"),{ssr:false}),
+  "flower-surprise": dynamic(() => import("@/components/templates/CuteSurprise"),{ssr:false}),
+  "apology-for-gf": dynamic(() => import("@/components/templates/ApologyForGf"),{ssr:false}),
+  "apology-for-bf-gf": dynamic(() => import("@/components/templates/ApologyForBf"),{ssr:false}),
+  "memory-timeline": dynamic(() => import("@/components/templates/MemoryTimeline"),{ssr:false}),
+  "appreciation-for-friend": dynamic(() => import("@/components/templates/AppreciationFriend"),{ssr:false}),
+  "birthday": dynamic(() => import("@/components/templates/Birthday"),{ssr:false}),
+  "valentine_1": dynamic(() => import("@/components/templates/Valentine_1"),{ssr:false}),
+  "gratitude-page": dynamic(() => import("@/components/templates/Gratitude"),{ssr:false}),
 };
 
 type templateKey = keyof typeof componentMap;

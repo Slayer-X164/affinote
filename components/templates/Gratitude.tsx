@@ -13,6 +13,7 @@ import {
   FaGift,
   FaCheckCircle,
 } from "react-icons/fa"
+import Image from "next/image"
 interface MemoryItem {
   image: string
   title: string
@@ -172,12 +173,12 @@ export default function Gratitude({
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-blue-50 via-white to-blue-100 text-gray-800 overflow-hidden">
+    <div className="min-h-screen bg-linear-to-b from-red-50 via-white to-red-100 text-gray-800 overflow-hidden">
 
       {/* HERO */}
       <section className="h-screen flex flex-col items-center justify-center text-center px-6">
         <motion.div initial="hidden" animate="show" variants={fadeUp} transition={{ duration: 1 }}>
-          <FaHeart className="text-blue-500 text-5xl mx-auto mb-6" />
+          <Image src={"https://media.tenor.com/K0Op-0SpsvkAAAAi/dudu-cute.gif"} alt="Preview" height={30} width={30} className="w-32 h-32 mx-auto mb-2 rounded-full" />
           <h1 className="text-5xl font-bold mb-4">
             Hey {partnerName}
           </h1>
@@ -189,7 +190,7 @@ export default function Gratitude({
       </section>
 
       {/* LOVE REASONS */}
-      <section className="py-24 px-6 max-w-5xl mx-auto">
+      {/* <section className="py-24 px-6 max-w-5xl mx-auto">
         <motion.h2
           className="text-4xl font-bold text-center mb-14"
           initial="hidden"
@@ -225,9 +226,9 @@ export default function Gratitude({
                   transition={{ ease: "backInOut" }}
                 >
                   {isFilled ? (
-                    <FaHeart className="text-blue-400 text-2xl mt-1" />
+                    <FaHeart className="text-red-400 text-2xl mt-1" />
                   ) : (
-                    <FaRegStar className="text-blue-400 text-2xl mt-1" />
+                    <FaRegStar className="text-red-400 text-2xl mt-1" />
                   )}
                 </motion.div>
 
@@ -237,10 +238,10 @@ export default function Gratitude({
           })}
         </div>
 
-      </section>
+      </section> */}
 
       {/* MEMORY TIMELINE */}
-      <section className="py-24 bg-blue-50 px-6">
+      <section className="py-24 bg-red-100 px-6">
         <h2 className="text-4xl font-bold text-center mb-16">Our Memories</h2>
 
         <div className="space-y-16 max-w-4xl mx-auto">
@@ -265,7 +266,7 @@ export default function Gratitude({
           </motion.div>
           <motion.div
 
-            className="grid md:grid-cols-2 gap-8 items-center"
+            className="hidden md:grid md:grid-cols-2 gap-8 items-center"
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
@@ -281,8 +282,37 @@ export default function Gratitude({
               className="rounded-2xl shadow-lg "
             />
           </motion.div>
+           <motion.div
 
+            className="grid md:hidden md:grid-cols-2 gap-8 items-center"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            transition={{ delay: 1 * 0.2, type: "spring", bounce: 0.6 }}
+          >
+
+            <img
+              src={image_2}
+              className="rounded-2xl shadow-lg "
+            />
+            <div>
+              <h3 className="text-2xl font-semibold mb-3">{title_2}</h3>
+              <p className="text-gray-600">{description_2}</p>
+            </div>
+          </motion.div>
         </div>
+      </section>
+
+
+
+      {/* LONG MESSAGE */}
+
+      <section className="py-24 bg-red-100 px-6 text-center">
+        <FaQuoteLeft className="text-4xl mx-auto text-red-400 mb-6" />
+        <p className="max-w-3xl mx-auto text-lg leading-relaxed">
+          {longMessage}
+        </p>
       </section>
 
       {/* GALLERY */}
@@ -306,14 +336,6 @@ export default function Gratitude({
         </div>
       </section>
 
-      {/* LONG MESSAGE */}
-      <section className="py-24 bg-blue-50 px-6 text-center">
-        <FaQuoteLeft className="text-4xl mx-auto text-blue-400 mb-6" />
-        <p className="max-w-3xl mx-auto text-lg leading-relaxed">
-          {longMessage}
-        </p>
-      </section>
-
       {/* PROMISES */}
       <section className="py-24 px-6 max-w-2xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-14">
@@ -332,7 +354,7 @@ export default function Gratitude({
               transition={{ delay: i * 0.2 }}
             >
 
-              <FaCheckCircle className="text-blue-400 text-2xl flex-shrink-0" />
+              <FaCheckCircle className="text-red-400 text-2xl flex-shrink-0" />
               <p className="mt-1">{p}</p>
             </motion.div>
           ))}
@@ -342,7 +364,7 @@ export default function Gratitude({
       {/* FINAL */}
       <section className="h-screen flex flex-col items-center justify-center text-center px-6">
         <motion.div initial="hidden" animate="show" variants={fadeUp}>
-          <FaHeart className="text-blue-500 text-5xl mx-auto mb-6" />
+          <FaHeart className="text-red-500 text-5xl mx-auto mb-6" />
           <h2 className="text-3xl mb-6">{endingLine}</h2>
           <p className="text-xl font-semibold">
             — Your's, {senderName}
