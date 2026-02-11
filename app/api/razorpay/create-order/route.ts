@@ -1,3 +1,4 @@
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import Razorpay from "razorpay";
 
 type paymentData = {
@@ -17,6 +18,10 @@ export async function POST(req: Request) {
       currency: "INR",
       receipt: instanceID,
     });
+    await supabaseAdmin
+      .from("template_instance")
+      .update({ razorpay_order_id: order.id })
+      .eq("id", instanceID);
     return Response.json(order);
   } catch (error) {
     console.error(error);

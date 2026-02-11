@@ -31,7 +31,7 @@ export async function POST(req: Request) {
 
     const { error } = await supabaseAdmin
       .from("template_instance")
-      .update({ paid: true,payment_id: razorpay_payment_id, phone:phone})
+      .update({ paid: true,payment_id: razorpay_payment_id})
       .eq("id", instanceID);
 
     if (error) {

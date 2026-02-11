@@ -1,5 +1,6 @@
 import { Templates } from "@/data/template";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
+
 
 export const POST = async (req: Request) => {
   const body = await req.json();
@@ -9,7 +10,7 @@ export const POST = async (req: Request) => {
   if (!currentTemplate) {
     return Response.json({ error: "Template not found" }, { status: 404 });
   }
-  const { data: inserted, error } = await supabase
+  const { data: inserted, error } = await supabaseAdmin
     .from("template_instance")
     .insert({
       template_id: template_id,
