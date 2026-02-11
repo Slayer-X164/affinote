@@ -1,6 +1,6 @@
 export const runtime = "nodejs";
 
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { createHmac } from "node:crypto";
 
 export async function POST(req: Request) {
@@ -29,7 +29,7 @@ export async function POST(req: Request) {
       return Response.json({ success: false }, { status: 400 });
     }
 
-    const { error } = await supabase
+    const { error } = await supabaseAdmin
       .from("template_instance")
       .update({ paid: true,payment_id: razorpay_payment_id, phone:phone})
       .eq("id", instanceID);
