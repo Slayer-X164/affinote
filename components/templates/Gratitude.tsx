@@ -4,7 +4,7 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import confetti from "canvas-confetti"
-
+import { MdKeyboardDoubleArrowDown } from "react-icons/md"
 
 import {
   FaHeart,
@@ -63,10 +63,10 @@ export default function Gratitude({
   partnerName = "My Cutie",
   openingLine = "Every moment with you feels like a dream come true. made this page to remind you how much you mean to me.",
 
-    reason_1 = "Your smile brightens my darkest days.",
-    reason_2 = "You understand me like no one else.",
-    reason_3 = "Your kindness inspires me to be better.",
-    reason_4 = "I love how we can be silly together.",
+  reason_1 = "Your smile brightens my darkest days.",
+  reason_2 = "You understand me like no one else.",
+  reason_3 = "Your kindness inspires me to be better.",
+  reason_4 = "I love how we can be silly together.",
 
 
 
@@ -86,9 +86,9 @@ export default function Gratitude({
 
   longMessage = "I never thought I could find someone who truly gets me until I met you. You are my best friend, my confidant, and the love of my life. I cherish every moment we spend together and look forward to a future filled with more memories and love.",
 
-    promise_1 = "I promise to always support your dreams.",
-    promise_2 = "I promise to be there through thick and thin.",
-    promise_3 = "I promise to make you laugh every day.",
+  promise_1 = "I promise to always support your dreams.",
+  promise_2 = "I promise to be there through thick and thin.",
+  promise_3 = "I promise to make you laugh every day.",
 
   endingLine = "Thank you for being you, and for loving me.",
   senderName = "Hubby",
@@ -121,14 +121,14 @@ export default function Gratitude({
     Array(loveReasons.length).fill(false)
   )
   function toggleCard(index: number, e: React.MouseEvent<HTMLDivElement>) {
-  setFilledCards(prev => {
-    const newArr = [...prev]
-    newArr[index] = !newArr[index]
-    return newArr
-  })
+    setFilledCards(prev => {
+      const newArr = [...prev]
+      newArr[index] = !newArr[index]
+      return newArr
+    })
 
-  shootConfettiFromClick(e)
-}
+    shootConfettiFromClick(e)
+  }
 
 
   function Typewriter({ text, delay = 0 }: { text: string; delay?: number }) {
@@ -176,7 +176,7 @@ export default function Gratitude({
     <div className="min-h-screen bg-linear-to-b from-red-50 via-white to-red-100 text-gray-800 overflow-hidden">
 
       {/* HERO */}
-      <section className="h-screen flex flex-col items-center justify-center text-center px-6">
+      <section className="h-screen flex flex-col items-center justify-center text-center px-6 gap-10">
         <motion.div initial="hidden" animate="show" variants={fadeUp} transition={{ duration: 1 }}>
           <Image src={"https://media.tenor.com/K0Op-0SpsvkAAAAi/dudu-cute.gif"} alt="Preview" height={30} width={30} className="w-32 h-32 mx-auto mb-2 rounded-full" />
           <h1 className="text-5xl font-bold mb-4">
@@ -186,6 +186,15 @@ export default function Gratitude({
             <Typewriter text={openingLine} delay={800} />
           </p>
 
+        </motion.div>
+        <motion.div initial="hidden" animate="show" variants={fadeUp} transition={{ duration: 1 ,delay:3}} className="">
+          <motion.div
+
+        animate={{ y: [0, 20, 0] }}
+        transition={{ repeat: Infinity, duration: 1.5 }}
+      >
+          <MdKeyboardDoubleArrowDown className="text-2xl text-[#726667]" />
+        </motion.div>
         </motion.div>
       </section>
 
@@ -282,7 +291,7 @@ export default function Gratitude({
               className="rounded-2xl shadow-lg "
             />
           </motion.div>
-           <motion.div
+          <motion.div
 
             className="grid md:hidden md:grid-cols-2 gap-8 items-center"
             initial="hidden"
