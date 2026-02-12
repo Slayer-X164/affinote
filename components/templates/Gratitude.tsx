@@ -20,7 +20,7 @@ interface MemoryItem {
   description: string
 }
 type JustUsData = {
-  partnerName?: string
+  receiverName?: string
   openingLine?: string
 
   reason_1?: string
@@ -60,7 +60,7 @@ const fadeUp = {
 }
 
 export default function Gratitude({
-  partnerName = "My Cutie",
+  receiverName = "My Cutie",
   openingLine = "Every moment with you feels like a dream come true. made this page to remind you how much you mean to me.",
 
   reason_1 = "Your smile brightens my darkest days.",
@@ -180,7 +180,7 @@ export default function Gratitude({
         <motion.div initial="hidden" animate="show" variants={fadeUp} transition={{ duration: 1 }}>
           <Image src={"https://media.tenor.com/K0Op-0SpsvkAAAAi/dudu-cute.gif"} alt="Preview" height={30} width={30} className="w-32 h-32 mx-auto mb-2 rounded-full" />
           <h1 className="text-5xl font-bold mb-4">
-            Hey {partnerName}
+            Hey {receiverName}
           </h1>
           <p className="text-xl max-w-xl">
             <Typewriter text={openingLine} delay={800} />
