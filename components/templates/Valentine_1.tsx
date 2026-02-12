@@ -520,22 +520,21 @@ const MusicPlayer = ({
     setIsPlaying(!isPlaying);
   };
 
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSeek = (e: React.FormEvent<HTMLInputElement>) => {
     const audio = audioRef.current;
     if (!audio || !audio.duration) return;
 
+    const target = e.currentTarget;
+    const seekValue = Number(target.value);
+
     const wasPlaying = !audio.paused;
 
-    const newTime = (Number(e.target.value) / 100) * audio.duration;
-    audio.currentTime = newTime;
+    audio.currentTime = (seekValue / 100) * audio.duration;
+    setProgress(seekValue);
 
-    setProgress(Number(e.target.value));
-
-
-    if (wasPlaying) {
-      audio.play();
-    }
+    if (wasPlaying) audio.play();
   };
+
 
 
   return (
@@ -570,9 +569,10 @@ const MusicPlayer = ({
         max="100"
         step="0.1"
         value={progress}
-        onChange={handleSeek}
+        onInput={handleSeek}   // ⭐ mobile fix
         className="w-full accent-[#28061f] mb-4"
       />
+
 
 
       {/* CONTROLS */}
@@ -589,7 +589,8 @@ const MusicPlayer = ({
         <button className="text-xl">⏭</button>
       </div>
 
-      <audio ref={audioRef} src={songSrc} />
+      <audio ref={audioRef} src={songSrc} preload="metadata" />
+
     </div>
   );
 };
