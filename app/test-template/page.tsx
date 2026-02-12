@@ -15,7 +15,7 @@ export default function testTemplate() {
   return (
 
    <>
-   <Valentine_1/>
+   {/* <Valentine_1/> */}
     {/* <ApologyForBf/> */}
     {/* <ApologyForGf/> */}
     {/* <AppreciationFriend/> */}
@@ -24,7 +24,7 @@ export default function testTemplate() {
     {/* <MemoryTimeline/> */}
     {/* <Success/> */}
     {/* <ModernLoveWebsite/> */}
-    {/* <JustUsTemplate/> */}
+    <JustUsTemplate/>
     {/* <Birthday/> */}
    </>
 

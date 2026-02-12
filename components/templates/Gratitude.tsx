@@ -178,7 +178,7 @@ export default function Gratitude({
       {/* HERO */}
       <section className="h-screen flex flex-col items-center justify-center text-center px-6 gap-10">
         <motion.div initial="hidden" animate="show" variants={fadeUp} transition={{ duration: 1 }}>
-          <Image src={"https://media.tenor.com/K0Op-0SpsvkAAAAi/dudu-cute.gif"} alt="Preview" height={30} width={30} className="w-32 h-32 mx-auto mb-2 rounded-full" />
+          <Image src={"https://media.tenor.com/K0Op-0SpsvkAAAAi/dudu-cute.gif"} unoptimized alt="Preview" height={30} width={30} className="w-32 h-32 mx-auto mb-2 rounded-full" />
           <h1 className="text-5xl font-bold mb-4">
             Hey {receiverName}
           </h1>

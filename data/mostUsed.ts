@@ -27,7 +27,7 @@ export const MostUsedTemplates = [
   price: 0,
   st_price: 129,
   isFree:true,
-  previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/gratitude_page.png",
+  previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/gratitude.png",
   fields: [
     { name: "receiverName", type: "text", placeholder: "example: My Cutie" },
     { name: "openingLine", type: "textarea", placeholder: "example: Every moment with you feels like a dream..." },
