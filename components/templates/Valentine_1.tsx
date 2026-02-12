@@ -47,10 +47,10 @@ const Valentine_1 = ({
     }, 1200); // match curtain animation time
   };
   type Kiss = {
-  id: number;
-  x: number;
-  y: number;
-};
+    id: number;
+    x: number;
+    y: number;
+  };
   const [kisses, setKisses] = useState<Kiss[]>([]);
 
   useEffect(() => {
@@ -369,22 +369,22 @@ const Valentine_1 = ({
             }}
             className=" flex flex-col items-center justify-center gap-6 p-3 overflow-hidden min-h-screen h-full w-full "
           >
-{kisses.map((kiss) => (
-                <motion.img
-                  key={kiss.id}
-                  src="/ApologyBf/kiss.png"
-                  alt="kiss"
-                  className="w-16 absolute pointer-events-none z-0"
-                  style={{
-                    left: `${kiss.x}%`,
-                    top: `${kiss.y}%`,
-                  }}
-                  initial={{ scale: 0, opacity: 0, rotate: -20 }}
-                  animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                  exit={{ scale: 0.5, opacity: 0 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                />
-              ))}
+            {kisses.map((kiss) => (
+              <motion.img
+                key={kiss.id}
+                src="/ApologyBf/kiss.png"
+                alt="kiss"
+                className="w-16 absolute pointer-events-none z-0"
+                style={{
+                  left: `${kiss.x}%`,
+                  top: `${kiss.y}%`,
+                }}
+                initial={{ scale: 0, opacity: 0, rotate: -20 }}
+                animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                exit={{ scale: 0.5, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              />
+            ))}
             <div className="wrap-words max-w-[550px] text-lg md:text-xl font-sans font-normal px-6 py-6  rounded-3xl min-h-60 bg-[#4a2611] text-[#fff4ea] relative">
 
               {your_message}
@@ -501,12 +501,14 @@ const MusicPlayer = ({
     if (!audio) return;
 
     const updateProgress = () => {
-      setProgress((audio.currentTime / audio.duration) * 100 || 0);
+      if (!audio.duration) return;
+      setProgress((audio.currentTime / audio.duration) * 100);
     };
 
     audio.addEventListener("timeupdate", updateProgress);
     return () => audio.removeEventListener("timeupdate", updateProgress);
   }, []);
+
 
   const togglePlay = () => {
     const audio = audioRef.current;
@@ -520,11 +522,21 @@ const MusicPlayer = ({
 
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio || !audio.duration) return;
 
-    audio.currentTime = (Number(e.target.value) / 100) * audio.duration;
+    const wasPlaying = !audio.paused;
+
+    const newTime = (Number(e.target.value) / 100) * audio.duration;
+    audio.currentTime = newTime;
+
     setProgress(Number(e.target.value));
+
+
+    if (wasPlaying) {
+      audio.play();
+    }
   };
+
 
   return (
     <div
@@ -554,10 +566,14 @@ const MusicPlayer = ({
       {/* PROGRESS BAR */}
       <input
         type="range"
+        min="0"
+        max="100"
+        step="0.1"
         value={progress}
         onChange={handleSeek}
         className="w-full accent-[#28061f] mb-4"
       />
+
 
       {/* CONTROLS */}
       <div className="flex items-center justify-center gap-6">
