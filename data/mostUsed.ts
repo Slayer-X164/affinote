@@ -4,7 +4,7 @@ export const MostUsedTemplates = [
   title: "Valentine's Gift",
   description:
     "Beautiful Valentine Template with multiple gift options to choose from",
-  price: 99,
+  price: 69,
   st_price: 149,
    isFree:false,
   previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/valentine_1.png?updatedAt=1770318113983",
