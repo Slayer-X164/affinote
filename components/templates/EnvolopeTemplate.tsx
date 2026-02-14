@@ -10,7 +10,7 @@ type letterProps = {
   signature?: string;
 };
 export default function EnvelopeLetter({
-  person_name = "Raj",
+  person_name = "Happy Birthday Raj",
   paragraph_1 = `Today feels special, not just because it marks another year,
                   but because it celebrates you. Your birthday is the perfect
                   reminder of all the little moments that make life brighter —
@@ -71,7 +71,7 @@ export default function EnvelopeLetter({
                 className="absolute left-4 right-4  top-4 bg-white rounded-md shadow-lg z-10 flex flex-col items-center gap-4 py-10 justify-center "
               >
                 <p className="text-2xl font-mono font-bold text-center text-gray-700">
-                  Happy Birthday {person_name}🎉
+                  {person_name}🎉
                 </p>
 
                 <div className="text-sm w-full  text-sky-400 font-semibold flex flex-col   gap-2 relative">

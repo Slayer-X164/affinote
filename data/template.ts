@@ -56,7 +56,7 @@ export const Templates = [
     isFree:false,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/envLetter.png?updatedAt=1770318114046",
     fields: [
-      { name: "person_name", type: "text", placeholder: "example: Raj" },
+      { name: "person_name", type: "text", placeholder: "example: Happy Birthday Raj" },
       {
         name: "paragraph_1",
         type: "textarea",

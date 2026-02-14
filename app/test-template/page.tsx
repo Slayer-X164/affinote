@@ -20,11 +20,11 @@ export default function testTemplate() {
     {/* <ApologyForGf/> */}
     {/* <AppreciationFriend/> */}
     {/* <CuteSurprise/> */}
-    {/* <EnvelopeLetter/> */}
+    <EnvelopeLetter/>
     {/* <MemoryTimeline/> */}
     {/* <Success/> */}
     {/* <ModernLoveWebsite/> */}
-    <JustUsTemplate/>
+    {/* <JustUsTemplate/> */}
     {/* <Birthday/> */}
    </>
 
