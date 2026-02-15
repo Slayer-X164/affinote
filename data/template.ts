@@ -4,9 +4,9 @@ export const Templates = [
   title: "Gratitude Page",
   description:
     "A all-occasion Gratitude page with memories, gallery, promises and a heartfelt message.",
-  price: 0,
-  st_price: 129,
-  isFree:true,
+  price: 29,
+  st_price: 59,
+  isFree:false,
   previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/gratitude.png",
   fields: [
     { name: "receiverName", type: "text", placeholder: "example: My Cutie" },

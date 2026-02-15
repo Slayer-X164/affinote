@@ -24,7 +24,7 @@ const MostUsedTemplateCard: React.FC<MostUsedTemplateCardProps> = ({
   return (
     <div   onClick={onClick} className="w-full h-full flex flex-col bg-white rounded-2xl shadow-2xl  shadow-blue-900/20    hover:-translate-y-1 cursor-pointer   hover:shadow-2xl transition-all duration-200 relative overflow-hidden ">
       {/* Preview Image */}
-        {id === "gratitude-page" ? (
+        {id === "" ? (
           <div className="bg-green-600 text-white absolute top-0 left-0 z-50 px-4 text-sm rounded-r-2xl py-1">
             Free For 72 hrs
           </div>

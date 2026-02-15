@@ -2,12 +2,12 @@
 import { motion } from "motion/react";
 
 const announcements = [
-  "🔥Valentine's Week Discount!",
-  "🔥Valentine's Week Discount!",
-  "🔥Valentine's Week Discount!",
-  "🔥Valentine's Week Discount!",
-  "🔥Valentine's Week Discount!",
-  "🔥Valentine's Week Discount!",
+  "Up To 40% Discount 🔥",
+  "Up To 40% Discount 🔥",
+  "Up To 40% Discount 🔥",
+  "Up To 40% Discount 🔥",
+  "Up To 40% Discount 🔥",
+  "Up To 40% Discount 🔥",
 ];
 
 export default function AnnouncementBar() {
