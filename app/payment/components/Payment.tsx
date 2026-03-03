@@ -12,18 +12,35 @@ export default function PaymentPage() {
   const searchParams = useSearchParams();
 
   const instanceID = searchParams.get("instance");
-  const price = searchParams.get("price");
+  const template_id = searchParams.get("template_id")
   const [loading, setLoading] = useState(false);
   const [razorpayScriptLoader, setRSLoader] = useState<boolean>(false);
-  
-  if (price && parseInt(price) <= 0) {
+
+  const [price, setPrice] = useState<number | null>(null);
+  useEffect(()=>{
+    const getPriceFromDb = async()=>{
+    const res = await fetch("/api/get-price",{
+      method:"POST",
+      body: JSON.stringify({
+        template_id
+      })
+    })
+
+    const data = await res.json()
+    setPrice(data.price)
+  }
+  getPriceFromDb()
+  },[template_id])
+
+
+  if (price !== null && price <= 0) {
     router.replace("/");
     return null;
   }
   const startPayment = async () => {
     setLoading(true);
 
-    // 1. Create Razorpay order from backend
+    // 1 Create Razorpay order from backend
     const orderRes = await fetch("/api/razorpay/create-order", {
       method: "POST",
       body: JSON.stringify({
@@ -34,7 +51,7 @@ export default function PaymentPage() {
 
     const order = await orderRes.json();
 
-    // 2. Razorpay Options
+    // 2 Razorpay Options
     const options = {
       key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
       order_id: order.id,
@@ -44,7 +61,7 @@ export default function PaymentPage() {
       description: "Template Purchase",
 
       handler: async function (response: any) {
-        // 3. Verify payment on backend
+        // 3 Verify payment on backend
         await fetch("/api/razorpay/verify-order", {
           method: "POST",
           body: JSON.stringify({
@@ -56,7 +73,7 @@ export default function PaymentPage() {
           }),
         });
 
-        // 4. Redirecting to final shareable page
+        // 4 Redirecting to final shareable page
         router.push(`/success?instance=${instanceID}`);
       },
     };
@@ -85,7 +102,7 @@ export default function PaymentPage() {
         <p className="text-gray-600">Proceed to get your shareable link</p>
 
         <button
-          disabled={!razorpayScriptLoader || loading}
+          disabled={!razorpayScriptLoader || loading || price==null}
           onClick={startPayment}
           className={`px-6 py-3 mt-6 rounded-lg text-white cursor-pointer transition-all duration-300
      ${!razorpayScriptLoader || loading
@@ -98,7 +115,7 @@ export default function PaymentPage() {
           ) : loading ? (
             <ButtonLoder />
           ) : (
-            `Pay ₹${price}`
+            `Pay ₹${price==null?"":price}`
           )}
         </button>
         {!razorpayScriptLoader && (

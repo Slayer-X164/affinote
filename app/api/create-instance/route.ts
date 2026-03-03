@@ -18,12 +18,12 @@ export const POST = async (req: Request) => {
       paid: currentTemplate.isFree ? true : false,
       visitor_id,
     })
-    .select("id")
+    .select("id, template_id")
     .single();
 
   if (error) {
     return Response.json({ error }, { status: 500 });
   }
 
-  return Response.json({ id: inserted.id });
+  return Response.json({ id: inserted.id,template_id: inserted.template_id });
 };

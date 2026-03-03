@@ -95,7 +95,7 @@ export default function page() {
       }),
     });
     const supData = await response.json();
-
+    console.log("supdata",supData)
     if (supData.id) {
       setBtnLoader(false);
       if(currTemplate?.isFree){
@@ -103,7 +103,7 @@ export default function page() {
         return;
       }
       router.push(
-        `/payment?instance=${supData.id}&price=${currTemplate?.price}`
+        `/payment?instance=${supData.id}&template_id=${supData.template_id}`
       );
     } else {
       console.error("No ID returned from backend");
