@@ -1,5 +1,6 @@
 export const runtime = "nodejs";
 
+import { sendTemplateEmail } from "@/lib/sendLinkViaEmail";
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { createHmac } from "node:crypto";
 
@@ -12,7 +13,6 @@ export async function POST(req: Request) {
       razorpay_order_id,
       razorpay_payment_id,
       razorpay_signature,
-      phone
     } = body;
 
     const data = razorpay_order_id + "|" + razorpay_payment_id;
@@ -26,19 +26,23 @@ export async function POST(req: Request) {
 
     if (expectedSignature !== razorpay_signature) {
       console.log("Signature mismatch");
-      return Response.json({ success: false }, { status: 400 });
+      throw new Error("missing email or instanceID");
+
     }
 
-    const { error } = await supabaseAdmin
+    const {data: updatedData, error } = await supabaseAdmin
       .from("template_instance")
       .update({ paid: true,payment_id: razorpay_payment_id})
-      .eq("id", instanceID);
+      .eq("id", instanceID)
+      .eq("paid",false)
+      .select("id,email")
+      .single();
 
     if (error) {
       console.log("Supabase update error:", error);
       return Response.json({ success: false }, { status: 500 });
     }
-
+    await sendTemplateEmail(updatedData.email, updatedData.id)
     console.log("Payment verified & Supabase updated!");
 
     return Response.json({ success: true });

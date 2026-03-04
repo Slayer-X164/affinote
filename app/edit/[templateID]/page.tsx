@@ -5,22 +5,22 @@ import { useParams } from "next/navigation";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import z from "zod";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import ButtonLoder from "@/components/ui/ButtonLoder";
 import { uploadImages } from "@/lib/uploadImages";
 import dynamic from "next/dynamic";
 import { getVisitorId } from "@/lib/visitor";
 
 const componentMap: any = {
-  "envolope-letter": dynamic(() => import("@/components/templates/EnvolopeTemplate"),{ssr:false}),
-  "flower-surprise": dynamic(() => import("@/components/templates/CuteSurprise"),{ssr:false}),
-  "apology-for-gf": dynamic(() => import("@/components/templates/ApologyForGf"),{ssr:false}),
-  "apology-for-bf-gf": dynamic(() => import("@/components/templates/ApologyForBf"),{ssr:false}),
-  "memory-timeline": dynamic(() => import("@/components/templates/MemoryTimeline"),{ssr:false}),
-  "appreciation-for-friend": dynamic(() => import("@/components/templates/AppreciationFriend"),{ssr:false}),
-  "birthday": dynamic(() => import("@/components/templates/Birthday"),{ssr:false}),
-  "valentine_1": dynamic(() => import("@/components/templates/Valentine_1"),{ssr:false}),
-  "gratitude-page": dynamic(() => import("@/components/templates/Gratitude"),{ssr:false}),
+  "envolope-letter": dynamic(() => import("@/components/templates/EnvolopeTemplate"), { ssr: false }),
+  "flower-surprise": dynamic(() => import("@/components/templates/CuteSurprise"), { ssr: false }),
+  "apology-for-gf": dynamic(() => import("@/components/templates/ApologyForGf"), { ssr: false }),
+  "apology-for-bf-gf": dynamic(() => import("@/components/templates/ApologyForBf"), { ssr: false }),
+  "memory-timeline": dynamic(() => import("@/components/templates/MemoryTimeline"), { ssr: false }),
+  "appreciation-for-friend": dynamic(() => import("@/components/templates/AppreciationFriend"), { ssr: false }),
+  "birthday": dynamic(() => import("@/components/templates/Birthday"), { ssr: false }),
+  "valentine_1": dynamic(() => import("@/components/templates/Valentine_1"), { ssr: false }),
+  "gratitude-page": dynamic(() => import("@/components/templates/Gratitude"), { ssr: false }),
 };
 
 type templateKey = keyof typeof componentMap;
@@ -52,7 +52,8 @@ export default function page() {
   const [formData, setFormData] = useState<any>({});
   const [inputErr, setInputError] = useState<string>("");
   const [btnLoader, setBtnLoader] = useState<boolean>(false);
-  // Generate Zod schema from template field validation
+  const [email,setEmail] = useState<string>("")
+
 
   const handleTextChange = (name: string, value: string) => {
     setFormData((prev: any) => ({
@@ -73,6 +74,7 @@ export default function page() {
   // storing tempate data to supabase and redirect to payment page
   const createInstance = async () => {
     if (!generateSchema) return;
+
     // Create schema from template fields
     const schema = generateSchema(currTemplate?.fields ?? []);
 
@@ -83,6 +85,11 @@ export default function page() {
       setInputError("Please fill all required fields.");
       return;
     }
+    if (z.string().email().safeParse(email).success == false){
+      toast.error("enter a valid email")
+      setInputError("")
+      return
+    }
     setBtnLoader(true);
     const visitor_ID = getVisitorId()
     const response = await fetch("/api/create-instance", {
@@ -90,15 +97,15 @@ export default function page() {
       body: JSON.stringify({
         template_id: templateID,
         data: formData,
-        visitor_id: visitor_ID
-
+        visitor_id: visitor_ID,
+        email
       }),
     });
     const supData = await response.json();
-    console.log("supdata",supData)
+    console.log("supdata", supData)
     if (supData.id) {
       setBtnLoader(false);
-      if(currTemplate?.isFree){
+      if (currTemplate?.isFree) {
         router.push(`/free-affinote?instance=${supData.id}`);
         return;
       }
@@ -208,30 +215,40 @@ export default function page() {
             })}
             {/* errror */}
             {inputErr && (
-              <h2 className="text-red-600 text-center pt-2 font-semibold">
+              <h2 className="text-red-600 text-center pt-0 font-semibold">
                 {inputErr}..
               </h2>
             )}
           </div>
+          <div className="flex flex-col justify-center items-center gap-2 mt-4 p-4 bg-green-100 rounded-lg">
+            <h2 className="text-sm text-green-900 mr-10">you will receive Shareable Link on your email after payment is completed</h2>
+          <input
+            type="email"
+            placeholder="Enter your email "
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="py-3 px-3  w-full bg-green-50 rounded-lg border-dashed border-green-600 border-2 outline-0 text-green-800"
+          />
           <button
-           onClick={createInstance}
+            onClick={createInstance}
             disabled={btnLoader}
             aria-busy={btnLoader}
             aria-live="polite"
             className="
-    w-full mt-6 py-4 rounded-2xl text-white text-xl font-semibold
+    w-full mt-0 py-3 rounded-2xl text-white text-xl font-semibold
     flex items-center justify-center gap-2
-    bg-blue-500 hover:bg-blue-600
+    bg-green-700 hover:bg-green-800 cursor-pointer
     active:scale-95 transition-all duration-300
 
-    disabled:bg-blue-300
+    disabled:bg-neutral-300
     disabled:cursor-not-allowed
     disabled:active:scale-100
   "
 
           >
             {btnLoader ? (
-               <>
+              <>
                 <ButtonLoder />
                 Creating Payment...
               </>
@@ -239,6 +256,8 @@ export default function page() {
               ` Get Shareable Link at ₹${currTemplate?.price}`
             )}
           </button>
+        </div>
+
         </div>
       </div>
     </div>

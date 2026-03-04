@@ -36,9 +36,9 @@ const Success = () => {
         />
       )}
 
-      <h1 className="text-2xl md:text-4xl  font-bold flex items-center flex-col gap-3 text-green-500 mb-8 text-center">
-        Payment Successful! <br /> <span className="text-sm md:text-lg text-blue-900 rounded-full border border-blue-900 px-3 py-1 bg-blue-600/20 font-light flex items-center gap-2 "><RiErrorWarningFill />
-          Please save your link in Notepad or Bookmark it.</span>
+      <h1 className="text-2xl md:text-4xl  font-bold flex items-center flex-col gap-3 text-green-500 mb-10 text-center">
+        Payment Successful! <br /> <span className="text-xs md:text-sm text-blue-900 rounded-full border border-blue-900 px-3 py-1 bg-blue-600/20 font-light flex items-center gap-2 "><RiErrorWarningFill className="md:text-sm text-lg"/>
+          link is also sent to your email, Please check your inbox or spam folder.</span>
       </h1>
 
       {/* <p className="text-lg text-gray-700 font-bold mb-8 text-center">

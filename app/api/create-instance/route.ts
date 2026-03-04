@@ -4,7 +4,7 @@ import { supabaseAdmin } from "@/lib/supabaseAdmin";
 
 export const POST = async (req: Request) => {
   const body = await req.json();
-  const { template_id, data, visitor_id } = body;
+  const { template_id, data, visitor_id, email } = body;
 
   const currentTemplate = Templates.find((t) => t.id === template_id);
   if (!currentTemplate) {
@@ -17,6 +17,7 @@ export const POST = async (req: Request) => {
       data: data,
       paid: currentTemplate.isFree ? true : false,
       visitor_id,
+      email
     })
     .select("id, template_id")
     .single();

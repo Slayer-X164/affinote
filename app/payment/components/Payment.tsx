@@ -58,7 +58,7 @@ export default function PaymentPage() {
       amount: order.amount,
       currency: order.currency,
       name: "Affinote",
-      description: "Template Purchase",
+      description: `purchased template ${template_id}`,
 
       handler: async function (response: any) {
         // 3 Verify payment on backend
@@ -106,8 +106,8 @@ export default function PaymentPage() {
           onClick={startPayment}
           className={`px-6 py-3 mt-6 rounded-lg text-white cursor-pointer transition-all duration-300
      ${!razorpayScriptLoader || loading
-              ? "bg-blue-200 cursor-not-allowed"
-              : "bg-blue-500 hover:bg-blue-600"
+              ? "bg-neutral-300 cursor-not-allowed"
+              : "bg-green-700 hover:bg-green-600"
             }`}
         >
           {!razorpayScriptLoader ? (
