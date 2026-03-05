@@ -17,6 +17,13 @@
 /.next/
 /out/
 
+# build outputs
+.next
+.open-next
+
+# cloudflare local files
+.wrangler
+
 # production
 /build
 
