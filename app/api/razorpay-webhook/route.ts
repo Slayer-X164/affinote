@@ -13,5 +13,5 @@ export async function POST(req: Request) {
       .eq("order_id", orderId)
   }
 
-  return new Response("ok",{status:200})
+  return new Response("okay",{status:200})
 }
