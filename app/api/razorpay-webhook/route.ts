@@ -7,12 +7,11 @@ export async function POST(req: Request) {
     const payment = body.payload.payment.entity
     const orderId = payment.order_id
 
-    // update Supabase
     await supabaseAdmin
       .from("template_instance")
       .update({ isPaid: true })
       .eq("order_id", orderId)
   }
 
-  return new Response("ok")
+  return new Response("ok",{status:200})
 }
