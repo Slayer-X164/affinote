@@ -42,7 +42,7 @@ export async function POST(req: Request) {
       console.log("Supabase update error:", error);
       return Response.json({ success: false }, { status: 500 });
     }
-    await sendTemplateEmail(updatedData.email, updatedData.id)
+   
     console.log("Payment verified & Supabase updated!");
 
     return Response.json({ success: true });
