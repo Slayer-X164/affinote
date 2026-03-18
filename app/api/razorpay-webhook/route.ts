@@ -32,11 +32,11 @@ export async function POST(req: NextRequest) {
     const { data, error } = await supabaseAdmin
       .from("template_instance")
       .update({
-        isPaid: true,
+        paid: true,
         payment_id: paymentId,
       })
       .eq("razorpay_order_id", orderId)
-      .eq("isPaid", false)
+      .eq("paid", false)
       .select("id, email")
       .single();
 
