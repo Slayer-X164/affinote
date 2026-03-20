@@ -52,8 +52,8 @@ export default function page() {
   const [formData, setFormData] = useState<any>({});
   const [inputErr, setInputError] = useState<string>("");
   const [btnLoader, setBtnLoader] = useState<boolean>(false);
-  const [email,setEmail] = useState<string>("")
-
+  const [email, setEmail] = useState<string>("")
+  const [loadingImg, setLoadingImg] = useState<Record<string, boolean>>({})
 
   const handleTextChange = (name: string, value: string) => {
     setFormData((prev: any) => ({
@@ -63,12 +63,19 @@ export default function page() {
   };
 
   const handleSingleImageUpload = async (fieldName: string, file: File) => {
-    const imageUrl = await uploadImages(file, "temp", fieldName, 0);
+    setLoadingImg(prev => ({ ...prev, [fieldName]: true }))
+    try {
+      const imageUrl = await uploadImages(file, "temp", fieldName, 0);
 
-    setFormData((prev: any) => ({
-      ...prev,
-      [fieldName]: imageUrl,
-    }));
+      setFormData((prev: any) => ({
+        ...prev,
+        [fieldName]: imageUrl,
+      }));
+    } catch (err) {
+      console.error(err)
+    } finally {
+      setLoadingImg(prev => ({ ...prev, [fieldName]: false }))
+    }
   };
 
   // storing tempate data to supabase and redirect to payment page
@@ -85,7 +92,7 @@ export default function page() {
       setInputError("Please fill all required fields.");
       return;
     }
-    if (z.string().email().safeParse(email).success == false){
+    if (z.string().email().safeParse(email).success == false) {
       toast.error("enter a valid email")
       setInputError("")
       return
@@ -177,7 +184,6 @@ export default function page() {
               }
 
               // IMAGES
-              // SINGLE IMAGE
               if (field.type === "image") {
                 return (
                   <div key={field.name}>
@@ -185,27 +191,37 @@ export default function page() {
                       {field.name}:
                     </label>
 
-                    <div className="flex items-center p-2 bg-neutral-200 border-2 rounded-2xl border-dashed">
+                    <div className="flex items-center p-2  gap-4 rounded-2xl border-dashed">
+
                       <img
                         src={
                           formData[field.name] || "https://placehold.co/80x80"
                         }
-                        className="w-20 h-20 rounded-2xl object-cover bg-blue-50 border border-neutral-400"
+                        className="w-20 h-20 rounded-2xl object-cover border-dashed bg-blue-50 border-2 border-neutral-400"
                       />
 
-                      <input
-                        className="p-4"
-                        type="file"
-                        accept="image/*"
-                        onChange={(e) => {
-                          if (e.target.files) {
-                            handleSingleImageUpload(
-                              field.name,
-                              e.target.files[0]
-                            );
-                          }
-                        }}
-                      />
+
+                      <label className={`py-2 px-6 rounded-2xl border-neutral-300 cursor-pointer ${loadingImg[field.name]?"text-neutral-400":"text-neutral-900"}  border-2 `}>
+                        {loadingImg[field.name] ? "uploading.." : "upload"}
+                        <input
+                          className="hidden"
+                          type="file"
+                          accept="image/*"
+                          disabled={loadingImg[field.name]}
+                          onChange={(e) => {
+                            if (e.target.files) {
+                              handleSingleImageUpload(
+                                field.name,
+                                e.target.files[0]
+                              );
+                            }
+                          }}
+                        />
+
+                      </label>
+                      {loadingImg[field.name] && (
+                          <div className="w-6 h-6 border-3 border-blue-400 border-t-transparent rounded-full animate-spin" />
+                        )}
                     </div>
                   </div>
                 );
@@ -222,20 +238,20 @@ export default function page() {
           </div>
           <div className="flex flex-col justify-center items-center gap-2 mt-4 p-4 bg-green-100 rounded-lg">
             <h2 className="text-sm text-green-900 mr-10">you will receive Shareable Link on your email after payment is completed</h2>
-          <input
-            type="email"
-            placeholder="Enter your email "
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="py-3 px-3  w-full bg-green-50 rounded-lg border-dashed border-green-600 border-2 outline-0 text-green-800"
-          />
-          <button
-            onClick={createInstance}
-            disabled={btnLoader}
-            aria-busy={btnLoader}
-            aria-live="polite"
-            className="
+            <input
+              type="email"
+              placeholder="Enter your email "
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="py-3 px-3  w-full bg-green-50 rounded-lg border-dashed border-green-600 border-2 outline-0 text-green-800"
+            />
+            <button
+              onClick={createInstance}
+              disabled={btnLoader}
+              aria-busy={btnLoader}
+              aria-live="polite"
+              className="
     w-full mt-0 py-3 rounded-2xl text-white text-xl font-semibold
     flex items-center justify-center gap-2
     bg-green-700 hover:bg-green-800 cursor-pointer
@@ -246,17 +262,17 @@ export default function page() {
     disabled:active:scale-100
   "
 
-          >
-            {btnLoader ? (
-              <>
-                <ButtonLoder />
-                Creating Payment...
-              </>
-            ) : (
-              ` Get Shareable Link at ₹${currTemplate?.price}`
-            )}
-          </button>
-        </div>
+            >
+              {btnLoader ? (
+                <>
+                  <ButtonLoder />
+                  Creating Payment...
+                </>
+              ) : (
+                ` Get Shareable Link at ₹${currTemplate?.price}`
+              )}
+            </button>
+          </div>
 
         </div>
       </div>
