@@ -10,17 +10,21 @@ import Birthday from "@/components/templates/Birthday";
 import ModernLoveWebsite from "@/components/templates/FreeTemp";
 import WhyYouAreAwesome from "@/components/templates/Gratitude";
 import JustUsTemplate from "@/components/templates/Gratitude";
+import WebProposal from "@/components/templates/WebProposal";
+
 
 export default function testTemplate() {
   return (
 
    <>
+   <WebProposal/>
+
    {/* <Valentine_1/> */}
     {/* <ApologyForBf/> */}
     {/* <ApologyForGf/> */}
     {/* <AppreciationFriend/> */}
     {/* <CuteSurprise/> */}
-    <EnvelopeLetter/>
+    {/* <EnvelopeLetter/> */}
     {/* <MemoryTimeline/> */}
     {/* <Success/> */}
     {/* <ModernLoveWebsite/> */}

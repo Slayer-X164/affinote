@@ -28,10 +28,11 @@ export async function sendTemplateEmail(email: string, instanceId: string) {
         Open your page
       </a>
 
-      <p>Or copy this link:</p>
-      <p>${link}</p>
+      <p>Or copy this link: ${link}</p>
 
-      <p>Share it with someone special ❤️</p>
+      <h1>Share it with someone special ❤️</h1>
+      <h2>Please leave a review or feedback !</h2>
+
     `
   });
   if (error) {

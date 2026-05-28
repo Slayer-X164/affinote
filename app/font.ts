@@ -1,10 +1,14 @@
-import { Cedarville_Cursive, Playfair_Display, Geist, Lobster } from "next/font/google";
+import { Cedarville_Cursive, Playfair_Display, Geist, Lobster, Anton } from "next/font/google";
 
 export const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
-
+export const anton = Anton({
+  weight:"400",
+  subsets:["latin"],
+  display:"swap"
+})
 export const cedarville = Cedarville_Cursive({
   weight: "400",
   subsets: ["latin"],
