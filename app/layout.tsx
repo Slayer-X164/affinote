@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { geistSans, playfairDisplay } from "./font";
 import InAppBrowserWarning from "@/components/ui/InAppBrowserWarning";
-import { Analytics } from "@vercel/analytics/next"
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://affinote.site"),
 
@@ -77,7 +77,6 @@ export default function RootLayout({
       >
         {children}
         <InAppBrowserWarning />
-        <Analytics />
       </body>
     </html>
   );

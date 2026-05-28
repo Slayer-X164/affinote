@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "wrangbuild":"opennextjs-cloudflare build",
+    "wrangbuild": "opennextjs-cloudflare build",
     "preview": "opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare deploy"
   },
@@ -17,7 +17,6 @@
     "@opennextjs/cloudflare": "^1.17.1",
     "@supabase/supabase-js": "^2.86.0",
     "@toolwind/corner-shape": "^0.0.8-3",
-    "@vercel/analytics": "^1.6.1",
     "canvas-confetti": "^1.9.4",
     "crypto": "^1.0.1",
     "framer-motion": "^12.23.26",
