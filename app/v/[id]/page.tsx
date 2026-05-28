@@ -1,6 +1,7 @@
 
 export const revalidate = 3600; // cache 1 hour
 
+import { supabase } from "@/lib/supabase";
 import { createClient } from "@supabase/supabase-js";
 
 import dynamic from "next/dynamic";
@@ -32,10 +33,7 @@ export default async function ViewPage({ params }: any) {
   // FIX: unwrap promise
   const { id } =await params;
 
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-  );
+
 
   const { data, error } = await supabase
     .from("template_instance")

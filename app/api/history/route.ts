@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
@@ -9,12 +9,9 @@ export async function GET(req: Request) {
     return NextResponse.json([], { status: 200 });
   }
 
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!
-  );
 
-  const { data } = await supabase
+
+  const { data } = await supabaseAdmin
     .from("template_instance")
     .select("id, template_id, created_at")
     .eq("visitor_id", visitor_id)
