@@ -1,10 +1,10 @@
-import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const visitor_id = searchParams.get("visitor_id");
-
+const supabaseAdmin = getSupabaseAdmin();
   if (!visitor_id) {
     return NextResponse.json([], { status: 200 });
   }

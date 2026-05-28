@@ -1,9 +1,9 @@
-import { supabaseAdmin } from "@/lib/supabaseAdmin"
+import { getSupabaseAdmin } from "@/lib/supabaseAdmin"
 
 export async function POST(req: Request) {
   const body = await req.json()
   const { template_id } = body
-
+const supabaseAdmin = getSupabaseAdmin();
   if (!template_id) {
     return Response.json({ error: "template_id required" }, { status: 400 })
   }

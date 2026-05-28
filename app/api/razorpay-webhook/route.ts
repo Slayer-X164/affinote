@@ -2,13 +2,13 @@ export const runtime = "nodejs";
 
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
-import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 import { sendTemplateEmail } from "@/lib/sendLinkViaEmail";
 
 export async function POST(req: NextRequest) {
   const body = await req.text(); // raw body
   const signature = req.headers.get("x-razorpay-signature")!;
-
+const supabaseAdmin = getSupabaseAdmin();
   const secret = process.env.RAZORPAY_WEBHOOK_SECRET!;
 
   const expectedSignature = crypto

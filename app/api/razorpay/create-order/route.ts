@@ -1,4 +1,4 @@
-import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 
 type paymentData = {
   instanceID: string;
@@ -8,7 +8,7 @@ type paymentData = {
 export async function POST(req: Request) {
   try {
     const { instanceID, amount } = (await req.json()) as paymentData;
-
+const supabaseAdmin = getSupabaseAdmin();
     const key = process.env.RAZORPAY_KEY_ID!;
     const secret = process.env.RAZORPAY_KEY_SECRET!;
 

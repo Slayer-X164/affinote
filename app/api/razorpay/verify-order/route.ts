@@ -1,13 +1,13 @@
 export const runtime = "nodejs";
 
 import { sendTemplateEmail } from "@/lib/sendLinkViaEmail";
-import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 import { createHmac } from "node:crypto";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-
+const supabaseAdmin = getSupabaseAdmin();
     const {
       instanceID,
       razorpay_order_id,
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
       console.log("Supabase update error:", error);
       return Response.json({ success: false }, { status: 500 });
     }
-   
+
     console.log("Payment verified & Supabase updated!");
 
     return Response.json({ success: true });

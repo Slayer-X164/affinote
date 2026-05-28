@@ -1,11 +1,11 @@
 import { Templates } from "@/data/template";
-import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 
 
 export const POST = async (req: Request) => {
   const body = await req.json();
   const { template_id, data, visitor_id, email } = body;
-
+const supabaseAdmin = getSupabaseAdmin();
   const currentTemplate = Templates.find((t) => t.id === template_id);
   if (!currentTemplate) {
     return Response.json({ error: "Template not found" }, { status: 404 });

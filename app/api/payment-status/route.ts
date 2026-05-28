@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabaseAdmin";
+import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
     const instanceID = searchParams.get("instance");
-
+const supabaseAdmin = getSupabaseAdmin();
     if (!instanceID) {
       return NextResponse.json(
         { error: "Missing instance ID", paid: false },
