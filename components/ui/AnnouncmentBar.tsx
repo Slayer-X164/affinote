@@ -2,12 +2,12 @@
 import { motion } from "motion/react";
 
 const announcements = [
-  "Up To 40% Discount 🔥",
-  "Up To 40% Discount 🔥",
-  "Up To 40% Discount 🔥",
-  "Up To 40% Discount 🔥",
-  "Up To 40% Discount 🔥",
-  "Up To 40% Discount 🔥",
+  "Up To 48% Discount 🔥",
+  "Up To 48% Discount 🔥",
+  "Up To 48% Discount 🔥",
+  "Up To 48% Discount 🔥",
+  "Up To 48% Discount 🔥",
+  "Up To 48% Discount 🔥",
 ];
 
 export default function AnnouncementBar() {
