@@ -47,7 +47,7 @@ function TemplateCard({
           {title}
         </h2>
 
-        <p className="text-xs md:text-sm text-gray-600 line-clamp-2 pt-1">
+        <p className="text-xs md:text-sm text-neutral-400   pt-1">
           {description}
         </p>
 
@@ -62,7 +62,7 @@ function TemplateCard({
 
           <button
             onClick={(e) => {
-              e.stopPropagation(); // 🧠 prevents double click bug
+              e.stopPropagation(); // prevents double click bug
               handleClick();
             }}
             className="px-4 py-2 bg-blue-500 text-white rounded-full w-full lg:w-auto hover:bg-blue-600 active:scale-95 transition font-semibold text-xs md:text-sm"
