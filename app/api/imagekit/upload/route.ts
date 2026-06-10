@@ -1,3 +1,4 @@
+import { imageKitLimiter } from "@/lib/ratelimit";
 import ImageKit from "imagekit";
 
 const imagekit = new ImageKit({
@@ -8,6 +9,19 @@ const imagekit = new ImageKit({
 
 export async function POST(req: Request) {
   try {
+    // rate limit
+    const ip = req.headers.get("x-forwarded-for") ?? "unknown"
+    console.log("ip:", ip);
+
+    const { success: rateLimitSucces } = await imageKitLimiter.limit(ip)
+
+    if (!rateLimitSucces) {
+      return Response.json({
+        error: "Too many requests! , try again in a minute"
+      }, {
+        status: 429
+      })
+    }
     const formData = await req.formData();
     const file = formData.get("file") as File;
     const fileName = formData.get("fileName") as string;
@@ -21,7 +35,7 @@ export async function POST(req: Request) {
     const uploadResponse = await imagekit.upload({
       file: buffer,
       fileName,
-      folder: "/template-images", 
+      folder: "/template-images",
     });
 
     return Response.json({

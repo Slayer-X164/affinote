@@ -71,8 +71,8 @@ export default function page() {
         ...prev,
         [fieldName]: imageUrl,
       }));
-    } catch (err) {
-      console.error(err)
+    } catch (error:any) {
+      toast.error(error.message ? error.message : "something went wrong!")
     } finally {
       setLoadingImg(prev => ({ ...prev, [fieldName]: false }))
     }
@@ -99,18 +99,27 @@ export default function page() {
     }
     setBtnLoader(true);
     const visitor_ID = getVisitorId()
-    const response = await fetch("/api/create-instance", {
-      method: "POST",
-      body: JSON.stringify({
-        template_id: templateID,
-        data: formData,
-        visitor_id: visitor_ID,
-        email
-      }),
-    });
-    const supData = await response.json();
-    console.log("supdata", supData)
-    if (supData.id) {
+    try {
+      const response = await fetch("/api/create-instance", {
+        method: "POST",
+        body: JSON.stringify({
+          template_id: templateID,
+          data: formData,
+          visitor_id: visitor_ID,
+          email,
+        }),
+      });
+
+      const supData = await response.json();
+
+      if (!response.ok) {
+        toast.error(supData.error || "Something went wrong")
+        console.log(supData.error || "Something went wrong");
+        setBtnLoader(false);
+        return
+      }
+
+
       setBtnLoader(false);
       if (currTemplate?.isFree) {
         router.push(`/free-affinote?instance=${supData.id}`);
@@ -119,9 +128,17 @@ export default function page() {
       router.push(
         `/payment?instance=${supData.id}&template_id=${supData.template_id}`
       );
-    } else {
-      console.error("No ID returned from backend");
+
+    } catch (error) {
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong"
+      );
     }
+
+
+
   };
   return (
     <div className="min-h-screen flex flex-col justify-start items-center">
@@ -201,7 +218,7 @@ export default function page() {
                       />
 
 
-                      <label className={`py-2 px-6 rounded-2xl border-neutral-300 cursor-pointer ${loadingImg[field.name]?"text-neutral-400":"text-neutral-900"}  border-2 `}>
+                      <label className={`py-2 px-6 rounded-2xl border-neutral-300 cursor-pointer ${loadingImg[field.name] ? "text-neutral-400" : "text-neutral-900"}  border-2 `}>
                         {loadingImg[field.name] ? "uploading.." : "upload"}
                         <input
                           className="hidden"
@@ -220,8 +237,8 @@ export default function page() {
 
                       </label>
                       {loadingImg[field.name] && (
-                          <div className="w-6 h-6 border-3 border-blue-400 border-t-transparent rounded-full animate-spin" />
-                        )}
+                        <div className="w-6 h-6 border-3 border-blue-400 border-t-transparent rounded-full animate-spin" />
+                      )}
                     </div>
                   </div>
                 );

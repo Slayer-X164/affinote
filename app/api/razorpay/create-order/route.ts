@@ -1,3 +1,4 @@
+import { paymentLimiter } from "@/lib/ratelimit";
 import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 
 type paymentData = {
@@ -7,8 +8,22 @@ type paymentData = {
 
 export async function POST(req: Request) {
   try {
+    // rate limit
+    const ip = req.headers.get("x-forwarded-for") ?? "unknown"
+    console.log("ip:", ip);
+
+    const { success: rateLimitSucces } = await paymentLimiter.limit(ip)
+
+    if (!rateLimitSucces) {
+      return Response.json({
+        error: "Too many requests! , try again in a minute"
+      }, {
+        status: 429
+      })
+    }
+
     const { instanceID, amount } = (await req.json()) as paymentData;
-const supabaseAdmin = getSupabaseAdmin();
+    const supabaseAdmin = getSupabaseAdmin();
     const key = process.env.RAZORPAY_KEY_ID!;
     const secret = process.env.RAZORPAY_KEY_SECRET!;
 

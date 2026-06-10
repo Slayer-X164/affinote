@@ -1,11 +1,26 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import { contactLimiter } from "@/lib/ratelimit";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
 
   try {
+    // rate limit
+    const ip = req.headers.get("x-forwarded-for") ?? "unknown"
+    console.log("ip:", ip);
+
+    const { success: rateLimitSucces } = await contactLimiter.limit(ip)
+
+    if (!rateLimitSucces) {
+      return Response.json({
+        error: "Too many requests! , try again in a minute"
+      }, {
+        status: 429
+      })
+    }
+
     const { name, email, message } = await req.json();
 
 

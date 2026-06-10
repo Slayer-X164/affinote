@@ -17,20 +17,20 @@ export default function PaymentPage() {
   const [razorpayScriptLoader, setRSLoader] = useState<boolean>(false);
 
   const [price, setPrice] = useState<number | null>(null);
-  useEffect(()=>{
-    const getPriceFromDb = async()=>{
-    const res = await fetch("/api/get-price",{
-      method:"POST",
-      body: JSON.stringify({
-        template_id
+  useEffect(() => {
+    const getPriceFromDb = async () => {
+      const res = await fetch("/api/get-price", {
+        method: "POST",
+        body: JSON.stringify({
+          template_id
+        })
       })
-    })
 
-    const data = await res.json()
-    setPrice(data.price)
-  }
-  getPriceFromDb()
-  },[template_id])
+      const data = await res.json()
+      setPrice(data.price)
+    }
+    getPriceFromDb()
+  }, [template_id])
 
 
   if (price !== null && price <= 0) {
@@ -40,46 +40,53 @@ export default function PaymentPage() {
   const startPayment = async () => {
     setLoading(true);
 
-    // 1 Create Razorpay order from backend
-    const orderRes = await fetch("/api/razorpay/create-order", {
-      method: "POST",
-      body: JSON.stringify({
-        instanceID,
-        amount: price,
-      }),
-    });
+    try {
+      // 1 Create Razorpay order from backend
+      const orderRes = await fetch("/api/razorpay/create-order", {
+        method: "POST",
+        body: JSON.stringify({
+          instanceID,
+          amount: price,
+        }),
+      });
 
-    const order = await orderRes.json();
+      const order = await orderRes.json();
 
-    // 2 Razorpay Options
-    const options = {
-      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
-      order_id: order.id,
-      amount: order.amount,
-      currency: order.currency,
-      name: "Affinote",
-      description: `purchased template ${template_id}`,
+      // 2 Razorpay Options
+      const options = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
+        order_id: order.id,
+        amount: order.amount,
+        currency: order.currency,
+        name: "Affinote",
+        description: `purchased template ${template_id}`,
 
-      handler: async function (response: any) {
-        // 3 Verify payment on backend
-        await fetch("/api/razorpay/verify-order", {
-          method: "POST",
-          body: JSON.stringify({
-            instanceID,
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-            phone: response.phone,
-          }),
-        });
+        handler: async function (response: any) {
+          // 3 Verify payment on backend
+          await fetch("/api/razorpay/verify-order", {
+            method: "POST",
+            body: JSON.stringify({
+              instanceID,
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              phone: response.phone,
+            }),
+          });
 
-        // 4 Redirecting to final shareable page
-        router.push(`/success?instance=${instanceID}`);
-      },
-    };
+          // 4 Redirecting to final shareable page
+          router.push(`/success?instance=${instanceID}`);
+        },
+      };
 
-    const rzp = new (window as any).Razorpay(options);
-    rzp.open();
+      const rzp = new (window as any).Razorpay(options);
+      rzp.open();
+    } catch (error) {
+      toast.error(
+        error instanceof Error ? error.message : "something went wrong!"
+      )
+    }
+
   };
 
   return (
@@ -102,7 +109,7 @@ export default function PaymentPage() {
         <p className="text-gray-600">Proceed to get your shareable link</p>
 
         <button
-          disabled={!razorpayScriptLoader || loading || price==null}
+          disabled={!razorpayScriptLoader || loading || price == null}
           onClick={startPayment}
           className={`px-6 py-3 mt-6 rounded-lg text-white cursor-pointer transition-all duration-300
      ${!razorpayScriptLoader || loading
@@ -115,7 +122,7 @@ export default function PaymentPage() {
           ) : loading ? (
             <ButtonLoder />
           ) : (
-            `Pay ₹${price==null?"":price}`
+            `Pay ₹${price == null ? "" : price}`
           )}
         </button>
         {!razorpayScriptLoader && (
