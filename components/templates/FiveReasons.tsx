@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { motion, useMotionValue, useTransform } from "motion/react"
+import { easeIn, motion, useMotionValue, useTransform } from "motion/react"
 import { patrickHand } from "@/app/font";
 
 type FiveReasonsProps = {
@@ -64,43 +64,43 @@ export default function FiveReasons({
       title: reason_1_title,
       desc: reason_1_desc,
       textColor: "#ffffff",
-      sticker: "/Reasons/bear1.png",
+      sticker: "https://media.tenor.com/K0Op-0SpsvkAAAAj/dudu-cute.gif",
     },
 
     {
       number: "#2",
-      color: "#f9c74f",
+      color: "#60a755",
       title: reason_2_title,
       desc: reason_2_desc,
-      textColor: "#000000",
-      sticker: "/Reasons/bear2.png",
+      textColor: "#ffffff",
+      sticker: "https://media.tenor.com/-XYuUbo15zcAAAAi/minoi-indah.gif",
     },
 
     {
       number: "#3",
-      color: "#06d6a0",
+      color: "#bf4d74",
       title: reason_3_title,
       desc: reason_3_desc,
       textColor: "#ffffff",
-      sticker: "/Reasons/cats.png",
+      sticker: "https://media.tenor.com/xxtopNzO7jsAAAAi/bubu-dudu.gif",
     },
 
     {
       number: "#4",
-      color: "#4d96ff",
+      color: "#3a67c4",
       title: reason_4_title,
       desc: reason_4_desc,
       textColor: "#ffffff",
-      sticker: "/Reasons/bunny.png",
+      sticker: "https://media.tenor.com/D6HDHJLAqb4AAAAi/dudu-bubu-dudu.gif",
     },
 
     {
       number: "#5",
-      color: "#9b5de5",
+      color: "#000000",
       title: reason_5_title,
       desc: reason_5_desc,
       textColor: "#ffffff",
-      sticker: "/Reasons/heart.png",
+      sticker: "https://media.tenor.com/DXs3gd7Ce0kAAAAi/bubu-dudu-sseeyall.gif",
     },
   ];
 
@@ -167,11 +167,17 @@ export default function FiveReasons({
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            transition={{
+              ease:easeIn,
+              duration:0.5
+            }}
           >
             <div
-              className=" w-screen min-h-screen  bg-[#0077ff] text-white flex
-            flex-col justify-center items-center text-center px-2"
+              className={`${patrickHand.className} w-screen min-h-screen  bg-[#eed7ae] text-yellow-900 flex
+            flex-col justify-center items-center text-center px-2`}
             >
+              {/* <img src="https://media.tenor.com/u2FhRqMVu3MAAAAj/heart-white.gif" alt="hear gif" className="w-36 " /> */}
+              <img src="https://media.tenor.com/Cdsz67OHTE0AAAAi/kitty-cat.gif" alt="hear gif" className="w-36 " />
               <p className="max-w-109 text-2xl md:text-3xl font-semibold">{ending_message}</p>
 
               <h3 className="mt-8 text-2xl">
@@ -267,14 +273,16 @@ function SwipeCard({
         mass: 0.6,        // lighter mass = snappier without heavy recalc
       }}
       className={` absolute inset-0 rounded-2xl shadow-xl flex flex-col items-center
-       justify-between py-6 cursor-grab active:cursor-grabbing`}
+       justify-between py-6 cursor-grab active:cursor-grabbing ${patrickHand.className}`}
     >
 
 
-      <h3>{reason.number}</h3>
-      <h2>{reason.title}</h2>
-      <p>{reason.desc}</p>
-      <img src={reason.sticker} className="w-28" />
+      <h3 className="text-2xl font-mono opacity-50 font-semibold">{reason.number}</h3>
+      <div className={` flex items-center gap-4 flex-col text-center px-4`}>
+        <h2 className="text-3xl font-bold">{reason.title}</h2>
+      <p className="font-semibold">{reason.desc}</p>
+      </div>
+      <img src={reason.sticker} className="w-34 " />
     </motion.div>
   );
 }
