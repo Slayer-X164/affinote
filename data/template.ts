@@ -1,18 +1,18 @@
 export const Templates = [
   {
-    id: "5-reasons-love",
+    id: "five-reasons",
     title: "5 Reasons Why I Love You",
     description:
       "A cute swipeable card deck where you share five reasons why someone means the world to you.",
     price: 69,
     st_price: 119,
     isFree: false,
-    previewImg: "",
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/appreciationFriend.png?updatedAt=1770318113957",
     fields: [
       {
         name: "receiver_name",
         type: "text",
-        placeholder: "example: Pragu ❤️",
+        placeholder: "example: Ananya",
       },
 
       {
@@ -85,7 +85,7 @@ export const Templates = [
       {
         name: "sender_name",
         type: "text",
-        placeholder: "example: Sidd ❤️",
+        placeholder: "example: kartik",
       },
     ],
   },
