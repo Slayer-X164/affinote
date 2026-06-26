@@ -1,94 +1,94 @@
 export const Templates = [
-  // {
-  //   id: "five-reasons",
-  //   title: "5 Reasons Why I Love You",
-  //   description:
-  //     "A cute swipeable card deck where you share five reasons why someone means the world to you.",
-  //   price: 69,
-  //   st_price: 119,
-  //   isFree: false,
-  //   previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/appreciationFriend.png?updatedAt=1770318113957",
-  //   fields: [
-  //     {
-  //       name: "receiver_name",
-  //       type: "text",
-  //       placeholder: "example: Ananya",
-  //     },
+  {
+    id: "five-reasons",
+    title: "5 Reasons Why I Love You",
+    description:
+      "A cute swipeable card deck where you share five reasons why someone means the world to you.",
+    price: 59,
+    st_price: 119,
+    isFree: false,
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/five-reasons.png",
+    fields: [
+      {
+        name: "receiver_name",
+        type: "text",
+        placeholder: "example: Ananya",
+      },
 
-  //     {
-  //       name: "reason_1_title",
-  //       type: "text",
-  //       placeholder: "example: Your Smile",
-  //     },
-  //     {
-  //       name: "reason_1_desc",
-  //       type: "textarea",
-  //       placeholder:
-  //         "example: I love your smile because it makes everything feel okay.",
-  //     },
+      {
+        name: "reason_1_title",
+        type: "text",
+        placeholder: "example: Your Smile",
+      },
+      {
+        name: "reason_1_desc",
+        type: "textarea",
+        placeholder:
+          "example: I love your smile because it makes everything feel okay.",
+      },
 
-  //     {
-  //       name: "reason_2_title",
-  //       type: "text",
-  //       placeholder: "example: The Way You Care",
-  //     },
-  //     {
-  //       name: "reason_2_desc",
-  //       type: "textarea",
-  //       placeholder:
-  //         "example: I love how deeply you care about the people around you.",
-  //     },
+      {
+        name: "reason_2_title",
+        type: "text",
+        placeholder: "example: The Way You Care",
+      },
+      {
+        name: "reason_2_desc",
+        type: "textarea",
+        placeholder:
+          "example: I love how deeply you care about the people around you.",
+      },
 
-  //     {
-  //       name: "reason_3_title",
-  //       type: "text",
-  //       placeholder: "example: Our Conversations",
-  //     },
-  //     {
-  //       name: "reason_3_desc",
-  //       type: "textarea",
-  //       placeholder:
-  //         "example: I love talking to you whether we are serious or laughing.",
-  //     },
+      {
+        name: "reason_3_title",
+        type: "text",
+        placeholder: "example: Our Conversations",
+      },
+      {
+        name: "reason_3_desc",
+        type: "textarea",
+        placeholder:
+          "example: I love talking to you whether we are serious or laughing.",
+      },
 
-  //     {
-  //       name: "reason_4_title",
-  //       type: "text",
-  //       placeholder: "example: Your Kindness",
-  //     },
-  //     {
-  //       name: "reason_4_desc",
-  //       type: "textarea",
-  //       placeholder:
-  //         "example: The way you treat people inspires me.",
-  //     },
+      {
+        name: "reason_4_title",
+        type: "text",
+        placeholder: "example: Your Kindness",
+      },
+      {
+        name: "reason_4_desc",
+        type: "textarea",
+        placeholder:
+          "example: The way you treat people inspires me.",
+      },
 
-  //     {
-  //       name: "reason_5_title",
-  //       type: "text",
-  //       placeholder: "example: Being You",
-  //     },
-  //     {
-  //       name: "reason_5_desc",
-  //       type: "textarea",
-  //       placeholder:
-  //         "example: Because nobody else could ever be you.",
-  //     },
+      {
+        name: "reason_5_title",
+        type: "text",
+        placeholder: "example: Being You",
+      },
+      {
+        name: "reason_5_desc",
+        type: "textarea",
+        placeholder:
+          "example: Because nobody else could ever be you.",
+      },
 
-  //     {
-  //       name: "ending_message",
-  //       type: "textarea",
-  //       placeholder:
-  //         "example: These are only 5 reasons, but the truth is that I could spend forever writing more.",
-  //     },
+      {
+        name: "ending_message",
+        type: "textarea",
+        placeholder:
+          "example: These are only 5 reasons, but the truth is that I could spend forever writing more.",
+      },
 
-  //     {
-  //       name: "sender_name",
-  //       type: "text",
-  //       placeholder: "example: kartik",
-  //     },
-  //   ],
-  // },
+      {
+        name: "sender_name",
+        type: "text",
+        placeholder: "example: kartik",
+      },
+    ],
+  },
   {
     id: "appreciation-for-friend",
     title: "Appreciation for a Friend",
