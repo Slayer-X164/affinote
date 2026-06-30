@@ -174,7 +174,7 @@ export default function FiveReasons({
           >
             <div
               className={`${patrickHand.className} w-screen min-h-screen  bg-[#eed7ae] text-yellow-900 flex
-            flex-col justify-center items-center text-center px-2`}
+            flex-col justify-center items-center text-center px-4`}
             >
               {/* <img src="https://media.tenor.com/u2FhRqMVu3MAAAAj/heart-white.gif" alt="hear gif" className="w-36 " /> */}
               <img src="https://media.tenor.com/Cdsz67OHTE0AAAAi/kitty-cat.gif" alt="hear gif" className="w-36 " />
