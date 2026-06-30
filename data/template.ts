@@ -4,8 +4,8 @@ export const Templates = [
     title: "5 Reasons Why I Love You",
     description:
       "A cute swipeable card deck where you share five reasons why someone means the world to you.",
-    price: 59,
-    st_price: 119,
+    price: 49,
+    st_price: 109,
     isFree: false,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/five-reasons.png",
     fields: [
