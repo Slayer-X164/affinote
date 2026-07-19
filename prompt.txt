@@ -1,0 +1,526 @@
+You are an award-winning frontend engineer and interaction designer.
+
+Design and build a premium templatee for Affinote called:
+
+# Happy Girlfriend Day.exe
+
+This is NOT a greeting card.
+
+This is NOT a scrolling landing page.
+
+This is a tiny nostalgic pixel love game that lasts 2–3 minutes.
+
+The experience should feel like the recipient is playing a cute retro game that was made just for them.
+
+========================================================
+CORE IDEA
+========================================================
+
+The website pretends to be an old desktop operating system.
+
+The user launches LOVE.exe.
+
+From there they progress through multiple interactive pixel game scenes.
+
+Every click unlocks a new surprise.
+
+The entire experience should feel playful, emotional and memorable.
+
+The goal is to make someone smile before making them emotional.
+
+Think:
+
+• Tamagotchi
+• Pokémon dialogue
+• Animal Crossing
+• Game Boy Advance
+• Windows 95
+• Stardew Valley UI
+• Retro Nintendo
+• Cozy pixel games
+
+NOT cyberpunk.
+
+NOT modern SaaS.
+
+NOT glassmorphism.
+
+========================================================
+VISUAL STYLE
+========================================================
+
+Everything should be pixel art inspired.
+
+Use only flat colors.
+
+No gradients.
+
+No blurred backgrounds.
+
+No glossy buttons.
+
+Use thick pixel borders.
+
+Use chunky shadows.
+
+Use pixel icons everywhere.
+
+Buttons should feel like Game Boy buttons.
+
+========================================================
+COLOR PALETTE
+========================================================
+
+Background
+#FFF8E7
+
+Primary
+#930500
+
+Secondary
+#95BBEA
+
+Extra
+
+#FAD7DF
+#FFE9F2
+#FFF3E8
+#FFFFFF
+#2B2B2B
+
+Do not introduce additional colors.
+
+========================================================
+TYPOGRAPHY
+========================================================
+
+Use pixel fonts only.
+
+Examples
+
+Press Start 2P
+
+Pixelify Sans
+
+Silkscreen
+
+Dialog should feel like an RPG.
+
+========================================================
+LAYOUT
+========================================================
+
+Everything happens inside one pixel game window.
+
+Do NOT make a normal webpage.
+
+Window example
+
+┌──────────────────────────────┐
+♥ Happy Girlfriend Day.exe
+───────────────────────────────
+|                              |
+|                              |
+|                              |
+───────────────────────────────
+[ Continue ]
+└──────────────────────────────┘
+
+Window transitions should animate.
+
+========================================================
+OPENING
+========================================================
+
+Scene 1
+
+Old desktop appears.
+
+Wallpaper is soft cream.
+
+Desktop icons
+
+📁 Memories
+
+💌 Letters
+
+🌸 Flowers
+
+❤️ LOVE.exe
+
+Only LOVE.exe is clickable.
+
+Double clicking opens the game.
+
+========================================================
+LOADING
+========================================================
+
+Show
+
+Loading...
+
+■■□□□□□□
+
+Pixel heart beats while loading.
+
+Tiny loading animation.
+
+========================================================
+SCENE 1
+========================================================
+
+A pixel cat appears.
+
+Dialog
+
+Hello...
+
+I made something just for my favorite person.
+
+Continue?
+
+Buttons
+
+YES
+
+NO
+
+========================================================
+FUNNY INTERACTION
+========================================================
+
+If NO is clicked
+
+Cat becomes sad.
+
+Dialog
+
+Really?
+
+Buttons appear again.
+
+YES
+
+NO
+
+If NO again
+
+Window shakes.
+
+Dialog
+
+System Error
+
+This option has been disabled
+for obvious reasons.
+
+The NO button starts running away from the cursor.
+
+Eventually only YES can be clicked.
+
+========================================================
+SCENE 2
+========================================================
+
+Daily Login Reward
+
++100 Love Points
+
+Coins explode.
+
+Pixel hearts float upward.
+
+Achievement popup
+
+Achievement Unlocked
+
+♡ Best Girlfriend
+
+========================================================
+SCENE 3
+========================================================
+
+Cat asks
+
+Do you know
+how amazing
+you are?
+
+Choices
+
+Not really
+
+Maybe
+
+Of course
+
+Each option gives different cute responses.
+
+========================================================
+SCENE 4
+========================================================
+
+Love Meter
+
+██████████
+
+999999%
+
+Heart beats continuously.
+
+========================================================
+SCENE 5
+========================================================
+
+Inventory opens.
+
+Items
+
+❤️ Hug
+
+🌸 Flower
+
+🍫 Chocolate
+
+💌 Letter
+
+⭐ Secret
+
+Each item reveals a wholesome message.
+
+========================================================
+SCENE 6
+========================================================
+
+Mini game.
+
+Catch falling hearts.
+
+Every caught heart
+
++10 Love
+
+Duration
+
+15 seconds
+
+When complete
+
+Achievement
+
+Heart Collector
+
+========================================================
+SCENE 7
+========================================================
+
+Achievements page.
+
+🏆 My Favorite Person
+
+🏆 Professional Hugger
+
+🏆 Beautiful Smile
+
+🏆 Cutest Human
+
+🏆 Best Girlfriend
+
+Each unlock animates.
+
+========================================================
+SCENE 8
+========================================================
+
+Inbox
+
+One unread message.
+
+Subject
+
+For Your Eyes Only
+
+Envelope unfolds.
+
+Notebook appears.
+
+Typewriter animation begins.
+
+Love letter writes itself.
+
+Cursor blinks.
+
+Tiny heart appears after each paragraph.
+
+========================================================
+FINAL SCENE
+========================================================
+
+Pixel fireworks.
+
+Large animated pixel heart.
+
+Dialog
+
+Congratulations!
+
+You completed
+
+Happy Girlfriend Day.exe
+
+Reward
+
+∞ Love Points
+
+Buttons
+
+Replay
+
+Give Me A Hug
+
+========================================================
+ANIMATIONS
+========================================================
+
+Everything should have tiny playful animations.
+
+Examples
+
+Heart beating
+
+Cat blinking
+
+Tail wagging
+
+Window opening
+
+Button press
+
+Pixel bounce
+
+Coin pop
+
+Achievement slide
+
+Envelope unfold
+
+Cursor blink
+
+Idle sparkles
+
+Tiny floating hearts
+
+Nothing should feel static.
+
+========================================================
+SOUNDS
+========================================================
+
+Optional toggle.
+
+Pixel click
+
+Achievement sound
+
+Coin pickup
+
+Retro menu select
+
+Soft heart beat
+
+========================================================
+BACKGROUND
+========================================================
+
+Small floating pixel hearts.
+
+Tiny stars.
+
+Occasional clouds.
+
+Subtle looping animations.
+
+Never distracting.
+
+========================================================
+INTERACTIONS
+========================================================
+
+Buttons depress when clicked.
+
+Hover scales by only 2–3%.
+
+Dialogue types character-by-character.
+
+Achievements slide in.
+
+Screen shakes slightly during funny moments.
+
+Everything feels like an actual indie game.
+
+========================================================
+TECH STACK
+========================================================
+
+Next.js 15
+
+React
+
+TypeScript
+
+Tailwind CSS
+
+Framer Motion
+
+Component based architecture.
+
+Responsive.
+
+Mobile-first.
+
+========================================================
+COMPONENTS
+========================================================
+
+PixelWindow
+
+Desktop
+
+DesktopIcon
+
+DialogueBox
+
+PixelButton
+
+LoveMeter
+
+Inventory
+
+AchievementPopup
+
+MiniGame
+
+Letter
+
+PixelCat
+
+PixelHeart
+
+LoadingScreen
+
+EndingScreen
+
+========================================================
+IMPORTANT
+========================================================
+
+The experience should never feel like reading a webpage.
+
+It should feel like someone received a tiny handcrafted pixel video game made exclusively for them.
+
+The recipient should smile, laugh at the fake "NO" option, enjoy unlocking achievements, and end by reading an emotional letter.
+
+Every interaction should feel delightful, nostalgic and worthy of sharing on Instagram Reels or TikTok.
+
+Build it with production-quality code, polished animations, reusable components, clean architecture, and exceptional attention to detail.

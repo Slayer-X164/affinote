@@ -1,4 +1,4 @@
-import { Cedarville_Cursive, Playfair_Display, Geist, Lobster, Anton, Patrick_Hand } from "next/font/google";
+import { Cedarville_Cursive, Playfair_Display, Geist, Lobster, Anton, Patrick_Hand, Press_Start_2P } from "next/font/google";
 
 export const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,3 +30,10 @@ export const patrickHand = Patrick_Hand({
   display:"swap",
   weight:"400"
 })
+
+export const pressStart2P = Press_Start_2P({
+  variable: "--font-press-start-2p",
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400"
+});

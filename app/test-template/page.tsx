@@ -12,6 +12,7 @@ import WhyYouAreAwesome from "@/components/templates/Gratitude";
 import JustUsTemplate from "@/components/templates/Gratitude";
 import WebProposal from "@/components/templates/WebProposal";
 import FiveReasons from "@/components/templates/FiveReasons";
+import HappyGirlfriendDay from "@/components/templates/HappyGirlfriendDay";
 
 
 export default function testTemplate() {
@@ -19,7 +20,8 @@ export default function testTemplate() {
 
    <>
    {/* <WebProposal/> */}
-    <FiveReasons/>
+    {/* <FiveReasons/> */}
+    <HappyGirlfriendDay />
    {/* <Valentine_1/> */}
     {/* <ApologyForBf/> */}
     {/* <ApologyForGf/> */}
