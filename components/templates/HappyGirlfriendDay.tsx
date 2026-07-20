@@ -373,7 +373,7 @@ export default function HappyGirlfriendDay() {
   const SceneFlowers = () => (
     <PixelWindow title="flowers.exe">
       <div className="flex flex-col items-center justify-center gap-8 min-h-[300px]">
-        dshdjsd
+        <img src="https://media.tenor.com/5NePTyN_FJIAAAAi/flowers-rose.gif" alt="flower" className="w-60" />
         <PixelButton onClick={() => nextScene("scene5")}>Back</PixelButton>
       </div>
     </PixelWindow>
@@ -382,6 +382,7 @@ export default function HappyGirlfriendDay() {
   const SceneHugs = () => (
     <PixelWindow title="hugs.exe">
       <div className="flex flex-col items-center justify-center gap-8 min-h-[300px]">
+        <img src="https://media.tenor.com/APDVT7Y1smgAAAAi/cute.gif" alt="hug" className="w-60" />
         <PixelButton onClick={() => nextScene("scene5")}>Back</PixelButton>
       </div>
     </PixelWindow>
