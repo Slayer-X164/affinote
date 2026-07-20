@@ -1,12 +1,12 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
-import { Heart, Folder, Mail, Flower2, Trophy, Star, Gift, MessageSquareHeart } from "lucide-react";
+import { Heart, Folder, Mail, Flower2, Trophy, Star, Gift, MessageSquareHeart, InfinityIcon } from "lucide-react";
 import Confetti from "react-confetti";
 import { pressStart2P } from "@/app/font";
 import Image from "next/image";
 
-type Scene = "desktop" | "loading" | "scene1" | "scene2" | "scene3" | "scene4" | "scene5" | "scene7" | "scene8" | "final";
+type Scene = "desktop" | "loading" | "scene1" | "scene2" | "scene3" | "scene5" | "scene8" | "final" | "scene_flowers" | "scene_hugs";
 
 // Palette
 const colors = {
@@ -42,7 +42,7 @@ const PixelWindow = ({ title, children, onClose }: { title: string, children: Re
         </div>
       </div>
     </div>
-    <div className="p-6 bg-[#FFF8E7]">
+    <div className="p-4 sm:p-6 bg-[#FFF8E7]">
       {children}
     </div>
   </motion.div>
@@ -79,7 +79,7 @@ const TypewriterText = ({ text, onComplete }: { text: string, onComplete?: () =>
       }
     }, 40);
     return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [text]);
 
   return <span className={`whitespace-pre-wrap leading-loose text-[#2B2B2B] ${pressStart2P.className} text-[10px] sm:text-xs`}>{displayedText}</span>;
@@ -90,6 +90,7 @@ const TypewriterText = ({ text, onComplete }: { text: string, onComplete?: () =>
 export default function HappyGirlfriendDay() {
   const [scene, setScene] = useState<Scene>("desktop");
   const [lovePoints, setLovePoints] = useState(0);
+  const [openedItems, setOpenedItems] = useState<string[]>([]);
 
 
 
@@ -100,7 +101,7 @@ export default function HappyGirlfriendDay() {
 
   const DesktopScene = () => (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col items-center justify-center w-full h-full p-8 relative">
-      <div className="absolute top-8 left-8 flex flex-col gap-8">
+      {/* <div className="absolute top-8 left-8 flex flex-col gap-8">
         <div className="flex flex-col items-center gap-2 cursor-pointer group">
           <Folder className="w-12 h-12 text-[#95BBEA] fill-[#95BBEA] group-hover:scale-110 transition-transform" />
           <span className={`text-[#2B2B2B] text-[10px] bg-white/50 px-2 py-1 ${pressStart2P.className}`}>Memories</span>
@@ -109,15 +110,17 @@ export default function HappyGirlfriendDay() {
           <Mail className="w-12 h-12 text-[#95BBEA] fill-[#95BBEA] group-hover:scale-110 transition-transform" />
           <span className={`text-[#2B2B2B] text-[10px] bg-white/50 px-2 py-1 ${pressStart2P.className}`}>Letters</span>
         </div>
-      </div>
-
+      </div> */}
+      <h3 className={`${pressStart2P.className} md:text-2xl text-lg text-center`}>Happy Girlfriend Day</h3>
+      <h2 className={`${pressStart2P.className} md:text-2xl text-lg text-[#930500] mt-2 text-center`}>{"Aanya"}</h2>
       <motion.div
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onDoubleClick={() => nextScene("scene1")}
         onClick={() => nextScene("scene1")} // Add single click for mobile support
-        className="flex flex-col items-center gap-4 cursor-pointer mt-20"
+        className="flex flex-col items-center gap-4 cursor-pointer mt-10"
       >
+
         <div className="relative">
           <Heart className="w-20 h-20 text-[#930500] fill-[#930500]" />
           <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 1.5 }} className="absolute inset-0 flex items-center justify-center">
@@ -127,8 +130,8 @@ export default function HappyGirlfriendDay() {
         <span className={`text-[#2B2B2B] bg-white px-3 py-1 border-2 border-[#2B2B2B] shadow-[2px_2px_0_0_rgba(43,43,43,1)] text-xs sm:text-sm ${pressStart2P.className}`}>LOVE.exe</span>
       </motion.div>
 
-      <div className="absolute bottom-8 right-8 text-center">
-        <span className={`text-[#2B2B2B]/50 text-[8px] ${pressStart2P.className}`}>Click or Double-Tap to launch</span>
+      <div className="mt-10 text-center">
+        <span className={`text-[#2B2B2B]/30 md:text-[10px] text-[8px]  ${pressStart2P.className}`}>Click or Double-Tap to launch</span>
       </div>
     </motion.div>
   );
@@ -154,21 +157,20 @@ export default function HappyGirlfriendDay() {
   const Scene1 = () => {
     const [noClicks, setNoClicks] = useState(0);
     const [noPos, setNoPos] = useState({ x: 0, y: 0 });
-    const [showError, setShowError] = useState(false);
 
     const handleNoClick = () => {
-      if (noClicks === 0) {
-        setNoClicks(1);
-      } else {
-        setShowError(true);
-      }
+      setNoClicks((prev) => prev + 1);
+      setNoPos({
+        x: Math.random() * 160 - 80, // Constrain left/right to stay within screen
+        y: Math.random() * -200 - 40 // Always move upwards to prevent clipping at the bottom
+      });
     };
 
     const handleNoHover = () => {
-      if (noClicks > 0 && !showError) {
+      if (noClicks > 0) {
         setNoPos({
-          x: Math.random() * 200 - 100,
-          y: Math.random() * 200 - 100
+          x: Math.random() * 160 - 80,
+          y: Math.random() * -200 - 40
         });
       }
     };
@@ -194,26 +196,17 @@ export default function HappyGirlfriendDay() {
             </motion.div>
           </div>
 
-          <div className="bg-white border-4 border-[#2B2B2B] p-4 w-full h-32 relative">
-            {!showError ? (
-              <TypewriterText text={noClicks === 0 ? "Hello...\nI made something just for my favorite person.\n\nContinue?" : "Really?\n\nAre you sure you want to click NO?"} />
-            ) : (
-              <motion.div animate={{ x: [-5, 5, -5, 5, 0] }} transition={{ duration: 0.4 }}>
-                <span className={`text-[#930500] text-[10px] sm:text-xs leading-loose ${pressStart2P.className}`}>
-                  SYSTEM ERROR:<br /><br />This option has been disabled for obvious reasons.
-                </span>
-              </motion.div>
-            )}
+          <div className="bg-white border-4 border-[#2B2B2B] p-4 w-full min-h-[128px] h-auto relative">
+            <TypewriterText text={ `Hey ${"Aanya"}... I made something just for you. Continue?` } />
           </div>
 
-          <div className="flex gap-8 relative mt-4">
+          <div className="flex gap-4 sm:gap-8 mt-4">
             <PixelButton onClick={() => nextScene("scene2")}>YES</PixelButton>
 
             <motion.div
-              animate={showError ? { opacity: 0, scale: 0 } : { x: noPos.x, y: noPos.y }}
+              animate={{ x: noPos.x, y: noPos.y }}
               onHoverStart={handleNoHover}
               onClick={handleNoClick}
-              className="absolute left-[100px]"
             >
               <PixelButton variant="secondary">NO</PixelButton>
             </motion.div>
@@ -232,18 +225,18 @@ export default function HappyGirlfriendDay() {
       <PixelWindow title="Reward.exe">
         <div className="flex flex-col items-center justify-center min-h-[300px] gap-8">
           <motion.div initial={{ scale: 0 }} animate={{ scale: 1, rotate: [0, 10, -10, 0] }} transition={{ scale: { type: "spring", bounce: 0.6 }, rotate: { duration: 0.5 } }} className="flex flex-col items-center gap-4">
-            <Gift className="w-20 h-20 text-[#930500] fill-[#95BBEA]" />
+            <img src="https://media.tenor.com/-J9wqAoLbRQAAAAi/happy.gif" alt="happy cat" className="w-28 sm:w-40" />
             <span className={`text-[#930500] text-center text-sm sm:text-base leading-loose ${pressStart2P.className}`}>Daily Login Reward</span>
             <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }} className={`text-[#2B2B2B] text-lg sm:text-xl ${pressStart2P.className}`}>+100 Love Points</motion.span>
           </motion.div>
 
           <AnimatePresence>
             {lovePoints > 0 && (
-              <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="mt-4 bg-[#FFE9F2] border-4 border-[#2B2B2B] p-4 flex items-center gap-4 shadow-[4px_4px_0_0_rgba(43,43,43,1)] w-[90%]">
-                <Trophy className="text-[#930500] fill-yellow-400 w-8 h-8" />
+              <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="mt-4 bg-[#FFE9F2] border-4 border-[#2B2B2B] p-4 flex items-center gap-4 shadow-[4px_4px_0_0_rgba(43,43,43,1)] w-full sm:w-[90%]">
+                <Trophy className="text-[#930500]  w-8 h-8" />
                 <div className="flex flex-col gap-2">
-                  <span className={`text-[8px] text-[#2B2B2B] ${pressStart2P.className}`}>Achievement Unlocked</span>
-                  <span className={`text-[10px] sm:text-xs text-[#930500] ${pressStart2P.className}`}>♡ Best Girlfriend</span>
+                  <span className={`text-[10px] text-[#2B2B2B] ${pressStart2P.className}`}>Achievement Unlocked</span>
+                  <span className={`text-[13px] sm:text-xs text-[#930500] ${pressStart2P.className}`}>Best Girlfriend</span>
                 </div>
               </motion.div>
             )}
@@ -299,7 +292,7 @@ export default function HappyGirlfriendDay() {
 
           <div className="bg-white border-4 border-[#2B2B2B] p-4 w-full min-h-[100px]">
             {step === 0 ? (
-              <TypewriterText text="Do you know\nhow amazing\nyou are?" />
+              <TypewriterText text="Do you know how amazing you are?" />
             ) : (
               <TypewriterText text={response} />
             )}
@@ -313,7 +306,7 @@ export default function HappyGirlfriendDay() {
             </div>
           ) : (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }} className="mt-8">
-              <PixelButton onClick={() => nextScene("scene4")}>Next</PixelButton>
+              <PixelButton onClick={() => nextScene("scene5")}>Next</PixelButton>
             </motion.div>
           )}
         </div>
@@ -321,61 +314,20 @@ export default function HappyGirlfriendDay() {
     );
   };
 
-  const Scene4 = () => {
-    const [fill, setFill] = useState(0);
-    useEffect(() => {
-      const int = setInterval(() => {
-        setFill(f => {
-          if (f >= 100) {
-            clearInterval(int);
-            return 100;
-          }
-          return f + 2;
-        });
-      }, 50);
-      return () => clearInterval(int);
-    }, []);
 
-    return (
-      <PixelWindow title="Scanner.exe">
-        <div className="flex flex-col items-center justify-center min-h-[300px] gap-12 w-full">
-          <span className={`text-[#2B2B2B] text-sm sm:text-base ${pressStart2P.className}`}>Love Meter</span>
-
-          <div className="w-full h-12 bg-white border-4 border-[#2B2B2B] p-1 relative overflow-hidden flex items-center justify-center">
-            <div className="absolute top-0 left-0 bottom-0 bg-[#930500] transition-all duration-75" style={{ width: `${fill}%` }}></div>
-            <span className={`relative z-10 text-[10px] sm:text-xs ${fill > 50 ? 'text-white' : 'text-[#2B2B2B]'} ${pressStart2P.className}`}>
-              {fill >= 100 ? "999999%" : `${fill}%`}
-            </span>
-          </div>
-
-          <motion.div animate={{ scale: fill >= 100 ? [1, 1.5, 1] : 1 }} transition={{ repeat: fill >= 100 ? Infinity : 0, duration: 0.5 }}>
-            <Heart className={`w-24 h-24 ${fill >= 100 ? 'text-[#930500] fill-[#930500]' : 'text-[#2B2B2B] fill-transparent'} transition-colors`} />
-          </motion.div>
-
-          {fill >= 100 && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
-              <PixelButton onClick={() => nextScene("scene5")}>Continue</PixelButton>
-            </motion.div>
-          )}
-        </div>
-      </PixelWindow>
-    );
-  };
 
   const Scene5 = () => {
     const items = [
-      { id: 0, icon: <Heart className="w-8 h-8 fill-current" />, name: "Hug", msg: "A warm virtual hug just for you! *squeezes tight*" },
-      { id: 1, icon: <Flower2 className="w-8 h-8 fill-current" />, name: "Flower", msg: "A pixel flower that never dies, just like my love." },
-      { id: 2, icon: <Star className="w-8 h-8 fill-current" />, name: "Star", msg: "Because you light up my darkest nights." },
-      { id: 3, icon: <MessageSquareHeart className="w-8 h-8 fill-current" />, name: "Secret", msg: "You're the best thing that ever happened to me." },
-    ];
+      { id: "flowers", icon: <Flower2 className="w-8 h-8 fill-current" />, name: "Flowers", target: "scene_flowers" },
+      { id: "hugs", icon: <Heart className="w-8 h-8 fill-current" />, name: "Hugs", target: "scene_hugs" },
+      { id: "letter", icon: <Mail className="w-8 h-8 fill-current" />, name: "Letter", target: "scene8" },
+    ] as const;
 
-    const [opened, setOpened] = useState<number[]>([]);
-    const [inventoryOpen, setInventoryOpen] = useState<number | null>(null);
-
-    const handleOpen = (id: number) => {
-      setInventoryOpen(id);
-      if (!opened.includes(id)) setOpened([...opened, id]);
+    const handleOpen = (id: string, target: Scene) => {
+      if (!openedItems.includes(id)) {
+        setOpenedItems([...openedItems, id]);
+      }
+      nextScene(target);
     };
 
     return (
@@ -383,37 +335,32 @@ export default function HappyGirlfriendDay() {
         <div className="flex flex-col items-center gap-6 min-h-[300px]">
           <span className={`text-[#2B2B2B] text-xs sm:text-sm text-center ${pressStart2P.className} leading-loose`}>
             Inventory
-            <br /><span className="text-[8px] text-[#930500]">Click items to inspect</span>
+            <br /><span className="text-[8px] text-[#930500]">Click items to open</span>
           </span>
 
-          <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-sm mt-4">
             {items.map(item => (
               <motion.div
                 key={item.id}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => handleOpen(item.id)}
-                className={`flex flex-col items-center justify-center p-4 border-4 border-[#2B2B2B] cursor-pointer shadow-[2px_2px_0_0_rgba(43,43,43,1)] ${opened.includes(item.id) ? 'bg-[#FFF8E7]' : 'bg-white'}`}
+                onClick={() => handleOpen(item.id, item.target)}
+                className={`flex flex-col items-center justify-center p-4 border-4 border-[#2B2B2B] cursor-pointer shadow-[2px_2px_0_0_rgba(43,43,43,1)] ${openedItems.includes(item.id) ? 'bg-[#FFF8E7]' : 'bg-white'}`}
               >
-                <div className={`text-[#930500] ${opened.includes(item.id) ? 'opacity-50' : ''}`}>
+
+                <div className={`text-[#930500] ${openedItems.includes(item.id) ? 'opacity-50' : ''}`}>
                   {item.icon}
                 </div>
                 <span className={`text-[#2B2B2B] mt-2 text-[8px] ${pressStart2P.className}`}>{item.name}</span>
+
+
               </motion.div>
             ))}
           </div>
 
-          <div className="bg-white border-4 border-[#2B2B2B] p-4 w-full h-24">
-            {inventoryOpen !== null ? (
-              <TypewriterText key={inventoryOpen} text={items.find(i => i.id === inventoryOpen)?.msg || ""} />
-            ) : (
-              <span className={`text-[#2B2B2B]/50 text-[10px] ${pressStart2P.className}`}>Select an item...</span>
-            )}
-          </div>
-
-          {opened.length === items.length && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-2">
-              <PixelButton onClick={() => nextScene("scene7")}>Continue</PixelButton>
+          {openedItems.length === items.length && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-8">
+              <PixelButton onClick={() => nextScene("final")}>Continue</PixelButton>
             </motion.div>
           )}
         </div>
@@ -421,42 +368,24 @@ export default function HappyGirlfriendDay() {
     );
   };
 
-  const Scene7 = () => {
-    const achievements = [
-      "My Favorite Person",
-      "Professional Hugger",
-      "Beautiful Smile",
-      "Cutest Human",
-      "Best Girlfriend"
-    ];
 
-    return (
-      <PixelWindow title="Trophies.exe">
-        <div className="flex flex-col gap-4 min-h-[350px]">
-          <span className={`text-[#930500] text-sm text-center mb-4 ${pressStart2P.className}`}>Achievements</span>
 
-          <div className="flex flex-col gap-3">
-            {achievements.map((ach, i) => (
-              <motion.div
-                key={i}
-                initial={{ x: -100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: i * 0.4, type: "spring" }}
-                className="bg-white border-2 border-[#2B2B2B] p-3 flex items-center gap-4 shadow-[2px_2px_0_0_rgba(43,43,43,1)]"
-              >
-                <Trophy className="w-6 h-6 text-yellow-500 fill-yellow-500" />
-                <span className={`text-[#2B2B2B] text-[8px] sm:text-[10px] ${pressStart2P.className}`}>{ach}</span>
-              </motion.div>
-            ))}
-          </div>
+  const SceneFlowers = () => (
+    <PixelWindow title="flowers.exe">
+      <div className="flex flex-col items-center justify-center gap-8 min-h-[300px]">
+        dshdjsd
+        <PixelButton onClick={() => nextScene("scene5")}>Back</PixelButton>
+      </div>
+    </PixelWindow>
+  );
 
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: achievements.length * 0.4 + 1 }} className="mt-auto flex justify-center">
-            <PixelButton onClick={() => nextScene("scene8")}>Check Inbox</PixelButton>
-          </motion.div>
-        </div>
-      </PixelWindow>
-    );
-  };
+  const SceneHugs = () => (
+    <PixelWindow title="hugs.exe">
+      <div className="flex flex-col items-center justify-center gap-8 min-h-[300px]">
+        <PixelButton onClick={() => nextScene("scene5")}>Back</PixelButton>
+      </div>
+    </PixelWindow>
+  );
 
   const Scene8 = () => {
     const [envelopeOpen, setEnvelopeOpen] = useState(false);
@@ -485,7 +414,7 @@ export default function HappyGirlfriendDay() {
               <span className={`text-[#2B2B2B] text-[10px] sm:text-xs ${pressStart2P.className} bg-white border-2 border-[#2B2B2B] px-3 py-1`}>For Your Eyes Only</span>
             </motion.div>
           ) : (
-            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="w-full bg-[#FFF3E8] border-4 border-[#2B2B2B] p-6 shadow-[8px_8px_0_0_rgba(43,43,43,1)] relative">
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="w-full bg-[#FFF3E8] border-4 border-[#2B2B2B] p-4 sm:p-6 shadow-[8px_8px_0_0_rgba(43,43,43,1)] relative">
               <div className="absolute top-2 left-1/2 -translate-x-1/2 flex gap-2">
                 <div className="w-4 h-4 rounded-full bg-[#930500]/20"></div>
                 <div className="w-4 h-4 rounded-full bg-[#930500]/20"></div>
@@ -496,17 +425,13 @@ export default function HappyGirlfriendDay() {
                 <TypewriterText text={letterText} onComplete={() => setLetterDone(true)} />
               </div>
 
-              {letterDone && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-8 flex justify-end">
-                  <Heart className="w-8 h-8 text-[#930500] fill-[#930500] animate-pulse" />
-                </motion.div>
-              )}
+
             </motion.div>
           )}
 
           {letterDone && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className="mt-4">
-              <PixelButton onClick={() => nextScene("final")}>Finish</PixelButton>
+              <PixelButton onClick={() => nextScene("scene5")}>Back</PixelButton>
             </motion.div>
           )}
         </div>
@@ -528,18 +453,16 @@ export default function HappyGirlfriendDay() {
       <div className="flex flex-col items-center justify-center min-h-screen p-8 text-center gap-12 z-10 relative w-full h-full">
         <Confetti width={windowSize.width} height={windowSize.height} colors={["#930500", "#95BBEA", "#FAD7DF", "#2B2B2B", "#FFFFFF"]} />
 
-        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ repeat: Infinity, duration: 1 }}>
-          <Heart className="w-32 h-32 text-[#930500] fill-[#930500]" />
-        </motion.div>
+        <img src="https://media.tenor.com/-f6Vna8VsdEAAAAi/happy-cat.gif" alt="cat dancing" className="w-24 sm:w-32"></img>
 
         <div className="bg-white border-4 border-[#2B2B2B] p-6 shadow-[8px_8px_0_0_rgba(43,43,43,1)]">
           <h1 className={`text-[#930500] text-lg sm:text-xl md:text-2xl mb-6 leading-loose ${pressStart2P.className}`}>Congratulations!</h1>
-          <p className={`text-[#2B2B2B] text-[10px] sm:text-xs mb-8 leading-loose ${pressStart2P.className}`}>
+          <p className={`text-[#2B2B2B] text-[10px] sm:text-xs mb-8  ${pressStart2P.className}`}>
             You completed<br /><br />
-            Happy Girlfriend Day.exe
+            Love.exe
           </p>
           <div className="bg-[#FFF8E7] border-2 border-[#2B2B2B] p-4 inline-block">
-            <p className={`text-[#930500] text-sm ${pressStart2P.className}`}>Reward: ∞ Love Points</p>
+            <p className={`text-[#930500] text-xs ${pressStart2P.className} flex items-center gap-2`}>Reward:<InfinityIcon className="" /> Love Points</p>
           </div>
         </div>
 
@@ -572,9 +495,11 @@ export default function HappyGirlfriendDay() {
           {scene === "scene1" && <Scene1 />}
           {scene === "scene2" && <Scene2 />}
           {scene === "scene3" && <Scene3 />}
-          {scene === "scene4" && <Scene4 />}
+
           {scene === "scene5" && <Scene5 />}
-          {scene === "scene7" && <Scene7 />}
+
+          {scene === "scene_flowers" && <SceneFlowers />}
+          {scene === "scene_hugs" && <SceneHugs />}
           {scene === "scene8" && <Scene8 />}
           {scene === "final" && <FinalScene />}
         </motion.div>
