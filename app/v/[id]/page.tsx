@@ -23,7 +23,8 @@ const componentMap: any = {
   "birthday": dynamic(() => import("@/components/templates/Birthday")),
   "valentine_1": dynamic(() => import("@/components/templates/Valentine_1")),
   "gratitude-page": dynamic(() => import("@/components/templates/Gratitude")),
-  "five-reasons":dynamic(()=>import("@/components/templates/FiveReasons"))
+  "five-reasons":dynamic(()=>import("@/components/templates/FiveReasons")),
+  "girlfriend-day":dynamic(()=>import("@/components/templates/HappyGirlfriendDay"))
 };
 
 type templateKey = keyof typeof componentMap;

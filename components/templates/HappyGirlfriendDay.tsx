@@ -90,8 +90,16 @@ const TypewriterText = ({ text, onComplete }: { text: string, onComplete?: () =>
 };
 
 // --- Main Component ---
+type HappyGirlfriendDayProp = {
+  name?: string
+  letter_text?: string
 
-export default function HappyGirlfriendDay() {
+}
+export default function HappyGirlfriendDay({
+  name = "Aanya",
+  letter_text = "To the most amazing girlfriend, I just wanted to make this tiny game to remind you how much you mean to me. Every day with you feels like unlocking a new beautiful achievement. Thank you for being you. I love you endlessly."
+
+}:HappyGirlfriendDayProp) {
   const [scene, setScene] = useState<Scene>("desktop");
   const [lovePoints, setLovePoints] = useState(0);
   const [openedItems, setOpenedItems] = useState<string[]>([]);
@@ -201,7 +209,7 @@ export default function HappyGirlfriendDay() {
         </div>
       </div> */}
       <h3 className={`${pressStart2P.className} md:text-2xl text-lg text-center`}>Happy Girlfriend Day</h3>
-      <h2 className={`${pressStart2P.className} md:text-2xl text-lg text-[#930500] mt-2 text-center`}>{"Aanya"}</h2>
+      <h2 className={`${pressStart2P.className} md:text-2xl text-lg text-[#930500] mt-2 text-center`}>{name}</h2>
       <motion.div
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -286,7 +294,7 @@ export default function HappyGirlfriendDay() {
           </div>
 
           <div className="bg-white border-4 border-[#2B2B2B] p-4 w-full min-h-[128px] h-auto relative">
-            <TypewriterText text={ `Hey ${"Aanya"}... I made something just for you. Continue?` } />
+            <TypewriterText text={ `Hey ${name}... I made something just for you. Continue?` } />
           </div>
 
           <div className="flex gap-4 sm:gap-8 mt-4">
@@ -482,7 +490,7 @@ export default function HappyGirlfriendDay() {
     const [envelopeOpen, setEnvelopeOpen] = useState(false);
     const [letterDone, setLetterDone] = useState(false);
 
-    const letterText = "To the most amazing girlfriend,\n\nI just wanted to make this tiny game to remind you how much you mean to me.\n\nEvery day with you feels like unlocking a new beautiful achievement.\n\nThank you for being you.\n\nI love you endlessly.";
+
 
     return (
       <PixelWindow title="Inbox.exe">
@@ -516,7 +524,7 @@ export default function HappyGirlfriendDay() {
               </div>
 
               <div className="mt-8">
-                <TypewriterText text={letterText} onComplete={() => setLetterDone(true)} />
+                <TypewriterText text={letter_text} onComplete={() => setLetterDone(true)} />
               </div>
 
 
@@ -545,7 +553,7 @@ export default function HappyGirlfriendDay() {
     }, []);
 
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen p-8 text-center gap-12 z-10 relative w-full h-full">
+      <div className="flex flex-col items-center justify-center min-h-[560px] p-8 text-center gap-12 z-10 relative w-full h-full">
         <Confetti width={windowSize.width} height={windowSize.height} colors={["#930500", "#95BBEA", "#FAD7DF", "#2B2B2B", "#FFFFFF"]} />
 
         <img src="https://media.tenor.com/-f6Vna8VsdEAAAAi/happy-cat.gif" alt="cat dancing" className="w-24 sm:w-32"></img>
@@ -575,7 +583,7 @@ export default function HappyGirlfriendDay() {
   };
 
   return (
-    <div className="fixed inset-0 bg-[#FFF8E7] flex flex-col items-center justify-center overflow-hidden selection:bg-[#95BBEA]">
+    <div className="w-full min-h-screen bg-[#FFF8E7] flex flex-col items-center justify-center overflow-hidden selection:bg-[#95BBEA]">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'radial-gradient(#930500 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
 
@@ -589,7 +597,7 @@ export default function HappyGirlfriendDay() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 1.05 }}
           transition={{ duration: 0.3 }}
-          className="w-full h-full flex items-center justify-center relative z-10"
+          className="w-full min-h-[560px] flex items-center justify-center relative z-10"
         >
           {scene === "desktop" && <DesktopScene />}
           {scene === "loading" && <LoadingScene />}
