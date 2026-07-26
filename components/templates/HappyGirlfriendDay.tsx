@@ -208,7 +208,7 @@ export default function HappyGirlfriendDay({
           <span className={`text-[#2B2B2B] text-[10px] bg-white/50 px-2 py-1 ${pressStart2P.className}`}>Letters</span>
         </div>
       </div> */}
-      <h3 className={`${pressStart2P.className} md:text-2xl text-lg text-center`}>Happy Girlfriend Day</h3>
+      <h3 className={`${pressStart2P.className} md:text-2xl text-lg text-center`}>Happy Girlfriend's Day</h3>
       <h2 className={`${pressStart2P.className} md:text-2xl text-lg text-[#930500] mt-2 text-center`}>{name}</h2>
       <motion.div
         whileHover={{ scale: 1.1 }}

@@ -1,4 +1,27 @@
 export const MostUsedTemplates = [
+  {
+    id: "girlfriend-day",
+    title: "Happy Girlfriend Day",
+    description:
+      "A sweet and heartfelt gift to celebrate your girlfriend and share a special message.",
+    price: 59,
+    st_price: 139,
+    isFree: false,
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/girlfriend_day",
+    fields: [
+      {
+        name: "name",
+        type: "text",
+        placeholder: "example: Ananya",
+      },
+      {
+        name: "letter_text",
+        type: "textarea",
+        placeholder:
+          "example: You make every day brighter, and I’m so grateful for your love and smile.",
+      },
+    ],
+  },
 {
     id: "flower-surprise",
     title: "Flower Surprise",
@@ -22,53 +45,6 @@ export const MostUsedTemplates = [
       },
     ],
   },
-  {
-  id: "gratitude-page",
-  title: "Gratitude Page",
-  description:
-    "A all-occasion Gratitude page with memories, gallery, promises and a heartfelt message.",
-  price: 29,
-  st_price: 59,
-  isFree:false,
-  previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/gratitude.png",
-  fields: [
-    { name: "receiverName", type: "text", placeholder: "example: My Cutie" },
-    { name: "openingLine", type: "textarea", placeholder: "example: Every moment with you feels like a dream..." },
-
-    // LOVE REASONS
-    // { name: "reason_1", type: "text", placeholder: "example: Your smile brightens my darkest days" },
-    // { name: "reason_2", type: "text", placeholder: "example: You understand me like no one else" },
-    // { name: "reason_3", type: "text", placeholder: "example: Your kindness inspires me to be better" },
-    // { name: "reason_4", type: "text", placeholder: "example: I love how we can be silly together" },
-
-
-    // MEMORIES (2)
-    { name: "image_1", type: "image" },
-    { name: "title_1", type: "text", placeholder: "example: Our First Date" },
-    { name: "description_1", type: "text", placeholder: "example: The day we met at the park..." },
-
-    { name: "image_2", type: "image" },
-    { name: "title_2", type: "text", placeholder: "example: Beach Getaway" },
-    { name: "description_2", type: "text", placeholder: "example: That weekend we spent by the ocean..." },
-    // LONG MESSAGE
-    { name: "longMessage", type: "textarea", placeholder: "Write your heartfelt message..." },
-
-    // GALLERY (3)
-    { name: "galleryImage_1", type: "image" },
-    { name: "galleryImage_2", type: "image" },
-    { name: "galleryImage_3", type: "image" },
-
-
-    // PROMISES
-    { name: "promise_1", type: "text", placeholder: "example: I promise to always support your dreams" },
-    { name: "promise_2", type: "text", placeholder: "example: I promise to be there through thick and thin" },
-    { name: "promise_3", type: "text", placeholder: "example: I promise to make you laugh every day" },
-
-    // ENDING
-    { name: "endingLine", type: "text", placeholder: "example: Thank you for being you, and for loving me." },
-    { name: "senderName", type: "text", placeholder: "example: Hubby" },
-  ],
-},
  {
     id: "apology-for-gf",
     title: "Apology For GF/BF 2.0",

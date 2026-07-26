@@ -2,12 +2,12 @@
 import { motion } from "motion/react";
 
 const announcements = [
-  "Up To 46% Discount 🔥",
-  "Up To 46% Discount 🔥",
-  "Up To 46% Discount 🔥",
-  "Up To 46% Discount 🔥",
-  "Up To 46% Discount 🔥",
-  "Up To 46% Discount 🔥",
+  "Girlfriend's Day Special 💕",
+  "72 Hour Flash Sale 🎉",
+  "Up To 50% Discount 🔥",
+  "Limited Time Only ⏰",
+  "Celebrate Love & Savings 💝",
+  "Hurry! 72 Hours Left ⚡",
 ];
 
 export default function AnnouncementBar() {

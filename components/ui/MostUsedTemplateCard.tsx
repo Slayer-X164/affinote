@@ -24,11 +24,11 @@ const MostUsedTemplateCard: React.FC<MostUsedTemplateCardProps> = ({
   return (
     <div   onClick={onClick} className="w-full h-full flex flex-col bg-white rounded-2xl shadow-2xl  shadow-blue-900/20    hover:-translate-y-1 cursor-pointer   hover:shadow-2xl transition-all duration-200 relative overflow-hidden ">
       {/* Preview Image */}
-        {id === "" ? (
-          <div className="bg-green-600 text-white absolute top-0 left-0 z-50 px-4 text-sm rounded-r-2xl py-1">
-            Free For 72 hrs
+        {id === "girlfriend-day" ? (
+          <div  className="bg-gradient-to-r from-rose-800 to-rose-600  text-white absolute top-0 left-0 z-50 px-4 text-sm rounded-r-2xl py-1">
+            🔥 Exclusive Template
           </div>
-        ):<h3 className="bg-amber-500 text-white absolute top-0 left-0 z-50 px-4 text-sm rounded-r-2xl py-1">Most Used</h3>}
+        ):<h3 className="bg-gradient-to-r from-amber-500 to-amber-400 text-white absolute top-0 left-0 z-50 px-4 text-sm rounded-r-2xl py-1">Most Used</h3>}
       <div className="h-48 w-full overflow-hidden rounded-t-2xl relative">
 
         <img
