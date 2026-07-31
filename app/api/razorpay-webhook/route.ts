@@ -42,7 +42,8 @@ const supabaseAdmin = getSupabaseAdmin();
 
     if (error) {
       console.log("Supabase update error via webhook:", error);
-      return;
+      // Return 200 so Razorpay stops retrying this event (e.g. if it was already processed)
+      return NextResponse.json({ status: "handled with error" }, { status: 200 });
     }
 
     if (data) {

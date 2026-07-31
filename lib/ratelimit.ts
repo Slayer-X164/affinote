@@ -8,20 +8,24 @@ const redis = new Redis({
 
 export const createInstanceLimiter = new Ratelimit({
   redis,
-  limiter: Ratelimit.slidingWindow(5, "1 m")
+  limiter: Ratelimit.slidingWindow(5, "1 m"),
+  prefix: "ratelimit_create_instance"
 })
 
 export const paymentLimiter = new Ratelimit({
   redis,
-  limiter: Ratelimit.slidingWindow(5, "1 m")
+  limiter: Ratelimit.slidingWindow(5, "1 m"),
+  prefix: "ratelimit_payment"
 })
 
 export const contactLimiter = new Ratelimit({
   redis,
-  limiter: Ratelimit.slidingWindow(10, "1 m")
+  limiter: Ratelimit.slidingWindow(10, "1 m"),
+  prefix: "ratelimit_contact"
 })
 
 export const imageKitLimiter = new Ratelimit({
   redis,
-  limiter: Ratelimit.slidingWindow(2, "1 m")
+  limiter: Ratelimit.slidingWindow(2, "1 m"),
+  prefix: "ratelimit_imagekit"
 })
