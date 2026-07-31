@@ -3,7 +3,6 @@ import { getSupabaseAdmin } from "@/lib/supabaseAdmin";
 
 type paymentData = {
   instanceID: string;
-  amount: number;
 };
 
 export async function POST(req: Request) {
@@ -22,8 +21,48 @@ export async function POST(req: Request) {
       })
     }
 
-    const { instanceID, amount } = (await req.json()) as paymentData;
+    const { instanceID } = (await req.json()) as paymentData;
     const supabaseAdmin = getSupabaseAdmin();
+    
+    // Security note: Trusting the client for pricing is insecure as it can be easily manipulated.
+    // Instead, we fetch the template instance and then its associated template to get the authoritative database price.
+    
+    // 1. Fetch template_id from template_instance
+    const { data: instanceData, error: instanceError } = await supabaseAdmin
+      .from("template_instance")
+      .select("template_id")
+      .eq("id", instanceID)
+      .single();
+
+    if (instanceError || !instanceData) {
+      console.error("Failed to find template instance:", instanceError);
+      return Response.json({ error: "Invalid instance ID" }, { status: 400 });
+    }
+
+    const { template_id } = instanceData;
+
+    // 2. Fetch price from templates
+    const { data: templateData, error: templateError } = await supabaseAdmin
+      .from("templates")
+      .select("price")
+      .eq("template_id", template_id)
+      .single();
+
+    if (templateError || !templateData) {
+      console.error("Failed to find template pricing:", templateError);
+      return Response.json({ error: "Failed to retrieve template price" }, { status: 400 });
+    }
+
+    const dbPrice = templateData.price;
+    const orderAmount = dbPrice * 100;
+
+    console.log("Payment Details Auth:", {
+      instanceID,
+      template_id,
+      dbPrice,
+      orderAmount
+    });
+
     const key = process.env.RAZORPAY_KEY_ID!;
     const secret = process.env.RAZORPAY_KEY_SECRET!;
 
@@ -36,7 +75,7 @@ export async function POST(req: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        amount: amount * 100,
+        amount: orderAmount,
         currency: "INR",
         receipt: instanceID,
       }),

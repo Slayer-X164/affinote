@@ -46,7 +46,6 @@ export default function PaymentPage() {
         method: "POST",
         body: JSON.stringify({
           instanceID,
-          amount: price,
         }),
       });
 
