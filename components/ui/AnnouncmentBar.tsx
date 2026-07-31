@@ -2,12 +2,9 @@
 import { motion } from "motion/react";
 
 const announcements = [
-  "Girlfriend's Day Special 💕",
-  "20 Hour Flash Sale 🎉",
-  "Up To 50% Discount 🔥",
-  "Limited Time Only ⏰",
-  "Celebrate Love & Savings 💝",
-  "Hurry! 20 Hours Left ⚡",
+  "Flash Sale Is Over 🏁",
+  "Thank You For Participating 🙏",
+  "Stay Tuned For More Deals ✨",
 ];
 
 export default function AnnouncementBar() {

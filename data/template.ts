@@ -4,7 +4,7 @@ export const Templates = [
     title: "Happy Girlfriend Day",
     description:
       "A sweet and heartfelt gift to celebrate your girlfriend and share a special message.",
-    price: 59,
+    price: 79,
     st_price: 139,
     isFree: false,
     previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/girlfriend_day",
