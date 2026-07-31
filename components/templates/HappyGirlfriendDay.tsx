@@ -388,7 +388,7 @@ const Scene8 = ({ letter_text, nextScene, playSound }: { letter_text: string, ne
             className="flex flex-col items-center gap-4 cursor-pointer"
           >
             <div className="relative">
-              <Image src="/HappyGFday/email.png" alt="Letter" width={100} height={100}></Image>
+              <Image unoptimized={true} src="/HappyGFday/email.png" alt="Letter" width={100} height={100}></Image>
               <div className="absolute top-0 right-0 w-6 h-6 bg-[#930500] rounded-full border-2 border-[#2B2B2B] flex items-center justify-center">
                 <span className="text-white text-[10px] font-bold">1</span>
               </div>

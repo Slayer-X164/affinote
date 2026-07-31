@@ -32,6 +32,7 @@ function TemplateCard({
       {/* Optimized Image */}
       <div className="relative h-48 w-full overflow-hidden rounded-t-2xl">
         <Image
+        unoptimized={true}
           src={img}
           alt={title}
           fill
