@@ -13,6 +13,7 @@ import JustUsTemplate from "@/components/templates/Gratitude";
 import WebProposal from "@/components/templates/WebProposal";
 import FiveReasons from "@/components/templates/FiveReasons";
 import HappyGirlfriendDay from "@/components/templates/HappyGirlfriendDay";
+import HappyCouplesDay from "@/components/templates/CouplesDay";
 
 
 export default function testTemplate() {
@@ -21,8 +22,9 @@ export default function testTemplate() {
    <>
    {/* <WebProposal/> */}
     {/* <FiveReasons/> */}
-    <HappyGirlfriendDay />
+    {/* <HappyGirlfriendDay /> */}
    {/* <Valentine_1/> */}
+   <HappyCouplesDay/>
     {/* <ApologyForBf/> */}
     {/* <ApologyForGf/> */}
     {/* <AppreciationFriend/> */}

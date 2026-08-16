@@ -1,5 +1,23 @@
 export const Templates = [
   {
+    id: "couples-day",
+    title: "Happy Couples Day",
+    description:
+      "A beautiful and heartfelt way to celebrate Couples Day with your special someone.",
+    price: 79,
+    st_price: 139,
+    isFree: false,
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/Screenshot%20from%202026-08-16%2017-36-39.png",
+    fields: [
+      {
+        name: "your_message",
+        type: "textarea",
+        placeholder:
+          "example: In your eyes, I have found a home where my soul finally feels at rest...",
+      },
+    ],
+  },
+  {
     id: "girlfriend-day",
     title: "Happy Girlfriend Day",
     description:
