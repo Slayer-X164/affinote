@@ -6,6 +6,8 @@ import Footer from "@/components/ui/Footer";
 import Hero from "@/components/ui/Hero";
 import Navbar from "@/components/ui/Navbar";
 
+import ReviewCarousel from "@/components/ui/ReviewCarousel";
+
 import TemplateSection from "@/components/ui/TemplateSection";
 
 
@@ -22,6 +24,7 @@ export default function Home() {
     <Navbar/>
     <Hero/>
     <TemplateSection/>
+    <ReviewCarousel/>
     <ContactBox/>
     <Footer/>
    </div>

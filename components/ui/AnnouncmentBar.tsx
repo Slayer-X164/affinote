@@ -2,15 +2,14 @@
 import { motion } from "motion/react";
 
 const announcements = [
-  "Girlfriend Day Special Template Is Trendy Right Now 💖",
-  "Check It Out Now ✨",
-  "Create Yours Today! 🎉",
-  "Girlfriend Day Special Template Is Trendy Right Now 💖",
-  "Check It Out Now ✨",
-  "Create Yours Today! 🎉",
-  "Girlfriend Day Special Template Is Trendy Right Now 💖",
-  "Check It Out Now ✨",
-  "Create Yours Today! 🎉",
+  "🔥 Flat 47% Off On All Templates!",
+  "Create Beautiful Memories On The Web 💖",
+  "Explore All Templates Now! 🎉",
+  "🔥 Flat 47% Off On All Templates!",
+  "Create Beautiful Memories On The Web 💖",
+  "Explore All Templates Now! 🎉",
+  "🔥 Flat 47% Off On All Templates!",
+  "Create Beautiful Memories On The Web 💖",
 ];
 
 export default function AnnouncementBar() {

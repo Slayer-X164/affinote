@@ -1,6 +1,7 @@
 export const Templates = [
   {
     id: "couples-day",
+    category: ["couples"],
     title: "Happy Couples Day",
     description:
       "A beautiful and heartfelt way to celebrate Couples Day with your special someone.",
@@ -19,6 +20,7 @@ export const Templates = [
   },
   {
     id: "girlfriend-day",
+    category: ["couples"],
     title: "Happy Girlfriend Day",
     description:
       "A sweet and heartfelt gift to celebrate your girlfriend and share a special message.",
@@ -42,6 +44,7 @@ export const Templates = [
   },
   {
     id: "five-reasons",
+    category: ["couples"],
     title: "5 Reasons Why I Love You",
     description:
       "A cute swipeable card deck where you share five reasons why someone means the world to you.",
@@ -132,6 +135,7 @@ export const Templates = [
   },
   {
     id: "appreciation-for-friend",
+    category: ["friends"],
     title: "Appreciation for a Friend",
     description:
       "A heartfelt appreciation page with memories, photos, and a meaningful message for your best friend.",
@@ -155,6 +159,7 @@ export const Templates = [
 
   {
     id: "birthday",
+    category: ["general"],
     title: "Birthday Page",
     description:
       "birthday template with cake animation, memory wall, wish jar, confetti celebration and floating hearts interaction.",
@@ -213,6 +218,7 @@ export const Templates = [
   },
   {
     id: "flower-surprise",
+    category: ["couples", "general"],
     title: "Flower Surprise",
     description:
       "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
@@ -236,6 +242,7 @@ export const Templates = [
   },
   {
     id: "apology-for-bf-gf",
+    category: ["couples"],
     title: "Apology For BF/GF",
     description:
       "a message like cute template for you angry loved one , make them happy",
@@ -275,6 +282,7 @@ export const Templates = [
   },
   {
     id: "apology-for-gf",
+    category: ["couples"],
     title: "Apology For GF/BF 2.0",
     description:
       "a small fun interactive Apology Template for your angry partner",
@@ -299,6 +307,7 @@ export const Templates = [
   },
   {
     id: "gratitude-page",
+    category: ["couples", "friends"],
     title: "Gratitude Page",
     description:
       "A all-occasion Gratitude page with memories, gallery, promises and a heartfelt message.",
@@ -346,6 +355,7 @@ export const Templates = [
   },
   {
     id: "memory-timeline",
+    category: ["couples", "friends"],
     title: "Memory Timeline",
     description:
       "A nostalgic memory timeline with photos and notes for your loved one",
@@ -370,6 +380,7 @@ export const Templates = [
   },
   {
     id: "envolope-letter",
+    category: ["general"],
     title: "Vintage Letter",
     description:
       "An Letter with warmth and timeless charm using this beautifully design",
@@ -397,6 +408,7 @@ export const Templates = [
 
   {
     id: "valentine_1",
+    category: ["couples"],
     title: "Valentine's Gift",
     description:
       "Beautiful Valentine Template with multiple gift options to choose from",
