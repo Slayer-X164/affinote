@@ -8,15 +8,14 @@ const announcements = [
   "🔥 Flat 47% Off On All Templates!",
   "Create Beautiful Memories On The Web 💖",
   "Explore All Templates Now! 🎉",
-  "🔥 Flat 47% Off On All Templates!",
-  "Create Beautiful Memories On The Web 💖",
+  
 ];
 
 export default function AnnouncementBar() {
   return (
-    <div className="w-full overflow-hidden bg-blue-700 pb-1.5 pt-1">
+    <div className="w-full overflow-hidden bg-linear-to-b from-blue-900  to-blue-600 pb-1.5 pt-1">
       <motion.div
-        className="flex w-max gap-10 text-sm font-normal text-white"
+        className="flex w-max gap-10 text-sm font-normal font-semibold tracking-wider text-white"
         animate={{ x: ["0%", "-50%"] }}
         transition={{
           ease: "linear",

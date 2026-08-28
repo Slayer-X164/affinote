@@ -36,10 +36,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="w-full h-20  flex justify-center items-center px-3 mb-3 mt-0">
+    <header className="w-full h-20   flex justify-center items-center px-3 mb-3 mt-0">
       <div
         ref={contactRef}
-        className="max-w-6xl relative py-2 items-center w-full bg-blue-100/70  border-blue-300  rounded-full px-2 flex justify-between"
+        className="max-w-6xl relative  py-2 items-center w-full bg-blue-500/10 border border-blue-200  rounded-xl px-2 flex justify-between"
       >
         <Link href={"/"}>
           <h3 className={`text-xl lg:text-2xl  ${lobster.className} `}>
@@ -64,7 +64,7 @@ const Navbar = () => {
                 setLoadingLinks(false);
               }
             }}
-            className="cursor-pointer  transition-all duration-300 active:scale-90 text-blue-500  py-1 px-4 border-blue-400 border-2 border-dashed   font-semibold rounded-full "
+            className="cursor-pointer  transition-all duration-300 active:scale-90 text-blue-500  py-1 px-4  border-blue-400 border-2 border-dashed bg-transparent    font-semibold rounded-xl "
           >
             My Links
           </button>
@@ -73,7 +73,7 @@ const Navbar = () => {
               setOpenContact((prev) => !prev);
               setOpenLinks(false);
             }}
-            className="cursor-pointer transition-all duration-300 active:scale-90 bg-blue-500 hover:bg-blue-600 py-1.5 px-4 text-neutral-50  border-neutral-900 font-semibold rounded-full"
+            className="cursor-pointer transition-all duration-300 active:scale-90 bg-blue-400  py-1.5 px-4 text-neutral-50  font-semibold rounded-xl shadow-lg shadow-blue-800/20"
           >
             Contact
           </button>
@@ -100,7 +100,7 @@ const Navbar = () => {
                 duration: 0.3,
                 ease: "backInOut",
               }}
-              className="absolute px-4 py-3  right-0 top-16 bg-blue-100 border-blue-400 rounded-2xl flex flex-col  min-h-20 max-h-90  shadow-blue-800/30 z-1000    items-stretch shadow-2xl overflow-y-auto"
+              className="absolute px-4 py-3  right-0 top-16 bg-blue-100 border-blue-400 rounded-2xl flex flex-col  min-h-20 max-h-90  shadow-blue-800/60/10 z-1000    items-stretch shadow-xl overflow-y-auto"
             >
               <h3 className="flex text-center flex-col items-center w-full font-semibold gap-1 text-sm text-neutral-500">
                 visitor id: <br /> <span className="text-xs w-[80%]  font-mono">{visitID}</span>
@@ -126,7 +126,7 @@ const Navbar = () => {
                   <a
                     href={`/v/${item.id}`}
                     target="_blank"
-                    className="text-purple-700 py-2 px-3 w-60 text-ellipsis whitespace-nowrap  overflow-hidden bg-white rounded-xl shadow-xl shadow-blue-800/10"
+                    className="text-purple-700 py-2 px-3 w-60 text-ellipsis whitespace-nowrap  overflow-hidden bg-white rounded-xl shadow-xl shadow-blue-800/60/10"
                   >
                     https://affinote.site/v/{item.id}
 
@@ -159,19 +159,19 @@ const Navbar = () => {
                 duration: 0.3,
                 ease: "backInOut",
               }}
-              className="absolute px-3 py-3  right-0 top-16 bg-blue-100 border-blue-400 rounded-2xl flex flex-col gap-3  shadow-blue-900/40 z-1000"
+              className="absolute px-3 py-3  right-0 top-16 bg-blue-100 border-blue-400 rounded-2xl flex flex-col gap-3   z-1000"
             >
               <a
                 href="https://www.instagram.com/getaffinote?igsh=N2JvZ3Ewdjdlenph"
                 target="_blank"
-                className="flex hover:bg-neutral-100  text-neutral-600 font-semibold  items-center gap-3 bg-neutral-50 shadow-2xl shadow-blue-800 rounded-xl px-4 py-2"
+                className="flex hover:bg-neutral-100  text-neutral-600 font-semibold  items-center gap-3 bg-neutral-50 shadow-2xl shadow-blue-800/60 rounded-xl px-4 py-2"
               >
                 <img src="/insta.png" alt="instagram" className="w-6 " />
                 Chat with Us
               </a>
               <a
                 href="#contact"
-                className="flex hover:bg-neutral-100 shadow-2xl shadow-blue-800  text-neutral-600 font-semibold  items-center gap-3 bg-neutral-50 rounded-xl px-4 py-2"
+                className="flex hover:bg-neutral-100 shadow-2xl shadow-blue-800/60  text-neutral-600 font-semibold  items-center gap-3 bg-neutral-50 rounded-xl px-4 py-2"
               >
                 <img src="/gmail.png" alt="instagram" className="w-6 " />
                 Mail Us
@@ -179,7 +179,7 @@ const Navbar = () => {
                <a
                 href="https://www.instagram.com/getaffinote?igsh=N2JvZ3Ewdjdlenph"
                 target="_blank"
-                className="flex hover:bg-neutral-100 shadow-2xl shadow-blue-800  text-neutral-600 font-semibold  items-center gap-3 bg-neutral-50 rounded-xl text-xs px-4 py-2"
+                className="flex hover:bg-neutral-100 shadow-2xl shadow-blue-800/60  text-neutral-600 font-semibold  items-center gap-3 bg-neutral-50 rounded-xl text-xs px-4 py-2"
               >
                <FaCode className="text-lg w-6"/>
                 Looking For Source Code? <br />dm/mail Us

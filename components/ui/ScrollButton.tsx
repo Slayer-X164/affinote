@@ -17,11 +17,11 @@ export default function ScrollButton() {
             .getElementById("explore")
             ?.scrollIntoView({ behavior: "smooth" });
         }}
-        className="bg-blue-200 mt-4 py-3  px-6 border font-semibold cursor-pointer relative"
+        className="bg-blue-600 shadow-xl shadow-blue-800/20 mt-4 py-3  px-6 active:scale-95 text-neutral-50 rounded-xl font-semibold cursor-pointer relative"
       >
-        Explore Templates{" "}
-        <span className="w-full -z-1 h-full bg-neutral-900 absolute left-1.5 top-1.5"></span>{" "}
-        
+        <img className="w-13 rounded-xl absolute -top-12 left-1/2 -translate-x-1/2 " src="https://media.tenor.com/OU7qmzXIFBcAAAAi/bubu-dudu.gifif" alt="cute rabbit" />
+        Explore Templates
+
       </button>
   );
 }

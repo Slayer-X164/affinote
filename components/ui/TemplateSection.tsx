@@ -20,7 +20,7 @@ const TemplateSection = () => {
   );
 
   return (
-    <div className=" w-full flex justify-center flex-col items-center px-3 pt-20">
+    <div className=" w-full flex justify-center flex-col items-center px-3 pt-20 ">
       <MostUsed />
       <div className="max-w-6xl w-full py-20 flex-col   gap-6 flex items-start justify-between md:justify-center">
         <div className="w-full flex items-start flex-col gap-2">
@@ -32,10 +32,10 @@ const TemplateSection = () => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-3 py-1 rounded-sm font-medium border transition-all cursor-pointer capitalize ${
+              className={`px-3 py-1  rounded-sm font-medium border transition-all cursor-pointer capitalize ${
                 activeCategory === cat
                   ? "bg-blue-600 text-white border-blue-600"
-                  : "text-neutral-500 bg-neutral-200 border-white hover:border-blue-400"
+                  : "text-neutral-400 bg-neutral-200/60 border-white hover:border-blue-400"
               }`}
             >
               {cat}
