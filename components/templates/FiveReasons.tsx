@@ -26,7 +26,7 @@ type FiveReasonsProps = {
   sender_name?: string;
 };
 export default function FiveReasons({
-  receiver_name = "Ananya",
+  receiver_name = "Karan",
 
   reason_1_title = "Your Smile",
   reason_1_desc =
@@ -51,7 +51,7 @@ export default function FiveReasons({
   ending_message =
   "These are only 5 reasons, but the truth is that I could spend forever writing more. Every day you give me a hundred new reasons to appreciate, admire, and love you.",
 
-  sender_name = "kartik",
+  sender_name = "Ananya",
 }: FiveReasonsProps) {
   const [phase, setPhase] = useState<
     "cover" | "cards" | "ending"

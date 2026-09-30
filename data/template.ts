@@ -1,48 +1,5 @@
 export const Templates = [
   {
-    id: "couples-day",
-    category: ["couples"],
-    title: "Happy Couples Day",
-    description:
-      "A beautiful and heartfelt way to celebrate Couples Day with your special someone.",
-    price: 79,
-    st_price: 139,
-    isFree: false,
-    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/Screenshot%20from%202026-08-16%2017-36-39.png",
-    fields: [
-      {
-        name: "your_message",
-        type: "textarea",
-        placeholder:
-          "example: In your eyes, I have found a home where my soul finally feels at rest...",
-      },
-    ],
-  },
-  {
-    id: "girlfriend-day",
-    category: ["couples"],
-    title: "Happy Girlfriend Day",
-    description:
-      "A sweet and heartfelt gift to celebrate your girlfriend and share a special message.",
-    price: 79,
-    st_price: 139,
-    isFree: false,
-    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/girlfriend_day",
-    fields: [
-      {
-        name: "name",
-        type: "text",
-        placeholder: "example: Ananya",
-      },
-      {
-        name: "letter_text",
-        type: "textarea",
-        placeholder:
-          "example: You make every day brighter, and I’m so grateful for your love and smile.",
-      },
-    ],
-  },
-  {
     id: "five-reasons",
     category: ["couples"],
     title: "5 Reasons Why I Love You",
@@ -51,12 +8,12 @@ export const Templates = [
     price: 49,
     st_price: 109,
     isFree: false,
-    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/five-reasons.png",
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/5-reasons-updated",
     fields: [
       {
         name: "receiver_name",
         type: "text",
-        placeholder: "example: Ananya",
+        placeholder: "example: Karan",
       },
 
       {
@@ -129,7 +86,139 @@ export const Templates = [
       {
         name: "sender_name",
         type: "text",
-        placeholder: "example: kartik",
+        placeholder: "example: Ananya",
+      },
+    ],
+  },
+  {
+    id: "apology-for-bf-gf",
+    category: ["couples"],
+    title: "Apology For BF/GF",
+    description:
+      "a message like cute template for you angry loved one , make them happy",
+    price: 79,
+    st_price: 149,
+    isFree: false,
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/ApologyForBFGF.png?updatedAt=1770318113974",
+    fields: [
+      { name: "from_name", type: "text", placeholder: "example: Raj❤️" },
+      {
+        name: "left_text_1",
+        type: "text",
+        placeholder: "example: Im soo done with you 😠",
+      },
+      {
+        name: "right_text_1",
+        type: "text",
+        placeholder: "example: im sorry babe i messed up😔",
+      },
+      {
+        name: "right_text_2",
+        type: "text",
+        placeholder: "example: But i made smth for you",
+      },
+      {
+        name: "sorry_message",
+        type: "textarea",
+        placeholder:
+          "example: I’m really sorry, okay? I messed up and I know I hurt you. That was not cool of me at all...",
+      },
+      {
+        name: "final_message",
+        type: "text",
+        placeholder: "example: Forgive me baby ily ❤️",
+      },
+    ],
+  },
+   {
+    id: "memory-timeline",
+    category: ["couples", "friends"],
+    title: "Memory Timeline",
+    description:
+      "A nostalgic memory timeline with photos and notes for your loved one",
+    price: 69,
+    st_price: 119,
+    isFree: false,
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/memoTime.png?updatedAt=1770318113968",
+    fields: [
+      { name: "title_1", type: "text", placeholder: "example: Our first Date 🥺" },
+
+      { name: "photo_1", type: "image" },
+      { name: "photo_2", type: "image" },
+
+      { name: "title_2", type: "text", placeholder: "example: day out at mall 💗" },
+
+      { name: "photo_3", type: "image" },
+      { name: "photo_4", type: "image" },
+      { name: "photo_5", type: "image" },
+
+      { name: "end_message", type: "textarea", placeholder: "example: Looking back through these photos, I’m reminded that even the..." },
+    ],
+  },
+  {
+    id: "flower-surprise",
+    category: ["couples", "general"],
+    title: "Flower Surprise",
+    description:
+      "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
+    price: 69,
+    st_price: 99,
+    isFree: false,
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/flowerSurp.png?updatedAt=1770318113959",
+    fields: [
+      {
+        name: "start_message",
+        type: "text",
+        placeholder: "example: Open when u miss me !",
+      },
+      {
+        name: "end_message",
+        type: "textarea",
+        placeholder:
+          "example: Because you make every day as bright as a blooming flower.I miss you...",
+      },
+    ],
+  },
+  {
+    id: "couples-day",
+    category: ["couples"],
+    title: "Happy Couples Day",
+    description:
+      "A beautiful and heartfelt way to celebrate Couples Day with your special someone.",
+    price: 79,
+    st_price: 139,
+    isFree: false,
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/Screenshot%20from%202026-08-16%2017-36-39.png",
+    fields: [
+      {
+        name: "your_message",
+        type: "textarea",
+        placeholder:
+          "example: In your eyes, I have found a home where my soul finally feels at rest...",
+      },
+    ],
+  },
+  {
+    id: "girlfriend-day",
+    category: ["couples"],
+    title: "Happy Girlfriend Day",
+    description:
+      "A sweet and heartfelt gift to celebrate your girlfriend and share a special message.",
+    price: 79,
+    st_price: 139,
+    isFree: false,
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/girlfriend_day",
+    fields: [
+      {
+        name: "name",
+        type: "text",
+        placeholder: "example: Ananya",
+      },
+      {
+        name: "letter_text",
+        type: "textarea",
+        placeholder:
+          "example: You make every day brighter, and I’m so grateful for your love and smile.",
       },
     ],
   },
@@ -156,7 +245,6 @@ export const Templates = [
       { name: "end_message", type: "textarea", placeholder: "example: I  was just thinking about how much I appreciate having you in..." },
     ],
   },
-
   {
     id: "birthday",
     category: ["general"],
@@ -213,70 +301,6 @@ export const Templates = [
         name: "wish_4",
         type: "text",
         placeholder: "example: You are truly special 🎀",
-      },
-    ],
-  },
-  {
-    id: "flower-surprise",
-    category: ["couples", "general"],
-    title: "Flower Surprise",
-    description:
-      "A cute X & O (Tic-Tac-Toe) template with a sweet surprise at the end",
-    price: 69,
-    st_price: 99,
-    isFree: false,
-    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/flowerSurp.png?updatedAt=1770318113959",
-    fields: [
-      {
-        name: "start_message",
-        type: "text",
-        placeholder: "example: Open when u miss me !",
-      },
-      {
-        name: "end_message",
-        type: "textarea",
-        placeholder:
-          "example: Because you make every day as bright as a blooming flower.I miss you...",
-      },
-    ],
-  },
-  {
-    id: "apology-for-bf-gf",
-    category: ["couples"],
-    title: "Apology For BF/GF",
-    description:
-      "a message like cute template for you angry loved one , make them happy",
-    price: 79,
-    st_price: 149,
-    isFree: false,
-    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/ApologyForBFGF.png?updatedAt=1770318113974",
-    fields: [
-      { name: "from_name", type: "text", placeholder: "example: Raj❤️" },
-      {
-        name: "left_text_1",
-        type: "text",
-        placeholder: "example: Im soo done with you 😠",
-      },
-      {
-        name: "right_text_1",
-        type: "text",
-        placeholder: "example: im sorry babe i messed up😔",
-      },
-      {
-        name: "right_text_2",
-        type: "text",
-        placeholder: "example: But i made smth for you",
-      },
-      {
-        name: "sorry_message",
-        type: "textarea",
-        placeholder:
-          "example: I’m really sorry, okay? I messed up and I know I hurt you. That was not cool of me at all...",
-      },
-      {
-        name: "final_message",
-        type: "text",
-        placeholder: "example: Forgive me baby ily ❤️",
       },
     ],
   },
@@ -353,31 +377,7 @@ export const Templates = [
       { name: "senderName", type: "text", placeholder: "example: Hubby" },
     ],
   },
-  {
-    id: "memory-timeline",
-    category: ["couples", "friends"],
-    title: "Memory Timeline",
-    description:
-      "A nostalgic memory timeline with photos and notes for your loved one",
-    price: 69,
-    st_price: 119,
-    isFree: false,
-    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/memoTime.png?updatedAt=1770318113968",
-    fields: [
-      { name: "title_1", type: "text", placeholder: "example: Our first Date 🥺" },
 
-      { name: "photo_1", type: "image" },
-      { name: "photo_2", type: "image" },
-
-      { name: "title_2", type: "text", placeholder: "example: day out at mall 💗" },
-
-      { name: "photo_3", type: "image" },
-      { name: "photo_4", type: "image" },
-      { name: "photo_5", type: "image" },
-
-      { name: "end_message", type: "textarea", placeholder: "example: Looking back through these photos, I’m reminded that even the..." },
-    ],
-  },
   {
     id: "envolope-letter",
     category: ["general"],

@@ -9,7 +9,7 @@ const Hero = () => {
     <div className="w-full h-auto flex items-center gap-6 justify-center flex-col px-3">
 
       <h1 className="text-3xl lg:text-6xl  text-center font-semibold pt-3 relative">
-        <PaidCustomer/>
+        <PaidCustomer />
         <span
           className={`text-blue-500 italic font-playfairDisplay font-semibold`}
         >

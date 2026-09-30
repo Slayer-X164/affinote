@@ -176,14 +176,7 @@ const Navbar = () => {
                 <img src="/gmail.png" alt="instagram" className="w-6 " />
                 Mail Us
               </a>
-               <a
-                href="https://www.instagram.com/getaffinote?igsh=N2JvZ3Ewdjdlenph"
-                target="_blank"
-                className="flex hover:bg-neutral-100 shadow-2xl shadow-blue-800/60  text-neutral-600 font-semibold  items-center gap-3 bg-neutral-50 rounded-xl text-xs px-4 py-2"
-              >
-               <FaCode className="text-lg w-6"/>
-                Looking For Source Code? <br />dm/mail Us
-              </a>
+               
             </motion.div>
           )}
         </AnimatePresence>
