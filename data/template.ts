@@ -8,7 +8,7 @@ export const Templates = [
     price: 49,
     st_price: 109,
     isFree: false,
-    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/5-reasons-updated",
+    previewImg: "https://ik.imagekit.io/3znfse3pj/previewImg/5_resons_updated",
     fields: [
       {
         name: "receiver_name",
