@@ -2,11 +2,11 @@
 import { motion } from "motion/react";
 
 const announcements = [
-  "🚨 BF Day sale live until 2 oct, 5pm",
+  "🧨 Diwali sale is live",
   "💖 Create Beautiful Memories On The Web",
-  "🚨 BF Day sale live until 2 oct, 5pm",
+  "🧨 Diwali sale is live",
   "💖 Create Beautiful Memories On The Web",
-  "🚨 BF Day sale live until 2 oct, 5pm",
+  "🧨 Diwali sale is live",
   "💖 Create Beautiful Memories On The Web",
 
 ];
